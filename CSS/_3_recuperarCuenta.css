@@ -1,0 +1,87 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el contenedor principal */
+.contenedorPrincipal {
+    background-color: rgba(49, 78, 93, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Estilos para el contenedor del mensaje */
+.contenedorPrincipal__mensaje {
+    background-color: white;
+    height: 75vh;
+    width: 35vw;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilos para la imagen dentro del mensaje */
+.mensaje__img {
+    height: 30%;
+    width: 100%;
+}
+
+/* Estilos para el título dentro del mensaje */
+.mensaje__h1 {
+    font-size: 160%;
+}
+
+/* Estilos para el formulario dentro del mensaje */
+.mensaje__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para el párrafo dentro del formulario */
+.form__parrafo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
+    flex-direction: column;
+}
+
+/* Estilos para el input dentro del formulario */
+.form__input {
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 35px;
+    width: 80%;
+    margin-top: 8px;
+}
+
+/* Estilos para el botón de submit dentro del formulario */
+.form__submit {
+    display: block;
+    width: 65%;
+    height: 35px;
+    box-sizing: border-box;
+    background-color: rgba(0, 92, 105, 1); 
+    color: white; 
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 150%;
+    margin-top: 10px;
+    transition: width 700ms;
+}
+
+/* Estilos para el hover del botón de submit */
+.form__submit:hover {
+    width: 70%;
+}

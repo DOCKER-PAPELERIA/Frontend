@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../CSS/_0_normalize.css">
+    <link rel="stylesheet" href="../CSS/_2_registro.css">
+</head>
+<body>
+    <div class="iniciarSesionRegistrarse">
+        <div class="iniciarSesionRegistrarse__boton" id="linkInicioSesion">
+            Iniciar Sesión
+        </div>
+        <div class="iniciarSesionRegistrarse__boton iniciarSesionRegistrarse__boton--Registrarse" id="linkRegistrarse">
+            Registrarse
+        </div>
+    </div> 
+
+    <div class="cuerpo">
+        <div class="cuerpo__h1YTexto">
+            <h1 class="h1YTexto__h1">¡Bienvenido a Gestion de Inventario!</h1> 
+            <p class="h1YTexto__texto">Somos tu socio confiable en la gestión de tu papelería. Nuestra plataforma está diseñada para simplificar y optimizar todo el proceso, desde el seguimiento de existencias hasta la gestión de pedidos. Descubre cómo podemos ayudarte a mantener tu inventario organizado, tus productos siempre disponibles y tu negocio en crecimiento.</p>
+        </div>
+        <div class="cuerpo__formulario">
+            <h1 class="formulario__h1">Regístrate</h1>
+            <form class="formulario__form" id="registerForm">
+                <label class="form__label">Nombre Completo<br>
+                    <input class="label__input" id="nombreCompleto" type="text" required>
+                </label>
+
+                <label class="form__label">Identificación<br>
+                    <input class="label__input label__input--tipico" id="identificacion" type="text" required>
+                </label>
+
+                <label class="form__label">Correo Electrónico<br>
+                    <input type="email" class="label__input label__input--tipico" id="correoElectronico" required>
+                </label>
+
+                <label class="form__label">Contraseña<br>
+                    <input type="password" class="label__input label__input--tipico" id="contrasena" required>
+                </label>
+
+                <label class="form__label">Confirmar Contraseña<br>
+                    <input type="password" class="label__input label__input--tipico" id="confirmarContrasena" required>
+                </label>
+
+                <label class="form__label">Número de Teléfono<br>
+                    <input type="tel" class="label__input label__input--tipico" id="telefono" required>
+                </label>
+
+                <label class="form__label">Fecha De Nacimiento<br>
+                    <input type="date" class="label__input label__input--tipico" id="fechaNacimiento" required>
+                </label>
+
+                <label class="form__label">Rol<br>
+                    <select class="label__input label__input--tipico" id="rol" required>
+                        <option value="Usuario">Usuario</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
+                </label>
+
+                <label class="form__label--checkbox">
+                    <input type="checkbox" class="label__input--checkbox" id="aceptaTerminos" required>
+                    Acepto los términos y condiciones
+                </label>
+
+                <input type="submit" class="form__submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
+  
+    <script type="module" src="../js/_2_registro.js"></script>
+</body>
+</html> 

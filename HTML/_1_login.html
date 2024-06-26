@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/_0_normalize.css">
+    <link rel="stylesheet" href="../CSS/_1_login.css">
+</head>
+<body>
+    <div class="iniciarSesionRegistrarse">
+        <div class="iniciarSesionRegistrarse__boton" id="linkInicioSesion">
+            Iniciar Sesion
+        </div>
+        <div class="iniciarSesionRegistrarse__boton iniciarSesionRegistrarse__boton--Registrarse" id="linkRegistrarse">
+            Registrarse
+        </div>
+    </div>
+
+    <div class="cuerpo">
+        <div class="cuerpo__h1YTexto">
+            <h1 class="h1YTexto__h1">¡Bienvenido a Gestion de Inventario!</h1>
+            <p class="h1YTexto__texto">Somos tu socio confiable en la gestión de tu papelería. Nuestra plataforma está diseñada para simplificar y optimizar todo el proceso, desde el seguimiento de existencias hasta la gestión de pedidos. Descubre cómo podemos ayudarte a mantener tu inventario organizado, tus productos siempre disponibles y tu negocio en crecimiento.</p>
+        </div>
+        <div class="cuerpo__formulario">
+            <h1 class="formulario__h1">Iniciar Sesion</h1>
+            <form class="formulario__form" id="loginForm">
+                <label class="form__label">Usuario<br>
+                    <input class="label__input" id="usuario" type="text">
+                </label>
+
+                <label class="form__label">Contraseña<br>
+                    <input class="label__input" id="contrasena" type="password">
+                </label>
+
+                <input type="submit" class="form__submit" value="Iniciar Sesion">
+            </form>
+            <div class="formulario__recuperarContrasena">
+                <a href="../HTML/_3_recuperarCuenta.html" class="recuperarContrasena__a">¿Has olvidado tu contraseña?</a>
+            </div>
+            <div class="formulario__registrarse">¿No tienes cuenta?
+                <a href="../HTML/_2_registro.html" class="registrarse__a">Registrate</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/_1_login.js"></script>
+</body>
+</html>

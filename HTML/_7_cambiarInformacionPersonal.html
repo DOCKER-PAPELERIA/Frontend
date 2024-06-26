@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/_0_normalize.css">
+    <link rel="stylesheet" href="/CSS/_7_cambiarInformacionPersonal.css">
+</head>
+<body>
+    <header class="header">
+
+    </header>
+
+    <div class="cuerpo"> 
+        <div class="cuerpo__contenedorFormulario">
+            <img src="/contenido_embebido/equis.png" alt="retroceder" class="contenedorFormulario__retroceder" >
+            <div class="ContenedorFormulario__img">
+                <img src="/contenido_embebido/fotoPersona.png" class="img__img" alt="FotoUsuario">
+            </div>
+            <form class="formulario__form">
+                <label class="form__label">Nombre Completo<br>
+                    <input class="label__input" type="text">
+                </label>
+
+                <label class="form__label">Identificacion<br>
+                    <input class="label__input label__input--tipico" type="text">
+                </label>
+
+                <label class="form__label"> Correo Electronico<br>
+                    <input type="text" class="label__input label__input--tipico">
+                </label>
+ 
+                <label class="form__label"> Contraseña<br>
+                    <input type="password" class="label__input label__input--tipico">
+                </label>
+
+                <label class="form__label"> Confirmar Contraseña<br>
+                    <input type="password" class="label__input label__input--tipico">
+                </label>
+
+                <label class="form__label"> Numero de Telefono<br>
+                    <input type="text" class="label__input label__input--tipico">
+                </label>
+
+                
+                <label class="form__label"> Fecha De Nacimiento<br>
+                    <input type="text" class="label__input label__input--tipico">
+                </label>
+
+                
+                <button class="form__activador"  id="idForm__activador">guardar cambios</button>
+            </form>
+
+        </div>
+
+        <div class="ventanaActivada" id="idVentanaActivada">
+            <div class="ventanaActivada__divImg" id="idDivImg">
+                <img src="/contenido_embebido/equis.png" alt="" class="divImg__img">
+            </div>
+
+            <div class="ventanaActivada__divTextYSubmit">
+                <p class="divTextYsubmit__text">¿Estas seguro de cambiar tu informacion Personal?</p>
+            </div>
+
+            <div class="ventanaActivada__divTextYSubmit">
+                <input type="submit" name="" id="" class="divTextYSubmit__submit" value="Confirmar Cambios">
+            </div>
+        </div>
+
+        <div class="ventanaActivada2" id="idVentanaActivada2">
+
+            <img src="/contenido_embebido/equis.png" alt="cerrar" id="idVentanaActivada2__img" class="ventanaActivada2__cerrar">
+            <p class="ventanaActivada2__Text">
+                Informacion Personal Cambiada Correctamente.
+            </p>
+        </div>
+    </div>
+
+
+    <script type="module" src="/js/_7_cambiarInformacionPersonal.js"></script>
+</body>
+</html> 

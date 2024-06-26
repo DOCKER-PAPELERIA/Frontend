@@ -1,0 +1,137 @@
+/* Estilos para .iniciarSesionRegistrarse */
+.iniciarSesionRegistrarse {
+    display: flex;
+    height: 7vh;
+    width: 100vw;
+    background-color: rgba(24, 19, 18, 1);
+    align-items: center;
+    justify-content: right;
+}
+
+.iniciarSesionRegistrarse__boton {
+    margin-right: 3%;
+    color: white;
+    cursor: pointer;
+}
+
+.iniciarSesionRegistrarse__boton--Registrarse {
+    background-color: rgba(0, 92, 105, 1);
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px; 
+    margin-left: 15px;
+
+}
+    
+/* Estilos para .cuerpo */
+.cuerpo {
+    background-image: url(../contenido_embebido/background.jpg);
+    height: 93vh;
+    width: 100vw;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    filter: grayscale(.6);
+}
+
+.cuerpo__h1YTexto {
+    min-height: 80%;
+    width: 40%;
+    color: white;
+}
+
+.h1YTexto__h1 {
+    font-size: 280%;
+}
+
+.h1YTexto__texto {
+    font-size: 150%;
+}
+
+.cuerpo__formulario {
+    height: 95%;
+    width: 40%;
+    background-color: rgba(176, 190, 197, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.formulario__h1 {
+    font-size: 200%;
+    transform: translateY(-25px);
+}
+
+.formulario__form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: translateY(-35px);
+}
+
+.form__label {
+    margin-top: 2%;
+    font-size: 100%;
+}
+
+.label__input {
+    border-radius: 50px;
+    border: none;
+    display: flex;
+    text-align: center;
+    height: 20px;
+    width: 100%;
+}
+
+.label__input--tipico {
+    width: 300px;
+}
+
+.label__input--checkbox {
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle; /* Alinea el checkbox con el texto */
+}
+
+.form__label--checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 130%;
+}
+
+.form__submit {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0, 92, 105, 1);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 150%;
+    margin-bottom: 5px;
+}
+
+/* Media query para ajustar el formulario cuando el viewport sea de 865px o menos */
+@media screen and (max-width: 768px) {
+    .cuerpo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cuerpo__h1YTexto, .cuerpo__formulario {
+        width: 90%;
+        max-width: 90%;
+        margin: 10px auto;
+    }
+
+    .cuerpo__formulario {
+        order: 1; /* Cambia el orden para que el formulario aparezca debajo */
+        transform: none; /* Elimina la transformación anterior */
+        padding: 20px;
+        margin-top: 20vh; /* Espacio adicional para separar del contenido superior */
+    }
+}
