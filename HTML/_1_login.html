@@ -1,49 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta información básica -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <!-- Título de la página -->
+    <title>Inicio de Sesión</title>
+    
+    <!-- Enlace a los archivos de estilos CSS -->
     <link rel="stylesheet" href="../CSS/_0_normalize.css">
     <link rel="stylesheet" href="../CSS/_1_login.css">
 </head>
 <body>
+    <!-- Contenedor para los botones de Iniciar Sesión y Registrarse -->
     <div class="iniciarSesionRegistrarse">
+        <!-- Botón de Iniciar Sesión -->
         <div class="iniciarSesionRegistrarse__boton" id="linkInicioSesion">
             Iniciar Sesion
         </div>
+        <!-- Botón de Registrarse -->
         <div class="iniciarSesionRegistrarse__boton iniciarSesionRegistrarse__boton--Registrarse" id="linkRegistrarse">
             Registrarse
         </div>
     </div>
 
+    <!-- Contenedor principal del cuerpo de la página -->
     <div class="cuerpo">
+        <!-- Sección de bienvenida con título y texto descriptivo -->
         <div class="cuerpo__h1YTexto">
-            <h1 class="h1YTexto__h1">¡Bienvenido a Gestion de Inventario!</h1>
+            <h1 class="h1YTexto__h1">¡Bienvenido a Gestión de Inventario!</h1>
             <p class="h1YTexto__texto">Somos tu socio confiable en la gestión de tu papelería. Nuestra plataforma está diseñada para simplificar y optimizar todo el proceso, desde el seguimiento de existencias hasta la gestión de pedidos. Descubre cómo podemos ayudarte a mantener tu inventario organizado, tus productos siempre disponibles y tu negocio en crecimiento.</p>
         </div>
+        
+        <!-- Sección del formulario de inicio de sesión -->
         <div class="cuerpo__formulario">
-            <h1 class="formulario__h1">Iniciar Sesion</h1>
+            <!-- Título del formulario -->
+            <h1 class="formulario__h1">Iniciar Sesión</h1>
+            <!-- Formulario de inicio de sesión -->
             <form class="formulario__form" id="loginForm">
-                <label class="form__label">Usuario<br>
-                    <input class="label__input" id="usuario" type="text">
+                <!-- Campo para el correo electrónico -->
+                <label class="form__label">Correo Electrónico<br>
+                    <input class="label__input" id="correo" type="email" required>
                 </label>
 
+                <!-- Campo para la contraseña -->
                 <label class="form__label">Contraseña<br>
-                    <input class="label__input" id="contrasena" type="password">
+                    <input class="label__input" id="contrasena" type="password" required>
                 </label>
 
-                <input type="submit" class="form__submit" value="Iniciar Sesion">
+                <!-- Botón de envío del formulario -->
+                <input type="submit" class="form__submit" value="Iniciar Sesión">
             </form>
+            
+            <!-- Enlace para recuperar la contraseña -->
             <div class="formulario__recuperarContrasena">
                 <a href="../HTML/_3_recuperarCuenta.html" class="recuperarContrasena__a">¿Has olvidado tu contraseña?</a>
             </div>
+            
+            <!-- Enlace para registrarse -->
             <div class="formulario__registrarse">¿No tienes cuenta?
-                <a href="../HTML/_2_registro.html" class="registrarse__a">Registrate</a>
+                <a href="../HTML/_2_registro.html" class="registrarse__a">Regístrate</a>
             </div>
         </div>
     </div>
 
+    <!-- Enlace al archivo de JavaScript -->
     <script type="module" src="../js/_1_login.js"></script>
 </body>
 </html>

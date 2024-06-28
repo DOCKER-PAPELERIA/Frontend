@@ -1,38 +1,60 @@
-// Importación de las clases necesarias desde los módulos locales
 import { ActivarMenuDesplegableYUsuario } from "../soloClases/activarMenuDesplegableYUsuario.js";
 import { Link } from "../soloClases/links.js";
 
-// Selección de elementos del DOM para el menú desplegable 
+/**
+ * Selector del menú
+ * @type {HTMLElement}
+ */
 const selectorMenu = document.querySelector("#selectorMenu");
+
+/**
+ * Cuerpo del menú desplegado
+ * @type {HTMLElement}
+ */
 const cuerpoMenuDesplegado = document.querySelector("#cuerpoMenuDesplegado");
 
-// Selección de elementos del DOM para el perfil del usuario
+/**
+ * Activador del usuario
+ * @type {HTMLElement}
+ */
 const activadorUsuario = document.querySelector("#activarUsuario");
+
+/**
+ * Perfil desactivado
+ * @type {HTMLElement}
+ */
 const perfilDesactivado = document.querySelector("#perfilDesactivado");
- 
-// Creación de una instancia de ActivarMenuDesplegableYUsuario para manejar el menú desplegable
+
+/**
+ * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el menú
+ */
 new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
 
-// Creación de una instancia de ActivarMenuDesplegableYUsuario para manejar el perfil del usuario
+/**
+ * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el usuario
+ */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
-// __________________________________________________________________
-// Opciones del menú desplegable
-// ___________________________________________________________________
+/**
+ * Instancia de la clase Link para redirigir a la página de gestión de cuenta
+ */
+new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--gestionarCuenta").redireccionar();
 
-// Selección de elementos del DOM para las diferentes opciones del menú desplegable
-const inicio = document.querySelector(".inicio");
-const estadisticas = document.querySelector(".estadisticas");
-const alertas = document.querySelector(".alertas");
-const analisisVentas = document.querySelector(".analisisVentas");
-const compras = document.querySelector(".ventas");
-const facturas = document.querySelector(".facturas");
-const productos = document.querySelector(".productos");
-const categorias = document.querySelector(".categorias");
-const comprobarExistencias = document.querySelector(".comprobarExistencias");
-const gestionarCuenta = document.querySelector(".perfilActivado__contenedores");
+new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
-// Creación de una instancia de Link para manejar el redireccionamiento de enlaces
-new Link("../HTML/_7_cambiarInformacionPersonal.html",".contenedores__boton--gestionarCuenta").redireccionar();
-// continuar al acabar todas las vistas
- 
+new Link("../HTML/_8_alertas.html", "alertas").redireccionar();
+
+new Link("../HTML/_8_alertas.html", "alertas").redireccionar();
+
+
+/**
+ * Nueva URL para el historial de navegación
+ * @type {string}
+ */
+const nuevaURL = "menuPrincipal"; // Sin la extensión .html
+
+/**
+ * Actualiza el historial de navegación
+ */
+history.pushState({}, "", nuevaURL);
+

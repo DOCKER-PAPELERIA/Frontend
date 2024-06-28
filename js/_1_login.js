@@ -1,38 +1,54 @@
 import { Link } from "../soloClases/links.js";
 
-// Links de redireccionamiento.
+/**
+ * Redirige a la página de inicio de sesión.
+ */
 new Link("../HTML/_1_login.html", "#linkInicioSesion").redireccionar();
-new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
 
-// Código para manejar el formulario de inicio de sesión
+/**
+ * Redirige a la página de registro.
+ */
+new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar(); 
+
+/**
+ * Agrega un evento al formulario de inicio de sesión para manejar el proceso de autenticación.
+ * 
+ * @param {Event} event - El evento de envío del formulario.
+ */
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const usuario = document.getElementById('usuario').value;
+    const correo = document.getElementById('correo').value;
     const contrasena = document.getElementById('contrasena').value;
 
+    /**
+     * Envía una solicitud de inicio de sesión al servidor.
+     * 
+     * @returns {Promise<void>}
+     */
     fetch('http://localhost:3000/user/login', {
-        method: 'POST',
+        method: 'POST', 
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            usuario: usuario,
+            correo: correo,
             contrasena: contrasena
         })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Inicio de sesión fallido. Credenciales incorrectas.');
+        }
+        return response.json();
+    })
     .then(data => {
-        // Maneja la respuesta del servidor
         console.log(data);
-        if (!data.error && data.status === 200) {
-            // Almacena el token en el almacenamiento local
-            localStorage.setItem('authToken', data.body);
-            // Redirigir a la página principal o mostrar mensaje de éxito
-            window.location.href = '../HTML/_6_menu.html';
+        if (!data.error) {
+            localStorage.setItem('authToken', data.body); 
+            window.location.href = '../HTML/_6_menu.html'; 
         } else {
-            // Mostrar mensaje de error
-            alert('Inicio de sesión fallido.');
+            alert('Inicio de sesión fallido. Credenciales incorrectas.');
         }
     })
     .catch(error => {
@@ -40,3 +56,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         alert('Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
     });
 });
+
+/**
+ * Actualiza la URL sin recargar la página.
+ * 
+ * @type {string}
+ */
+const nuevaURL = "login"; // Sin la extensión .html
+history.pushState({}, "", nuevaURL);
