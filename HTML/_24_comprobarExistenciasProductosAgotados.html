@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Definición del conjunto de caracteres -->
     <meta charset="UTF-8">
+    <!-- Configuración inicial del viewport para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Productos - Categoría</title>
+    <!-- Enlace al archivo CSS externo para estilos -->
     <link rel="stylesheet" href="../CSS/_24_comprobarExistenciasProductosAgotados.css">
+    <!-- Enlace al archivo de iconos Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -15,6 +19,7 @@
                 <!-- Botón para activar el menú desplegable -->
                 <div class="header__botonMenu" id="selectorMenu" >
                     <div class="botonMenu__imgYTexto"> 
+                        <!-- Imagen y texto del botón de menú -->
                         <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
                         <h2 class="imgYTexto__texto">Menu</h2>
                     </div>
@@ -73,30 +78,36 @@
         
                 <!-- Contenedor del perfil del usuario -->
                 <div class="header__menuYPerfil perfil" id="activarUsuario">
+                    <!-- Imagen del perfil de usuario -->
                     <img class="perfil__img" src="/contenido_embebido/fotoPersona.png" alt="imagen del usuario">
                 </div>
         
                 <!-- Contenedor del perfil activado/desactivado -->
                 <div class="perfilActivado" id="perfilDesactivado">
                     <div class="perfilActivado__contenedores">
+                        <!-- Nombre del usuario -->
                         <h2 class="contenedores__nombre">Fulanito Alvarez</h2>
                     </div>
         
                     <div class="perfilActivado__contenedores perfil__contenedores--img">
+                        <!-- Imagen del usuario -->
                         <img class="contenedores__img" src="/contenido_embebido/fotoPersona.png" alt="Foto usuario">
                     </div>
         
                     <div class="perfilActivado__contenedores">
+                        <!-- Saludo personalizado al usuario -->
                         <h2 class="contenedores__saludo">¡HOLA, FULANITO!</h2>
                     </div>
         
                     <div class="perfilActivado__contenedores">
+                        <!-- Botón para gestionar la cuenta -->
                         <button class="contenedores__boton contenedores__boton--gestionarCuenta">
                             Gestionar Cuenta
                         </button>
                     </div>
         
                     <div class="perfilActivado__contenedores">
+                        <!-- Botón para cerrar sesión -->
                         <button class="contenedores__boton contenedores__boton--cerrarSesion">
                             Cerrar Sesion
                         </button>
@@ -106,18 +117,26 @@
         </div>
 
         <div class="container__contenido">
+            <!-- Contenedor de la imagen de encabezado -->
             <div class="container__imagen"><img src="./img/c.existencia.png" alt=""></div>
 
 
             <div class="container__lista">
+                <!-- Lista de productos -->
                 <ul class="caja__lista">
                     <li>
                         <div class="caja">
+                            <!-- Imagen del producto -->
                             <div class="imagen"><img src="./img/caja-del-paquete.png" alt=""></div>
+                            <!-- Nombre del producto -->
                             <div class="nombre">Cajas 24*24 CM</div>
+                            <!-- Categoría del producto -->
                             <div class="categoria">Categoría: Cajas</div>
+                            <!-- Cantidad de unidades -->
                             <div class="unidades">Unidades: 5</div>
+                            <!-- Precio del producto -->
                             <div class="precio">Precio: $2.100</div>
+                            <!-- Botón indicando estado de existencia -->
                             <div class="container__button">
                                 <button class="button__existencia" id="visualizarBtn3">Stock Bajo</button>
                             </div>
@@ -127,11 +146,17 @@
 
                     <li>
                         <div class="caja">
+                            <!-- Imagen del producto -->
                             <div class="imagen"><img src="./img/periodico.png" alt=""></div>
+                            <!-- Nombre del producto -->
                             <div class="nombre">Papel Periódico</div>
+                            <!-- Categoría del producto -->
                             <div class="categoria">Categoría: Papeles</div>
+                            <!-- Cantidad de unidades -->
                             <div class="unidades">Unidades: 4</div>
+                            <!-- Precio del producto -->
                             <div class="precio">Precio Venta: $1.200</div>
+                            <!-- Botón indicando estado de existencia -->
                             <div class="container__button">
                                 <button class="button__existencia" id="visualizarBtn3">Stock Bajo</button>
                             </div>
@@ -141,11 +166,17 @@
 
                     <li>
                         <div class="caja">
+                            <!-- Imagen del producto -->
                             <div class="imagen"><img src="./img/tijeras.png" alt=""></div>
+                            <!-- Nombre del producto -->
                             <div class="nombre">Tijeras Rosadas</div>
+                            <!-- Categoría del producto -->
                             <div class="categoria">Categoría: Tijeras</div>
+                            <!-- Cantidad de unidades -->
                             <div class="unidades">Unidades: 0</div>
+                            <!-- Precio del producto -->
                             <div class="precio">Precio: $4.500</div>
+                            <!-- Botón indicando estado de existencia -->
                             <div class="container__button">
                                 <button class="button__existencia" id="visualizarBtn3">Agotado</button>
                             </div>
@@ -154,11 +185,17 @@
 
                     <li>
                         <div class="caja">
+                            <!-- Imagen del producto -->
                             <div class="imagen"><img src="./img/carpetas.png" alt=""></div>
+                            <!-- Nombre del producto -->
                             <div class="nombre">Carpetas</div>
+                            <!-- Categoría del producto -->
                             <div class="categoria">Categoría: Cajas</div>
+                            <!-- Cantidad de unidades -->
                             <div class="unidades">Unidades: 0</div>
+                            <!-- Precio del producto -->
                             <div class="precio">Precio: $2.100</div>
+                            <!-- Botón indicando estado de existencia -->
                             <div class="container__button">
                                 <button class="button__existencia" id="visualizarBtn3">Agotado</button>
                             </div>
@@ -166,12 +203,14 @@
                     </li>
                 </ul>
             </div>
+            <!-- Comentario: Botón desactivado temporalmente -->
             <!-- <div class="container__boton">
                 <button class="visualizar_button">Visualizar Categoría</button>
             </div> -->
         </div>
     </div>
 
+    <!-- Script JavaScript para funcionalidad de la página -->
     <script type="module" src="../js/_24_comprobarExistenciasProductosAgotados.js"></script>
 </body>
 </html>

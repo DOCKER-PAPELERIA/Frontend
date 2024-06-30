@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Definición del juego de caracteres y configuración para dispositivos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar Información</title>
+    
+    <!-- Enlace a la hoja de estilos CSS -->
     <link rel="stylesheet" href="../CSS/_21_categoriasCambiarInformacion.css">
+    
+    <!-- Enlace al conjunto de íconos de Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    <!-- Contenedor principal -->
     <div class="container">
+        
+        <!-- Barra superior -->
         <div class="container__barra">
-
+            
+            <!-- Encabezado con botón de menú -->
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
-                <div class="header__botonMenu" id="selectorMenu" >
+                <div class="header__botonMenu" id="selectorMenu">
                     <div class="botonMenu__imgYTexto"> 
                         <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
                         <h2 class="imgYTexto__texto">Menu</h2>
@@ -105,8 +114,10 @@
             </header>
         </div>
 
+        <!-- Contenido principal -->
         <div class="container__contenido">
             <div class="container__juntos">
+                <!-- Caja de búsqueda -->
                 <div class="caja1">
                     <div class="container__buscador">
                         <img src="../contenido_embebido/buscador.png" class="container__buscador__imagen" alt="buscador img">
@@ -115,8 +126,10 @@
                 </div>
             </div>
 
+            <!-- Lista de productos -->
             <div class="container__lista">
 
+                <!-- Carta de producto: Cuadernos y Libretas -->
                 <div class="container__lista__productos__carta">
                     <div class="imagenes">
                         <img src="../contenido_embebido/background.jpg" alt="">
@@ -130,6 +143,7 @@
                     </div>
                 </div>
 
+                <!-- Carta de producto: Material Escolar -->
                 <div class="container__lista__productos__carta">
                     <div class="imagenes">
                         <img src="../contenido_embebido/background.jpg" alt="">
@@ -143,6 +157,7 @@
                     </div>
                 </div>
 
+                <!-- Carta de producto: Arte y Manualidades -->
                 <div class="container__lista__productos__carta">
                     <div class="imagenes">
                         <img src="../contenido_embebido/background.jpg" alt="">
@@ -156,6 +171,7 @@
                     </div>
                 </div>
 
+                <!-- Carta de producto: Papeles y Sobres -->
                 <div class="container__lista__productos__carta">
                     <div class="imagenes">
                         <img src="../contenido_embebido/background.jpg" alt="">
@@ -168,8 +184,8 @@
                         <button class="button__editar" id="button__editar">Editar</button>
                     </div>
                 </div>
-                
 
+                <!-- Carta de producto: Tecnología y Electrónica -->
                 <div class="container__lista__productos__carta">
                     <div class="imagenes">
                         <img src="../contenido_embebido/background.jpg" alt="">
@@ -187,6 +203,7 @@
         </div>
     </div>
 
+    <!-- Script para funcionalidad específica -->
     <script type="module" src="../js/_21_categoriasCambiarInformacion.js"></script>
 </body>
 </html>

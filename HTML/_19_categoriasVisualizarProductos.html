@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Configuración básica -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Productos</title>
+    <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="../CSS/_19_categoriasVisualizarProductos.css">
+    <!-- Enlace a la librería de iconos -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
+        <!-- Barra de navegación superior -->
         <div class="container__barra">
 
+            <!-- Encabezado y menú desplegable -->
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
-                <div class="header__botonMenu" id="selectorMenu" >
+                <div class="header__botonMenu" id="selectorMenu">
                     <div class="botonMenu__imgYTexto"> 
                         <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
                         <h2 class="imgYTexto__texto">Menu</h2>
@@ -105,16 +110,18 @@
             </header>
         </div>
 
+        <!-- Contenido principal -->
         <div class="container__contenido">
 
-            <!-- NOMBRE CATEGORIA E IMAGEN -->
+            <!-- Nombre de la categoría e imagen -->
             <div class="container__arriba">
                 <div class="nombre_categoria">Carpetas, Cuadernos y Libretas</div>
                 <div class="imagen_categoria"><img src="./img/cuadernosylibrerias.png" alt=""></div>
             </div>
 
-            <!-- BUSCADOR -->
+            <!-- Buscador y filtro -->
             <div class="container__juntos">
+                <!-- Caja del buscador -->
                 <div class="caja1">
                     <div class="container__buscador">
                         <div class="container_buscador_imagen"></div>
@@ -122,21 +129,22 @@
                     </div>
                 </div>
 
-                <!-- FILTRO -->
+                <!-- Filtro -->
                 <div class="container__navbar">
                     <select class="filtro" name="" id="">
                         <option value="" selected>Filtro</option>
                         <option value="">Sin Filtro</option>
-                        <option value="">Orden Alfábetico</option>
+                        <option value="">Orden Alfabético</option>
                         <option value="">Más nuevo a más viejo</option>
                         <option value="">Más viejo a más nuevo</option>
                     </select>
                 </div>
             </div>
 
-
+            <!-- Lista de productos -->
             <div class="container__lista">
                 <ul class="caja__lista">
+                    <!-- Primer producto -->
                     <li>
                         <div class="caja">
                             <div class="imagen"><img src="../contenido_embebido/fotoPersona.png" alt="carpeta"></div>
@@ -148,6 +156,7 @@
                         </div>
                     </li>
 
+                    <!-- Segundo producto -->
                     <li>
                         <div class="caja">
                             <div class="imagen"><img src="../contenido_embebido/equis.png" alt=""></div>
@@ -159,6 +168,7 @@
                         </div>
                     </li>
 
+                    <!-- Tercer producto -->
                     <li>
                         <div class="caja">
                             <div class="imagen"><img src="../contenido_embebido/candado.png" alt="cuaderno argollado"></div>
@@ -170,7 +180,7 @@
                         </div>
                     </li>
 
-
+                    <!-- Cuarto producto -->
                     <li>
                         <div class="caja">
                             <div class="imagen"><img src="../contenido_embebido/background.jpg" alt="carpeta"></div>
@@ -186,6 +196,7 @@
         </div>
     </div>
 
+    <!-- Script para funcionalidad adicional -->
     <script type="module" src="../js/_19_categoriasvisualizarProductos.js"></script>
 </body>
 </html>
