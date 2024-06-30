@@ -1,11 +1,12 @@
-.header{
+/* Estilos para el encabezado */
+.header {
     height: 10vh;
     width: 100vw;
     background-color: #7DA1D0;
+}
 
-} 
-
-.cuerpo{
+/* Estilos para el cuerpo principal */
+.cuerpo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +16,8 @@
     flex-direction: column;
 }
 
-.cuerpo__contenedorFormulario{
+/* Estilos para el contenedor del formulario */
+.cuerpo__contenedorFormulario {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,24 +28,28 @@
     border-radius: 20px;
 }
 
-.contenedorFormulario__retroceder{
+/* Estilos para el botón de retroceder */
+.contenedorFormulario__retroceder {
     height: 30px;
-    transform: translate(340px, 19px);
+    transform: translate(340px, 19px); /* Ajuste de posición */
     cursor: pointer;
 }
 
-.ContenedorFormulario__img{
+/* Estilos para el contenedor de la imagen de perfil */
+.ContenedorFormulario__img {
     height: 20%;
     margin-bottom: 5px;
     transform: translateY(-15px);
 }
 
-.img__img{
+/* Estilos para la imagen de perfil */
+.img__img {
     height: 100%;
     width: 100%;
 }
 
-.formulario__form{
+/* Estilos para el formulario */
+.formulario__form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,16 +57,19 @@
     transform: translateY(-15px);
 }
 
-.form__label{
+/* Estilos para las etiquetas del formulario */
+.form__label {
     margin-bottom: 8px;
 }
 
-.label__input{
+/* Estilos para los campos de entrada del formulario */
+.label__input {
     border: none;
-    border-radius:25px ;
+    border-radius: 25px;
 }
 
-.form__activador{
+/* Estilos para el botón de activación del formulario */
+.form__activador {
     background-color: rgba(0, 92, 105, 1);
     height: 30px;
     width: 150px;
@@ -70,7 +79,8 @@
     color: white;
 }
 
-.ventanaActivada{
+/* Estilos para la ventana de confirmación */
+.ventanaActivada {
     height: 83%;
     width: 50%;
     background-color: white;
@@ -83,19 +93,22 @@
     background-color: rgba(201, 194, 194, 1);
 }
 
-.ventanaActivada__divImg{
+/* Estilos para la imagen de cerrar en la ventana de confirmación */
+.ventanaActivada__divImg {
     height: 30px;
     width: 30px;
-    transform: translateX(280px) translateY(10px);
+    transform: translateX(280px) translateY(10px); /* Ajuste de posición */
     cursor: pointer;
 }
 
-.divImg__img{
+/* Estilos para la imagen de cerrar */
+.divImg__img {
     height: 100%;
     width: 100%;
 }
 
-.ventanaActivada__divTextYSubmit{
+/* Estilos para el texto de la ventana de confirmación */
+.ventanaActivada__divTextYSubmit {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,13 +116,14 @@
     width: 100%;
 }
 
-
-.divTextYsubmit__text{
+/* Estilos para el texto dentro de la ventana de confirmación */
+.divTextYsubmit__text {
     font-size: 350%;
     text-align: center;
 }
 
-.divTextYSubmit__submit{
+/* Estilos para el botón de submit dentro de la ventana de confirmación */
+.divTextYSubmit__submit {
     height: 30%;
     width: 50%;
     border: none;
@@ -117,11 +131,10 @@
     background-color: rgba(0, 92, 105, 1);
     cursor: pointer;
     font-size: 200%;
-
 }
 
-
-.ventanaActivada2{
+/* Estilos para la segunda ventana de confirmación */
+.ventanaActivada2 {
     height: 50%;
     width: 50%;
     position: absolute;
@@ -133,30 +146,30 @@
     flex-direction: column;
 }
 
-.ventanaActivada2__cerrar{
+/* Estilos para la imagen de cerrar en la segunda ventana de confirmación */
+.ventanaActivada2__cerrar {
     height: 30px;
-    transform: translateX(280px) translateY(-60px);
+    transform: translateX(280px) translateY(-60px); /* Ajuste de posición */
     cursor: pointer;
 }
 
-.ventanaActivada2__Text{
+/* Estilos para el texto dentro de la segunda ventana de confirmación */
+.ventanaActivada2__Text {
     font-size: 250%;
     text-align: center;
 }
 
-
-
+/* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
-    .contenedorFormulario__retroceder{
-        transform: translate(120px, -50px);
+    .contenedorFormulario__retroceder {
+        transform: translate(120px, -50px); /* Ajuste de posición para pantallas pequeñas */
     }
 
-    .ventanaActivada__divImg{
-        transform: translate(100px, 8px);
-
+    .ventanaActivada__divImg {
+        transform: translate(100px, 8px); /* Ajuste de posición para pantallas pequeñas */
     }
 
-    .divTextYSubmit__submit{
+    .divTextYSubmit__submit {
         height: 30%;
         width: 80%;
     }

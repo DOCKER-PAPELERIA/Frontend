@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Incluye el archivo de estilos normalizados y el específico para esta página -->
     <link rel="stylesheet" href="/CSS/_0_normalize.css">
     <link rel="stylesheet" href="/CSS/_4_codigoDeRecuperacioDeCuenta.css">
 </head>
 <body>
+    <!-- Contenedor principal -->
     <div class="contenedorPrincipal">
+        <!-- Contenedor del mensaje -->
         <div class="contenedorPrincipal__mensaje">
+            <!-- Imagen de la persona -->
             <img src="/contenido_embebido/fotoPersona.png" alt="imagen de candado" class="mensaje__img">
+            <!-- Título del mensaje con el nombre de la persona -->
             <h1 class="mensaje__h1">
                 Fulanito Alvarez
             </h1>
-            <form class="mensaje__form">
-                
-                <label class="form__parrafo">Ingresar el código de verificacion de 6 digitos.
+            <!-- Formulario para ingresar el código de verificación -->
+            <form class="mensaje__form" action="/submit_code_verification" method="POST">
+                <!-- Etiqueta y campo para ingresar el código -->
+                <label class="form__parrafo">Ingresar el código de verificación de 6 dígitos.
                     <input class="form__input" type="text">
                 </label>
-
+                <!-- Botón de submit para enviar el formulario -->
                 <input type="submit" value="Siguiente" class="form__submit">
             </form>
         </div>

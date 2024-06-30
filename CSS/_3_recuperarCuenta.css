@@ -1,46 +1,60 @@
 /* Estilos generales */
 * {
+    /* Asegura que el box-sizing sea border-box para todos los elementos */
     box-sizing: border-box;
+    /* Elimina los márgenes y rellenos por defecto */
     margin: 0;
     padding: 0;
 }
 
 /* Estilos para el contenedor principal */
 .contenedorPrincipal {
+    /* Color de fondo */
     background-color: rgba(49, 78, 93, 1);
+    /* Utiliza flexbox para centrar contenido */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Ocupa todo el alto y ancho de la ventana */
     height: 100vh;
     width: 100vw;
 }
 
 /* Estilos para el contenedor del mensaje */
 .contenedorPrincipal__mensaje {
+    /* Color de fondo */
     background-color: white;
+    /* Dimensiones del contenedor */
     height: 75vh;
     width: 35vw;
+    /* Bordes redondeados */
     border-radius: 20px;
+    /* Utiliza flexbox para centrar contenido */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Coloca los elementos en columna */
     flex-direction: column;
-    text-align: center; /* Centra el texto horizontalmente */
+    /* Centra el texto horizontalmente */
+    text-align: center;
 }
 
 /* Estilos para la imagen dentro del mensaje */
 .mensaje__img {
+    /* Dimensiones de la imagen */
     height: 30%;
     width: 100%;
 }
 
 /* Estilos para el título dentro del mensaje */
 .mensaje__h1 {
+    /* Tamaño de la fuente */
     font-size: 160%;
 }
 
 /* Estilos para el formulario dentro del mensaje */
 .mensaje__form {
+    /* Utiliza flexbox para centrar contenido */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,39 +63,57 @@
 
 /* Estilos para el párrafo dentro del formulario */
 .form__parrafo {
+    /* Utiliza flexbox para centrar contenido */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Márgenes para el párrafo */
     margin: 0px 20px;
+    /* Coloca los elementos en columna */
     flex-direction: column;
 }
 
 /* Estilos para el input dentro del formulario */
 .form__input {
+    /* Borde del input */
     border: 3px solid black;
+    /* Bordes redondeados */
     border-radius: 10px;
+    /* Dimensiones del input */
     height: 35px;
     width: 80%;
+    /* Margen superior para separación */
     margin-top: 8px;
 }
 
 /* Estilos para el botón de submit dentro del formulario */
 .form__submit {
+    /* Asegura que el botón ocupe todo el ancho disponible */
     display: block;
     width: 65%;
     height: 35px;
+    /* Asegura que el box-sizing sea border-box */
     box-sizing: border-box;
-    background-color: rgba(0, 92, 105, 1); 
-    color: white; 
+    /* Color de fondo del botón */
+    background-color: rgba(0, 92, 105, 1);
+    /* Color del texto */
+    color: white;
+    /* Elimina el borde por defecto */
     border: none;
+    /* Bordes redondeados */
     border-radius: 50px;
+    /* Cambia el cursor al pasar sobre el botón */
     cursor: pointer;
+    /* Tamaño de la fuente */
     font-size: 150%;
+    /* Margen superior para separación */
     margin-top: 10px;
+    /* Transición para el ancho del botón al hacer hover */
     transition: width 700ms;
 }
 
 /* Estilos para el hover del botón de submit */
 .form__submit:hover {
+    /* Ancho del botón al hacer hover */
     width: 70%;
 }

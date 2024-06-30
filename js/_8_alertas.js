@@ -26,5 +26,3 @@ const gestionarCuenta = document.querySelector(".perfilActivado__contenedores");
 new Link("../HTML/_7_cambiarInformacionPersonal.html",".contenedores__boton--gestionarCuenta").redireccionar();
 
 
-const nuevaURL = "alertas"; 
-history.pushState({}, "", nuevaURL);

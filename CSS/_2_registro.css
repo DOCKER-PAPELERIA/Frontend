@@ -1,137 +1,195 @@
-/* Estilos para .iniciarSesionRegistrarse */
+/* Estilos para la barra de inicio de sesión/registro */
 .iniciarSesionRegistrarse {
+    /* Utiliza flexbox para el diseño de los botones */
     display: flex;
+    /* Define la altura y el ancho */
     height: 7vh;
     width: 100vw;
+    /* Color de fondo */
     background-color: rgba(24, 19, 18, 1);
+    /* Centra verticalmente y justifica a la derecha */
     align-items: center;
     justify-content: right;
 }
 
 .iniciarSesionRegistrarse__boton {
+    /* Margen derecho para separación */
     margin-right: 3%;
+    /* Color del texto */
     color: white;
+    /* Cambia el cursor al pasar sobre el botón */
     cursor: pointer;
 }
 
 .iniciarSesionRegistrarse__boton--Registrarse {
+    /* Color de fondo */
     background-color: rgba(0, 92, 105, 1);
+    /* Ancho del botón */
     width: 20%;
+    /* Centra el contenido dentro del botón */
     display: flex;
     justify-content: center;
+    /* Bordes redondeados */
     border-radius: 15px; 
+    /* Margen izquierdo para separación */
     margin-left: 15px;
-
 }
-    
-/* Estilos para .cuerpo */
+
+/* Estilos para el cuerpo principal */
 .cuerpo {
+    /* Imagen de fondo */
     background-image: url(../contenido_embebido/background.jpg);
+    /* Altura y ancho */
     height: 93vh;
     width: 100vw;
+    /* Ajusta el tamaño de la imagen de fondo */
     background-size: 100%;
+    /* Utiliza flexbox para el diseño del contenido */
     display: flex;
     align-items: center;
     justify-content: space-around;
+    /* Aplica un filtro de escala de grises */
     filter: grayscale(.6);
 }
 
 .cuerpo__h1YTexto {
+    /* Altura mínima y ancho del contenedor de texto */
     min-height: 80%;
     width: 40%;
+    /* Color del texto */
     color: white;
 }
 
 .h1YTexto__h1 {
+    /* Tamaño de fuente para el título */
     font-size: 280%;
 }
 
 .h1YTexto__texto {
+    /* Tamaño de fuente para el párrafo */
     font-size: 150%;
 }
 
 .cuerpo__formulario {
+    /* Altura y ancho del formulario */
     height: 95%;
     width: 40%;
+    /* Color de fondo con opacidad */
     background-color: rgba(176, 190, 197, 0.7);
+    /* Utiliza flexbox para el diseño interno */
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Bordes redondeados */
     border-radius: 20px;
 }
 
 .formulario__h1 {
+    /* Tamaño de fuente para el título del formulario */
     font-size: 200%;
+    /* Desplaza el título hacia arriba */
     transform: translateY(-25px);
 }
 
 .formulario__form {
+    /* Utiliza flexbox para el diseño interno del formulario */
     display: flex;
     flex-direction: column;
+    /* Posiciona el formulario relativo a su contenedor */
     position: relative;
+    /* Desplaza el formulario hacia arriba */
     transform: translateY(-35px);
 }
 
 .form__label {
+    /* Margen superior para separación */
     margin-top: 2%;
+    /* Tamaño de fuente para el label */
     font-size: 100%;
 }
 
 .label__input {
+    /* Bordes redondeados */
     border-radius: 50px;
+    /* Elimina el borde por defecto */
     border: none;
+    /* Centra el texto dentro del input */
     display: flex;
     text-align: center;
+    /* Altura del input */
     height: 20px;
+    /* Ancho del input */
     width: 100%;
 }
 
 .label__input--tipico {
+    /* Ancho específico para ciertos inputs */
     width: 300px;
 }
 
 .label__input--checkbox {
+    /* Ajuste del ancho del checkbox */
     width: auto;
+    /* Margen derecho para separación */
     margin-right: 10px;
-    vertical-align: middle; /* Alinea el checkbox con el texto */
+    /* Alinea el checkbox con el texto */
+    vertical-align: middle;
 }
 
 .form__label--checkbox {
+    /* Utiliza flexbox para alinear los elementos internamente */
     display: flex;
     align-items: center;
+    /* Tamaño de fuente para el label del checkbox */
     font-size: 130%;
 }
 
 .form__submit {
+    /* Asegura que el botón ocupe todo el ancho disponible */
     display: block;
     width: 100%;
     box-sizing: border-box;
+    /* Color de fondo */
     background-color: rgba(0, 92, 105, 1);
+    /* Color del texto */
     color: white;
+    /* Elimina el borde por defecto */
     border: none;
+    /* Bordes redondeados */
     border-radius: 50px;
+    /* Cambia el cursor al pasar sobre el botón */
     cursor: pointer;
+    /* Tamaño de fuente */
     font-size: 150%;
+    /* Margen inferior para separación */
     margin-bottom: 5px;
 }
 
-/* Media query para ajustar el formulario cuando el viewport sea de 865px o menos */
+/* Media query para ajustar el formulario cuando el viewport sea de 768px o menos */
 @media screen and (max-width: 768px) {
     .cuerpo {
+        /* Cambia la dirección del flexbox a columna */
         flex-direction: column;
+        /* Centra el contenido */
         align-items: center;
     }
 
     .cuerpo__h1YTexto, .cuerpo__formulario {
+        /* Ajusta el ancho completo para ocupar toda la pantalla */
         width: 90%;
         max-width: 90%;
+        /* Margen automático para centrar */
         margin: 10px auto;
     }
 
     .cuerpo__formulario {
-        order: 1; /* Cambia el orden para que el formulario aparezca debajo */
-        transform: none; /* Elimina la transformación anterior */
+        /* Cambia el orden para que el formulario aparezca debajo */
+        order: 1;
+        /* Elimina la transformación anterior */
+        transform: none;
+        /* Añade padding */
         padding: 20px;
-        margin-top: 20vh; /* Espacio adicional para separar del contenido superior */
+        /* Espacio adicional para separar del contenido superior */
+        margin-top: 20vh;
     }
 }

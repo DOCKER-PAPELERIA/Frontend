@@ -42,19 +42,14 @@ new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--ge
 
 new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
-new Link("../HTML/_8_alertas.html", "alertas").redireccionar();
+new Link("../HTML/_8_alertas.html", ".alertas").redireccionar();
 
-new Link("../HTML/_8_alertas.html", "alertas").redireccionar();
+new Link("../HTML/_10_facturas.html", ".facturas").redireccionar();
 
+new Link("../HTML/_13_productos.html", ".productos").redireccionar();
 
-/**
- * Nueva URL para el historial de navegación
- * @type {string}
- */
-const nuevaURL = "menuPrincipal"; // Sin la extensión .html
+new Link("../HTML/_17_categorias.html", ".categorias").redireccionar();
 
-/**
- * Actualiza el historial de navegación
- */
-history.pushState({}, "", nuevaURL);
+new Link("../HTML/_23_comprobarExistencias.html", ".comprobarExistencias").redireccionar();
+
 

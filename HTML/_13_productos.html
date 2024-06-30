@@ -2,27 +2,28 @@
 <html lang="en">
 
 <head>
+    <!-- Codificación del documento -->
     <meta charset="UTF-8">
+    <!-- Escala inicial para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-    <link rel="stylesheet" href="./css/productos.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Título de la página -->
+    <title>productos</title>
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="../CSS/_10_facturas.css"> <!-- Estilos específicos de la página -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Íconos Boxicons -->
 </head>
 
 <body>
+    <!-- Contenedor principal -->
     <div class="container">
+        <!-- Barra superior -->
         <div class="container__barra">
-
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
                 <div class="header__botonMenu" id="selectorMenu">
                     <div class="botonMenu__imgYTexto">
-
-                        <div class="imgYTexto__img img__desplegado">
-                            <i class='bx bx-menu'></i>
-                        </div>
-                        <!-- <img class="imgYTexto__img img__desplegado"<i class='bx bx-menu'></i> -->
-                        <h2 class="imgYTexto__texto">Menú</h2>
+                        <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
+                        <h2 class="imgYTexto__texto">Menu</h2>
                     </div>
                 </div>
 
@@ -30,17 +31,9 @@
                 <div class="header__menuYPerfil menu menu__opcionesDesplegadas" id="cuerpoMenuDesplegado">
                     <!-- Opción de menú: Inicio -->
                     <div class="opcionesDesplegadas__iconoYTexto inicio">
-                        <div class="iconoYTexto__texto">Inicio</div>
+                        <div class="iconoYTexto__texto">inicio</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="img/inicio.png" alt="inicio">
-                        </div>
-                    </div>
-
-                    <!-- Opción de menú: Estadísticas -->
-                    <div class="opcionesDesplegadas__iconoYTexto estadistica">
-                        <div class="iconoYTexto__texto">Estadistica</div>
-                        <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/estadisticas.png" alt="Estadistica">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/home.png" alt="inicio">
                         </div>
                     </div>
 
@@ -48,23 +41,7 @@
                     <div class="opcionesDesplegadas__iconoYTexto alertas">
                         <div class="iconoYTexto__texto">Alertas</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/alertas.png" alt="Alertas">
-                        </div>
-                    </div>
-
-                    <!-- Opción de menú: Analizar Ventas -->
-                    <div class="opcionesDesplegadas__iconoYTexto analizarVentas">
-                        <div class="iconoYTexto__texto">A. Ventas</div>
-                        <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/a.ventas.png" alt="Analizar Ventas">
-                        </div>
-                    </div>
-
-                    <!-- Opción de menú: Compras -->
-                    <div class="opcionesDesplegadas__iconoYTexto compras">
-                        <div class="iconoYTexto__texto">Compras</div>
-                        <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/compras.png" alt="Compras">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgAlertas.png" alt="Alertas">
                         </div>
                     </div>
 
@@ -72,7 +49,7 @@
                     <div class="opcionesDesplegadas__iconoYTexto facturas">
                         <div class="iconoYTexto__texto">Facturas</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/facturas.png" alt="Facturas">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="Facturas">
                         </div>
                     </div>
 
@@ -80,7 +57,7 @@
                     <div class="opcionesDesplegadas__iconoYTexto productos">
                         <div class="iconoYTexto__texto">Productos</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/productos.png" alt="productos">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgProductos.png" alt="productos">
                         </div>
                     </div>
 
@@ -88,7 +65,7 @@
                     <div class="opcionesDesplegadas__iconoYTexto categorias">
                         <div class="iconoYTexto__texto">Categorias</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/categorias.png" alt="Categorias">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgCategorias.png" alt="Categorias">
                         </div>
                     </div>
 
@@ -96,14 +73,14 @@
                     <div class="opcionesDesplegadas__iconoYTexto comprobarExistencias">
                         <div class="iconoYTexto__texto">C. Existencia</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/c.existencia.png" alt="C.existencias">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgComprobarExistencias.png" alt="C.existencias">
                         </div>
                     </div>
                 </div>
 
                 <!-- Contenedor del perfil del usuario -->
                 <div class="header__menuYPerfil perfil" id="activarUsuario">
-                    <img class="perfil__img" src="img/image.png" alt="imagen del usuario">
+                    <img class="perfil__img" src="/contenido_embebido/fotoPersona.png" alt="imagen del usuario">
                 </div>
 
                 <!-- Contenedor del perfil activado/desactivado -->
@@ -113,7 +90,7 @@
                     </div>
 
                     <div class="perfilActivado__contenedores perfil__contenedores--img">
-                        <img class="contenedores__img" src="/img/image.png" alt="Foto usuario">
+                        <img class="contenedores__img" src="/contenido_embebido/fotoPersona.png" alt="Foto usuario">
                     </div>
 
                     <div class="perfilActivado__contenedores">
@@ -135,29 +112,33 @@
             </header>
         </div>
 
-
-
+        <!-- Contenido principal -->
         <div class="container__contenido">
-            <div class="container_imagen_principal"></div>
-            <div class="container_titulo">Productos</div>
+            <!-- Imagen principal -->
+            <img src="/contenido_embebido/imgProductos.png" class="container_imagen_principal" alt="img factura">
+            <!-- Título de la sección -->
+            <div class="container_titulo">productos</div>
 
+            <!-- Botón para añadir producto -->
             <button type="button" class="container_caja1" id="nuevoProductoBtn">
                 <div class="container_mediacaja">
-                    <div class="imagen1"></div>
+                    <img src="/contenido_embebido/simbolo+.png" alt="simbolo +" class="imagen">
                 </div>
                 <div class="container_texto">Nuevo Producto</div>
             </button>
 
+            <!-- Botón para ver productos -->
             <button type="button" class="container_caja2" id="verProductoBtn">
                 <div class="container_mediacaja">
-                    <div class="imagen2"></div>
+                    <img src="/contenido_embebido/verFacturas.png" class="imagen2" alt="verFactura">
                 </div>
-                <div class="container_texto">Ver Productos</div>
+                <div class="container_texto2">Ver Productos</div>
             </button>
         </div>
     </div>
 
-    <script type="module" src="./js/productos.js"></script>
+    <!-- Script JavaScript -->
+    <script type="module" src="../js/_13_productos.js"></script>
 </body>
 
 </html>

@@ -23,6 +23,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
-
-const nuevaURL = "cambiarInformacionPersonal"; // Sin la extensión .html
-history.pushState({}, "", nuevaURL);

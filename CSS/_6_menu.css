@@ -73,14 +73,14 @@
     width: 20%; /* Ancho del 20% del contenedor padre */
     flex-direction: column; /* Alinea los elementos hijos en columna */
     align-items: center; /* Alinea los elementos hijos horizontalmente al centro */
-    transform: translateY(215px); /* Mueve el menú hacia abajo */
+    transform: translateY(190px); /* Mueve el menú hacia abajo */
 }
 
 /* Opciones desplegadas del menú */
 .menu__opcionesDesplegadas {
     box-sizing: content-box; /* El modelo de caja incluye padding y border */
-    height: 470px; /* Altura fija de 470px */
-    width: 25%; /* Ancho del 25% del contenedor padre */
+    height: 420px; /* Altura fija de 470px */
+    width: 20%; /* Ancho del 25% del contenedor padre */
     background-color: rgba(96, 124, 138, 1); /* Color de fondo con transparencia */
     cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
     display: none; /* Oculta las opciones inicialmente */

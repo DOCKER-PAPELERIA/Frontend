@@ -33,7 +33,3 @@ new Link(
 
 new Link("../HTML/_6_menu.html", ".contenedor1__icono2").redireccionar();
 
-
-
-const nuevaURL = "alertasOpciones"; 
-history.pushState({}, "", nuevaURL);

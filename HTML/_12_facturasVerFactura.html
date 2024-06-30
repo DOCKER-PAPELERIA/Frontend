@@ -2,112 +2,81 @@
 <html lang="en">
 
 <head>
+    <!-- Codificación del documento -->
     <meta charset="UTF-8">
+    <!-- Escala inicial para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Ver Facturas</title>
-    <link rel="stylesheet" href="./css/facturas_verfactura.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="../CSS/_12_facturasVerFactura.css"> <!-- Estilos específicos de la página -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Íconos Boxicons -->
 </head>
 
 <body>
+    <!-- Contenedor principal -->
     <div class="container">
+        <!-- Barra superior -->
         <div class="container__barra">
-
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
                 <div class="header__botonMenu" id="selectorMenu">
                     <div class="botonMenu__imgYTexto">
-
-                        <div class="imgYTexto__img img__desplegado">
-                            <i class='bx bx-menu'></i>
-                          </div>
-                        <!-- <img class="imgYTexto__img img__desplegado"<i class='bx bx-menu'></i> -->
-                        <h2 class="imgYTexto__texto">Menú</h2>
+                        <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
+                        <h2 class="imgYTexto__texto">Menu</h2>
                     </div>
                 </div>
 
                 <!-- Contenedor del menú desplegable -->
                 <div class="header__menuYPerfil menu menu__opcionesDesplegadas" id="cuerpoMenuDesplegado">
+                    <!-- Opciones del menú -->
                     <!-- Opción de menú: Inicio -->
                     <div class="opcionesDesplegadas__iconoYTexto inicio">
-                        <div class="iconoYTexto__texto">Inicio</div>
+                        <div class="iconoYTexto__texto">inicio</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="img/inicio.png" alt="inicio">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/home.png" alt="inicio">
                         </div>
                     </div>
-
-                    <!-- Opción de menú: Estadísticas -->
-                    <div class="opcionesDesplegadas__iconoYTexto estadistica">
-                        <div class="iconoYTexto__texto">Estadistica</div>
-                        <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/estadisticas.png"
-                                alt="Estadistica">
-                        </div>
-                    </div>
-
                     <!-- Opción de menú: Alertas -->
                     <div class="opcionesDesplegadas__iconoYTexto alertas">
                         <div class="iconoYTexto__texto">Alertas</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/alertas.png" alt="Alertas">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgAlertas.png" alt="Alertas">
                         </div>
                     </div>
-
-                    <!-- Opción de menú: Analizar Ventas -->
-                    <div class="opcionesDesplegadas__iconoYTexto analizarVentas">
-                        <div class="iconoYTexto__texto">A. Ventas</div>
-                        <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/a.ventas.png"
-                                alt="Analizar Ventas">
-                        </div>
-                    </div>
-
-                    <!-- Opción de menú: Compras -->
-                    <div class="opcionesDesplegadas__iconoYTexto compras">
-                        <div class="iconoYTexto__texto">Compras</div>
-                        <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/compras.png" alt="Compras">
-                        </div>
-                    </div>
-
                     <!-- Opción de menú: Facturas -->
                     <div class="opcionesDesplegadas__iconoYTexto facturas">
                         <div class="iconoYTexto__texto">Facturas</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/facturas.png" alt="Facturas">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="Facturas">
                         </div>
                     </div>
-
                     <!-- Opción de menú: Productos -->
                     <div class="opcionesDesplegadas__iconoYTexto productos">
                         <div class="iconoYTexto__texto">Productos</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/productos.png" alt="productos">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgProductos.png" alt="productos">
                         </div>
                     </div>
-
                     <!-- Opción de menú: Categorías -->
                     <div class="opcionesDesplegadas__iconoYTexto categorias">
                         <div class="iconoYTexto__texto">Categorias</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/categorias.png"
-                                alt="Categorias">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgCategorias.png" alt="Categorias">
                         </div>
                     </div>
-
                     <!-- Opción de menú: Comprobar Existencias -->
                     <div class="opcionesDesplegadas__iconoYTexto comprobarExistencias">
                         <div class="iconoYTexto__texto">C. Existencia</div>
                         <div class="iconoYTexto__containerIcono">
-                            <img class="iconoYTexto__icono" src="/img/c.existencia.png"
-                                alt="C.existencias">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgComprobarExistencias.png" alt="C.existencias">
                         </div>
                     </div>
                 </div>
 
                 <!-- Contenedor del perfil del usuario -->
                 <div class="header__menuYPerfil perfil" id="activarUsuario">
-                    <img class="perfil__img" src="img/image.png" alt="imagen del usuario">
+                    <img class="perfil__img" src="/contenido_embebido/fotoPersona.png" alt="imagen del usuario">
                 </div>
 
                 <!-- Contenedor del perfil activado/desactivado -->
@@ -115,21 +84,17 @@
                     <div class="perfilActivado__contenedores">
                         <h2 class="contenedores__nombre">Fulanito Alvarez</h2>
                     </div>
-
                     <div class="perfilActivado__contenedores perfil__contenedores--img">
-                        <img class="contenedores__img" src="/img/image.png" alt="Foto usuario">
+                        <img class="contenedores__img" src="/contenido_embebido/fotoPersona.png" alt="Foto usuario">
                     </div>
-
                     <div class="perfilActivado__contenedores">
                         <h2 class="contenedores__saludo">¡HOLA, FULANITO!</h2>
                     </div>
-
                     <div class="perfilActivado__contenedores">
                         <button class="contenedores__boton contenedores__boton--gestionarCuenta">
                             Gestionar Cuenta
                         </button>
                     </div>
-
                     <div class="perfilActivado__contenedores">
                         <button class="contenedores__boton contenedores__boton--cerrarSesion">
                             Cerrar Sesion
@@ -139,19 +104,21 @@
             </header>
         </div>
 
+        <!-- Contenido principal -->
         <div class="container__contenido">
             <div class="container__juntos">
+                <!-- Buscador -->
                 <div class="caja1">
                     <div class="container__buscador">
-                        <div class="container__buscador__imagen"></div>
-                        <input type="text" class="container__buscador__cuadro" placeholder="Buscar">
+                        <img src="/contenido_embebido/buscador.png" alt="buscador" class="container__buscador__imagen">
+                        <input type="search" class="container__buscador__cuadro" placeholder="Buscar">
                     </div>
                 </div>
             </div>
 
+            <!-- Tabla de facturas -->
             <div class="container_tabla">
-
-                <table class="table"> <!-- TABLA -->
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">N°</th>
@@ -162,7 +129,7 @@
                             <th scope="col">Fecha de Factura</th>
                             <th scope="col">Método de Pago</th>
                             <th scope="col">Total a Pagar</th>
-                            <th scope="col">Accciones</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -176,8 +143,12 @@
                             <td>Efectivo</td>
                             <td>$26.400</td>
                             <td scope="btn">
-                                <button class="act-icon blue btn-trash-open"> <i class='bx bxs-printer' title="Imprimir Factura"></i> </button>
-                                <button class="act-icon red btn-trash-open"> <i class='bx bx-trash' title="Eliminar Factura"></i> </button>
+                                <button class="act-icon blue btn-trash-open">
+                                    <i class='bx bxs-printer' title="Imprimir Factura"></i>
+                                </button>
+                                <button class="act-icon red btn-trash-open">
+                                    <i class='bx bx-trash' title="Eliminar Factura"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -190,8 +161,12 @@
                             <td>Transferencia</td>
                             <td>$31.500</td>
                             <td scope="btn">
-                                <button class="act-icon blue btn-trash-open"> <i class='bx bxs-printer' title="Imprimir Factura"></i> </button>
-                                <button class="act-icon red btn-trash-open"> <i class='bx bx-trash' title="Eliminar Factura"></i> </button>
+                                <button class="act-icon blue btn-trash-open">
+                                    <i class='bx bxs-printer' title="Imprimir Factura"></i>
+                                </button>
+                                <button class="act-icon red btn-trash-open">
+                                    <i class='bx bx-trash' title="Eliminar Factura"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -204,8 +179,12 @@
                             <td>Transferencia</td>
                             <td>$22.500</td>
                             <td scope="btn">
-                                <button class="act-icon blue btn-trash-open"> <i class='bx bxs-printer' title="Imprimir Factura"></i> </button>
-                                <button class="act-icon red btn-trash-open"> <i class='bx bx-trash' title="Eliminar Factura"></i> </button>
+                                <button class="act-icon blue btn-trash-open">
+                                    <i class='bx bxs-printer' title="Imprimir Factura"></i>
+                                </button>
+                                <button class="act-icon red btn-trash-open">
+                                    <i class='bx bx-trash' title="Eliminar Factura"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -218,52 +197,51 @@
                             <td>Efectivo</td>
                             <td>$56.000</td>
                             <td scope="btn">
-                                <button class="act-icon blue btn-trash-open"> <i class='bx bxs-printer' title="Imprimir Factura"></i> </button>
-                                <button class="act-icon red btn-trash-open"> <i class='bx bx-trash' title="Eliminar Factura"></i> </button>
+                                <button class="act-icon blue btn-trash-open">
+                                    <i class='bx bxs-printer' title="Imprimir Factura"></i>
+                                </button>
+                                <button class="act-icon red btn-trash-open">
+                                    <i class='bx bx-trash' title="Eliminar Factura"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
-                </table> <!-- CIERRE DE LA TABLA -->
+                </table>
             </div>
         </div>
 
-
-        <!-- Ventana para eliminar -->
+        <!-- Ventana modal para eliminar -->
         <div class="ventana">
             <div class="header2">
-                <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
+                <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
             </div>
-
             <div class="body">
                 <h3 class="text_information">Digite su contraseña para eliminar la factura:
                     <div></div>
                     <input type="password" class="contrasena">
                 </h3>
             </div>
-
             <div class="footer">
                 <button class="btn-confirm yes" id="btn-yes">Confirmar</button>
             </div>
         </div>
 
-
-        <!-- Ventana para Imprimir -->
+        <!-- Ventana modal para imprimir -->
         <div class="ventana2">
             <div class="header2">
-                <button class="btn-close" id="btn-close2" title="Cerrar Ventana"> &times;</button>
+                <button class="btn-close" id="btn-close2" title="Cerrar Ventana">&times;</button>
             </div>
-
             <div class="body">
-                <h3 class="text_information">Seguro que quiere imprimir está factura?</h3>
+                <h3 class="text_information">Seguro que quiere imprimir esta factura?</h3>
             </div>
-
             <div class="footer">
                 <button class="btn-confirm yes" id="btn-yes2">Confirmar</button>
             </div>
         </div>
     </div>
 
-    <script type="module" src="/js/factura_verfactura.js"></script>
+    <!-- Script JavaScript -->
+    <script type="module" src="../js/_12_facturaVerFactura.js"></script>
 </body>
 
 </html>

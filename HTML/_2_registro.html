@@ -1,69 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta información básica -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página -->
     <title>Registro</title>
+    
+    <!-- Enlace a los archivos de estilos CSS -->
     <link rel="stylesheet" href="../CSS/_0_normalize.css">
     <link rel="stylesheet" href="../CSS/_2_registro.css">
 </head>
 <body>
+    <!-- Contenedor para los botones de Iniciar Sesión y Registrarse -->
     <div class="iniciarSesionRegistrarse">
+        <!-- Botón de Iniciar Sesión -->
         <div class="iniciarSesionRegistrarse__boton" id="linkInicioSesion">
             Iniciar Sesión
         </div>
+        <!-- Botón de Registrarse -->
         <div class="iniciarSesionRegistrarse__boton iniciarSesionRegistrarse__boton--Registrarse" id="linkRegistrarse">
             Registrarse
         </div>
     </div> 
 
+    <!-- Contenedor principal del cuerpo de la página -->
     <div class="cuerpo">
+        <!-- Sección de bienvenida con título y texto descriptivo -->
         <div class="cuerpo__h1YTexto">
-            <h1 class="h1YTexto__h1">¡Bienvenido a Gestion de Inventario!</h1> 
+            <h1 class="h1YTexto__h1">¡Bienvenido a Gestión de Inventario!</h1> 
             <p class="h1YTexto__texto">Somos tu socio confiable en la gestión de tu papelería. Nuestra plataforma está diseñada para simplificar y optimizar todo el proceso, desde el seguimiento de existencias hasta la gestión de pedidos. Descubre cómo podemos ayudarte a mantener tu inventario organizado, tus productos siempre disponibles y tu negocio en crecimiento.</p>
         </div>
+        
+        <!-- Sección del formulario de registro -->
         <div class="cuerpo__formulario">
+            <!-- Título del formulario -->
             <h1 class="formulario__h1">Regístrate</h1>
+            <!-- Formulario de registro -->
             <form class="formulario__form" id="registerForm">
+                <!-- Campo para el nombre completo -->
                 <label class="form__label">Nombre Completo<br>
                     <input class="label__input" id="nombreCompleto" type="text" required>
                 </label>
 
+                <!-- Campo para la identificación -->
                 <label class="form__label">Identificación<br>
                     <input class="label__input label__input--tipico" id="identificacion" type="text" required>
                 </label>
 
+                <!-- Campo para el correo electrónico -->
                 <label class="form__label">Correo Electrónico<br>
                     <input type="email" class="label__input label__input--tipico" id="correoElectronico" required>
                 </label>
 
+                <!-- Campo para la contraseña -->
                 <label class="form__label">Contraseña<br>
                     <input type="password" class="label__input label__input--tipico" id="contrasena" required>
                 </label>
 
+                <!-- Campo para confirmar la contraseña -->
                 <label class="form__label">Confirmar Contraseña<br>
                     <input type="password" class="label__input label__input--tipico" id="confirmarContrasena" required>
                 </label>
 
+                <!-- Campo para el número de teléfono -->
                 <label class="form__label">Número de Teléfono<br>
                     <input type="tel" class="label__input label__input--tipico" id="telefono" required>
                 </label>
 
+                <!-- Campo para la fecha de nacimiento -->
                 <label class="form__label">Fecha De Nacimiento<br>
                     <input type="date" class="label__input label__input--tipico" id="fechaNacimiento" required>
                 </label>
 
-
+                <!-- Campo para aceptar términos y condiciones -->
                 <label class="form__label--checkbox">
                     <input type="checkbox" class="label__input--checkbox" id="aceptaTerminos" required>
                     Acepto los términos y condiciones
                 </label>
 
+                <!-- Botón de envío del formulario -->
                 <input type="submit" class="form__submit" value="Registrarse">
             </form> 
         </div>
     </div>
   
+    <!-- Enlace al archivo de JavaScript -->
     <script type="module" src="../js/_2_registro.js"></script>
 </body>
-</html> 
+</html>
