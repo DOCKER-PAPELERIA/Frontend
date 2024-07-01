@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Normalización de estilos -->
     <link rel="stylesheet" href="/CSS/_0_normalize.css">
-    <!-- Estilos específicos para la página de alertas -->
     <link rel="stylesheet" href="/CSS/_8_alertas.css">
 </head>
 <body>
-    <!-- Encabezado de la página -->
     <header class="header">
         <!-- Botón para activar el menú desplegable -->
-        <div class="header__botonMenu" id="selectorMenu">
+        <div class="header__botonMenu" id="selectorMenu" >
             <div class="botonMenu__imgYTexto"> 
-                <!-- Icono de menú desplegado -->
                 <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
                 <h2 class="imgYTexto__texto">Menu</h2>
             </div>
@@ -74,69 +70,57 @@
 
         <!-- Contenedor del perfil del usuario -->
         <div class="header__menuYPerfil perfil" id="activarUsuario">
-            <!-- Imagen del perfil del usuario -->
             <img class="perfil__img" src="/contenido_embebido/fotoPersona.png" alt="imagen del usuario">
         </div>
 
         <!-- Contenedor del perfil activado/desactivado -->
         <div class="perfilActivado" id="perfilDesactivado">
             <div class="perfilActivado__contenedores">
-                <!-- Nombre del usuario -->
                 <h2 class="contenedores__nombre">Fulanito Alvarez</h2>
             </div>
 
             <div class="perfilActivado__contenedores perfil__contenedores--img">
-                <!-- Imagen del usuario -->
                 <img class="contenedores__img" src="/contenido_embebido/fotoPersona.png" alt="Foto usuario">
             </div>
 
             <div class="perfilActivado__contenedores">
-                <!-- Saludo personalizado -->
                 <h2 class="contenedores__saludo">¡HOLA, FULANITO!</h2>
             </div>
 
             <div class="perfilActivado__contenedores">
-                <!-- Botón para gestionar cuenta -->
                 <button class="contenedores__boton contenedores__boton--gestionarCuenta">
                     Gestionar Cuenta
                 </button>
             </div>
 
             <div class="perfilActivado__contenedores">
-                <!-- Botón para cerrar sesión -->
                 <button class="contenedores__boton contenedores__boton--cerrarSesion">
                     Cerrar Sesion
                 </button>
             </div>
         </div> 
     </header>
-    
-    <!-- Contenedor general de la página -->
+    <!-- _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
+
     <div class="contenedorGeneral">
-        <!-- Icono y nombre de la sección de alertas -->
         <div class="contenedorGeneral__iconoYNombre">
             <div class="iconoYNombre__icono">
-                <!-- Icono de alertas -->
                 <img src="/contenido_embebido/imgAlertas.png" alt="icono alerta">
             </div>
-            <!-- Nombre de la sección de alertas -->
             <div class="iconoYNombre__nombre">Alertas</div>
         </div>
-        
-        <!-- Botón para definir una nueva alerta -->
         <div class="boton__definirAlerta">
             <div class="definirAlerta__boton">
                 <div class="boton__icono">
-                    <!-- Icono de agregar -->
                     <img src="/contenido_embebido/simbolo+.png" alt="Simbolo Agregar" class="icono__img">
                 </div>
-                <!-- Texto del botón -->
                 <div class="boton__frase">Definir Alerta</div>
-            </div>
+
+            </div> 
         </div>
     </div> 
 
-    <!-- Script JavaScript para funcionalidad adicional de alertas -->
+
     <script type="module" src="/js/_8_alertas.js"></script>
 </body>
 </html>

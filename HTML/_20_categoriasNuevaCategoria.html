@@ -2,29 +2,20 @@
 <html lang="en">
 
 <head>
-    <!-- Definición del juego de caracteres y configuración para dispositivos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nueva Categoría</title>
-    
-    <!-- Enlace a la hoja de estilos CSS -->
     <link rel="stylesheet" href="../CSS/_20_categoriasNuevaCategoria.css">
-    
-    <!-- Enlace al conjunto de íconos de Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <!-- Contenedor principal -->
     <div class="container">
-        
-        <!-- Barra superior -->
         <div class="container__barra">
-            
-            <!-- Encabezado con botón de menú -->
+
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
-                <div class="header__botonMenu" id="selectorMenu">
+                <div class="header__botonMenu" id="selectorMenu" >
                     <div class="botonMenu__imgYTexto"> 
                         <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
                         <h2 class="imgYTexto__texto">Menu</h2>
@@ -116,11 +107,10 @@
             </header>
         </div>
 
-        <!-- Contenido principal -->
         <div class="container__contenido">
-            <!-- Contenedor de información -->
+
+
             <div class="container__informacion">
-                <!-- Sección izquierda -->
                 <div class="left-section">
                     <label for="nombre-categoria">Nombre de la Categoría:</label>
                     <input type="text" id="nombre-categoria">
@@ -128,8 +118,6 @@
                     <label for="descripcion-categoria">Descripción de la Categoría:</label>
                     <textarea id="descripcion-categoria"></textarea>
                 </div>
-                
-                <!-- Sección derecha -->
                 <div class="right-section">
                     <label for="url-imagen">URL Imagen:</label>
                     <input type="text" id="url-imagen">
@@ -138,17 +126,13 @@
                     <input type="date" id="fecha-categoria">
                 </div>
 
-                <!-- Contenedor para botón de cerrar -->
-                <div class="container__imagenX">
-                    <button class="botonX" id="atras"><i class='bx bx-x'></i></button>
-                </div>
-
-                <!-- Botón para crear nueva categoría -->
+                <div class="container__imagenX"> <button class="botonX" id="atras"><i class='bx bx-x' ></i></button></div>
                 <button class="boton__nuevacategoria">Nueva Categoría</button>
             </div>
         </div>
 
-        <!-- Ventana modal para confirmación -->
+
+        <!-- Ventana para eliminar -->
         <div class="ventana">
             <div class="header2">
                 <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
@@ -165,7 +149,6 @@
         </div>
     </div>
 
-    <!-- Script JavaScript modular -->
     <script type="module" src="../js/_20_categoriasNuevaCategoria.js"></script>
 </body>
 

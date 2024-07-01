@@ -1,6 +1,6 @@
 import { Link } from "../soloClases/links.js";
 
-new Link("../HTML/_1_login.html", "#linkInicioSesion").redireccionar();
+new Link("../HTML/_1_index.html", "#linkInicioSesion").redireccionar();
 new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar(); 
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -40,12 +40,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         alert('Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
     });
 });
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     const nuevaURL = '/front/HTML/_1_index'; // URL sin .html
-//     window.history.pushState({}, '', nuevaURL);
-// });
 
 
 

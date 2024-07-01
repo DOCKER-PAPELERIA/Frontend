@@ -6,13 +6,16 @@ export class Link {
     }
 
     redireccionar() {
-        const elementSelector = document.querySelector(this.selector);
-        if (elementSelector) {
-            elementSelector.addEventListener("click", () => {
+        const elements = document.querySelectorAll(`${this.selector}`);
+
+        elements.forEach(element => {
+            element.addEventListener("click", () => {
                 window.location.href = this.direccion;
             });
-        } else {
-            console.error(`No se encontró el elemento con el selector: ${elementSelector}`);
+        });
+
+        if (elements.length === 0) {
+            console.error(`No se encontraron elementos con el selector: ${this.selector}`);
         }
     }
 }

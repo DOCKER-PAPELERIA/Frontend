@@ -44,6 +44,8 @@ new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
 new Link("../HTML/_8_alertas.html", ".alertas").redireccionar();
 
+
+
 new Link("../HTML/_10_facturas.html", ".facturas").redireccionar();
 
 new Link("../HTML/_13_productos.html", ".productos").redireccionar();

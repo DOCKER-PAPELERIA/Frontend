@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facturas</title>
-    <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="../CSS/_10_facturas.css">
-    <!-- Enlace a la biblioteca de iconos -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
         <div class="container__barra">
             
-            <!-- Cabecera con el botón del menú desplegable -->
             <header class="header">
+                <!-- Botón para activar el menú desplegable -->
                 <div class="header__botonMenu" id="selectorMenu" >
                     <div class="botonMenu__imgYTexto"> 
-                        <!-- Imagen y texto del botón del menú -->
                         <img class="imgYTexto__img img__desplegado" src="/contenido_embebido/menu.png" alt="icono de menu">
                         <h2 class="imgYTexto__texto">Menu</h2>
                     </div>
@@ -94,14 +91,12 @@
                     </div>
         
                     <div class="perfilActivado__contenedores">
-                        <!-- Botón para gestionar cuenta -->
                         <button class="contenedores__boton contenedores__boton--gestionarCuenta">
                             Gestionar Cuenta
                         </button>
                     </div>
         
                     <div class="perfilActivado__contenedores">
-                        <!-- Botón para cerrar sesión -->
                         <button class="contenedores__boton contenedores__boton--cerrarSesion">
                             Cerrar Sesion
                         </button>
@@ -111,12 +106,9 @@
         </div>
 
         <div class="container__contenido">
-            <!-- Imagen principal de la sección -->
             <img src="/contenido_embebido/imgFacturas.png" class="container_imagen_principal" alt="img factura">
-            <!-- Título de la sección -->
             <div class="container_titulo">Facturas</div>
 
-            <!-- Botón para nueva factura -->
             <button type="button" class="container_caja1" id="nuevaFacturaBtn">
                 <div class="container_mediacaja">
                     <img src="/contenido_embebido/simbolo+.png" alt="simbolo +" class="imagen">
@@ -124,7 +116,6 @@
                 <div class="container_texto">Nueva Factura</div>
             </button>
 
-            <!-- Botón para ver facturas -->
             <button type="button" class="container_caja2" id="verFacturaBtn">
                 <div class="container_mediacaja">
                     <img src="/contenido_embebido/verFacturas.png"  class="imagen2" alt="verFactura">
@@ -134,7 +125,6 @@
         </div>
     </div>
 
-    <!-- Script JavaScript para la funcionalidad de la página -->
     <script type="module" src="../js/_10_facturas.js"></script>
 </body>
 </html>

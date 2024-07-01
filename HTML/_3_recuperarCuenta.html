@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-    <!-- Metadatos básicos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título de la página -->
-    <title>Recuperar Cuenta</title>
-    
-    <!-- Enlace a los archivos de estilos CSS -->
+    <title>Document</title>
     <link rel="stylesheet" href="/CSS/_0_normalize.css">
     <link rel="stylesheet" href="/CSS/_3_recuperarCuenta.css">
 </head>
 <body> 
-    <!-- Contenedor principal de la página -->
     <div class="contenedorPrincipal">
-        <!-- Contenedor del mensaje de recuperación de cuenta -->
         <div class="contenedorPrincipal__mensaje">
-            <!-- Imagen del candado -->
             <img src="/contenido_embebido/candado.png" alt="imagen de candado" class="mensaje__img">
-            
-            <!-- Título del mensaje -->
             <h1 class="mensaje__h1">
                 Has olvidado tu contraseña
             </h1>
-            
-            <!-- Formulario para la recuperación de cuenta -->
             <form class="mensaje__form">
                 
-                <!-- Etiqueta y campo de entrada para el correo electrónico -->
                 <label class="form__parrafo">Ingrese su correo electrónico y te enviaremos un enlace para que vuelvas a entrar en tu cuenta.
                     <input class="form__input" type="text">
                 </label>
 
-                <!-- Botón de envío del formulario -->
                 <input type="submit" value="Siguiente" class="form__submit" id="submitBtn">
             </form>
         </div>
     </div>
+    <script type="module" src="../js/_3_recuperarCuenta.js"></script>
 </body>
 </html>

@@ -4,96 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Enlaces a las hojas de estilo -->
     <link rel="stylesheet" href="/CSS/_0_normalize.css">
     <link rel="stylesheet" href="/CSS/_7_cambiarInformacionPersonal.css">
 </head>
 <body>
-    <!-- Encabezado del sitio -->
     <header class="header">
-        <!-- Aquí se pueden agregar elementos del encabezado si es necesario -->
+
     </header>
 
-    <!-- Cuerpo principal de la página -->
     <div class="cuerpo"> 
-        <!-- Contenedor del formulario de cambio de información personal -->
         <div class="cuerpo__contenedorFormulario">
-            <!-- Botón para retroceder -->
-            <img src="/contenido_embebido/equis.png" alt="retroceder" class="contenedorFormulario__retroceder">
-            <!-- Contenedor de la imagen de perfil -->
+            <img src="/contenido_embebido/equis.png" alt="retroceder" class="contenedorFormulario__retroceder" >
             <div class="ContenedorFormulario__img">
                 <img src="/contenido_embebido/fotoPersona.png" class="img__img" alt="FotoUsuario">
             </div>
-            <!-- Formulario para cambiar la información personal -->
             <form class="formulario__form">
-                <!-- Campo Nombre Completo -->
                 <label class="form__label">Nombre Completo<br>
                     <input class="label__input" type="text">
                 </label>
 
-                <!-- Campo Identificación -->
                 <label class="form__label">Identificacion<br>
                     <input class="label__input label__input--tipico" type="text">
                 </label>
 
-                <!-- Campo Correo Electrónico -->
-                <label class="form__label">Correo Electronico<br>
+                <label class="form__label"> Correo Electronico<br>
                     <input type="text" class="label__input label__input--tipico">
                 </label>
-
-                <!-- Campo Contraseña -->
-                <label class="form__label">Contraseña<br>
+ 
+                <label class="form__label"> Contraseña<br>
                     <input type="password" class="label__input label__input--tipico">
                 </label>
 
-                <!-- Campo Confirmar Contraseña -->
-                <label class="form__label">Confirmar Contraseña<br>
+                <label class="form__label"> Confirmar Contraseña<br>
                     <input type="password" class="label__input label__input--tipico">
                 </label>
 
-                <!-- Campo Número de Teléfono -->
-                <label class="form__label">Numero de Telefono<br>
+                <label class="form__label"> Numero de Telefono<br>
                     <input type="text" class="label__input label__input--tipico">
                 </label>
 
-                <!-- Campo Fecha de Nacimiento -->
-                <label class="form__label">Fecha De Nacimiento<br>
+                
+                <label class="form__label"> Fecha De Nacimiento<br>
                     <input type="text" class="label__input label__input--tipico">
                 </label>
 
-                <!-- Botón para activar la ventana de confirmación -->
-                <button class="form__activador" id="idForm__activador">guardar cambios</button>
+                
+                <button class="form__activador"  id="idForm__activador">guardar cambios</button>
             </form>
+
         </div>
 
-        <!-- Ventana de confirmación de cambios -->
         <div class="ventanaActivada" id="idVentanaActivada">
-            <!-- Contenedor de imagen de cerrar -->
             <div class="ventanaActivada__divImg" id="idDivImg">
                 <img src="/contenido_embebido/equis.png" alt="" class="divImg__img">
             </div>
-            <!-- Texto de confirmación -->
+
             <div class="ventanaActivada__divTextYSubmit">
                 <p class="divTextYsubmit__text">¿Estas seguro de cambiar tu informacion Personal?</p>
             </div>
-            <!-- Botón para confirmar cambios -->
+
             <div class="ventanaActivada__divTextYSubmit">
                 <input type="submit" name="" id="" class="divTextYSubmit__submit" value="Confirmar Cambios">
             </div>
         </div>
 
-        <!-- Ventana de confirmación de cambios realizados -->
         <div class="ventanaActivada2" id="idVentanaActivada2">
-            <!-- Botón para cerrar la ventana -->
+
             <img src="/contenido_embebido/equis.png" alt="cerrar" id="idVentanaActivada2__img" class="ventanaActivada2__cerrar">
-            <!-- Texto de confirmación -->
             <p class="ventanaActivada2__Text">
                 Informacion Personal Cambiada Correctamente.
             </p>
         </div>
     </div>
 
-    <!-- Enlace al script de JavaScript para la funcionalidad del formulario -->
+
     <script type="module" src="/js/_7_cambiarInformacionPersonal.js"></script>
 </body>
-</html>
+</html> 
