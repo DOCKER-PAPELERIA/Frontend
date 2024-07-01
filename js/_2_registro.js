@@ -2,57 +2,59 @@ import { Link } from "../soloClases/links.js";
 
 
 
-document.getElementById('registerForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const registerForm = document.getElementById('registerForm');
+    
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-    // Obtener valores del formulario
-    const nombreCompleto = document.getElementById('nombreCompleto').value;
-    const identificacion = document.getElementById('identificacion').value;
-    const correoElectronico = document.getElementById('correoElectronico').value;
-    const contrasena = document.getElementById('contrasena').value;
-    const confirmarContrasena = document.getElementById('confirmarContrasena').value;
-    const telefono = document.getElementById('telefono').value;
-    const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            const formData = {
+                idRol: 1, // Esto podría cambiar según tu lógica de negocio
+                identificacion: document.getElementById('identificacion').value,
+                nombres: document.getElementById('nombreCompleto').value,
+                telefono: document.getElementById('telefono').value,
+                fecha_naci: document.getElementById('fechaNacimiento').value,
+                correo: document.getElementById('correoElectronico').value,
+                contrasena: document.getElementById('contrasena').value,
+                estado: 'activo'
+            };
 
-    // Validar que las contraseñas coincidan
-    if (contrasena !== confirmarContrasena) {
-        alert('Las contraseñas no coinciden');
-        return;
-    }
+            // Validar que todos los campos tienen valores
+            for (const key in formData) {
+                if (!formData[key]) {
+                    alert(`El campo ${key} es obligatorio.`);
+                    return;
+                }
+            }
 
-    // Crear el objeto de datos
-    const datosUsuario = {
-        idRol: 1,
-        identificacion: identificacion,
-        nombres: nombreCompleto,
-        telefono: telefono,
-        fecha_naci: fechaNacimiento,
-        correo: correoElectronico,
-        contrasena: contrasena,
-        estado: "activo"
-    };
+            try {
+                const response = await fetch('http://localhost:3000/user/usuario', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Incluye otros encabezados si es necesario, como tokens de autenticación
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-    try {
-        // Enviar solicitud POST
-        const respuesta = await fetch('http://localhost:3000/user/usuario', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(datosUsuario)
+                if (!response.ok) {
+                    const errorMessage = await response.json();
+                    console.error('Error:', errorMessage);
+                    alert(`Error: ${errorMessage.message || 'Error desconocido'}`);
+                    return;
+                }
+
+                const result = await response.json();
+                console.log(result);
+                // Aquí puedes manejar la respuesta del servidor, como mostrar un mensaje al usuario
+                alert('Usuario creado correctamente.');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ocurrió un error al crear el usuario.');
+                // Aquí puedes manejar los errores, como mostrar un mensaje de error al usuario
+            }
         });
-
-        // Manejar la respuesta del servidor
-        const resultado = await respuesta.json();
-        if (respuesta.ok) {
-            alert('Registro exitoso');
-            // Redireccionar o realizar alguna acción adicional
-        } else {
-            alert(`Error: ${resultado.message}`);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Ocurrió un error al registrar el usuario');
     }
 });
 
