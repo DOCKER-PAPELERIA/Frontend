@@ -1,6 +1,6 @@
 import { Link } from "../soloClases/links.js";
 
-new Link("../HTML/_1_index.html", "#linkInicioSesion").redireccionar();
+new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
 new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar(); 
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {

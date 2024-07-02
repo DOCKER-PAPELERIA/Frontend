@@ -3,6 +3,6 @@ export async function verificarTokenYRedirigir() {
     if (!authToken) {
         // No se encontró el token: Mostrar mensaje y redirigir al usuario
         alert('Por favor, regístrese para acceder.');
-        window.location.href = '../HTML/_1_index.html'; // Reemplaza con tu URL de inicio de sesión
+        window.location.href = '../HTML/index.html'; // Reemplaza con tu URL de inicio de sesión
     }
 }
