@@ -10,7 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const contrasena = document.getElementById('contrasena').value;
 
     fetch('http://localhost:3000/user/login', {
-        method: 'POST', 
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -21,26 +21,24 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Inicio de sesión fallido. Credenciales incorrectas.');
+            return response.json().then(data => {
+                throw new Error(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
+            });
         }
         return response.json();
     })
     .then(data => {
         console.log(data);
         if (!data.error) {
-            localStorage.setItem('authToken', data.body); 
-            window.location.href = '../HTML/_6_menu.html'; 
-            
+            localStorage.setItem('authToken', data.body);
+            window.location.href = '../HTML/_6_menu.html';
         } else {
-            alert('Inicio de sesión fallido. Credenciales incorrectas.');
+            alert(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
+        alert(error.message || 'Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
     });
 });
-
-
-
 
