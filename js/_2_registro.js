@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const response = await fetch('http://localhost:3000/user/usuario', {
+                const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // links de redireccionamiento.
-new Link("../HTML/_1_index.html", "#linkInicioSesion").redireccionar();
+new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
 new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
 
 

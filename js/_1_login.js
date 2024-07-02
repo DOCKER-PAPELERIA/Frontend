@@ -1,6 +1,6 @@
 import { Link } from "../soloClases/links.js";
 
-new Link("../HTML/_1_index.html", "#linkInicioSesion").redireccionar();
+new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
 new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar(); 
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -9,7 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const correo = document.getElementById('correo').value;
     const contrasena = document.getElementById('contrasena').value;
 
-    fetch('http://localhost:3000/user/login', {
+    fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
