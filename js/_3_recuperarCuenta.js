@@ -4,7 +4,7 @@ document.getElementById('recuperarCuentaForm').addEventListener('submit', async 
     const email = document.getElementById('emailInput').value;
 
     try {
-        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario-nueva-contrsena', {
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario-nueva-contrasena', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,6 +25,3 @@ document.getElementById('recuperarCuentaForm').addEventListener('submit', async 
         // Mostrar un mensaje de error al usuario o registrar el error para depuración
     }
 });
-
-
-
