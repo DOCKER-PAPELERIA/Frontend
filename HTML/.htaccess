@@ -1,10 +1,10 @@
-# # Activar el soporte de URLs amigables
-# RewriteEngine On
+# Activar el soporte de URLs amigables
+RewriteEngine On
 
-# # Redirigir URLs sin .html a sus respectivos archivos HTML
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_FILENAME}.html -f
-# RewriteRule ^(.*)$ $1.html [L]
+# Redirigir URLs sin .html a sus respectivos archivos HTML
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
 
-# # Configurar el tipo de archivo para las páginas de error
-# ErrorDocument 404 /errores/404.html
+# Configurar el tipo de archivo para las páginas de error
+ErrorDocument 404 /errores/404.html

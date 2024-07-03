@@ -3,6 +3,7 @@ import { Link } from "../soloClases/links.js";
 import { obtenerYActualizarDatosUsuario } from "../soloFunciones/actualizarInfoMenu.js";
 import { cerrarSesion } from "../soloFunciones/cerrarSesion.js";
 import { verificarTokenYRedirigir } from "../soloFunciones/verificarLogin.js";
+import { eliminarTokenDespuesDeTiempo } from "../soloFunciones/destruirToken.js";
 /**
  * Selector del menú
  * @type {HTMLElement}
@@ -77,9 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     verificarTokenYRedirigir();
-
-
 });
+// eliminarTokenDespuesDeTiempo(1);
 
 
 
