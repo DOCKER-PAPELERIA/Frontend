@@ -10,13 +10,13 @@ import { Link } from "../soloClases/links.js";
  * Redirecciona a la página de inicio de sesión.
  * @type {Link}
  */
-new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
+new Link("../HTML/index", "#linkInicioSesion").redireccionar();
 
 /**
  * Redirecciona a la página de registro.
  * @type {Link}
  */
-new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
+new Link("../HTML/_2_registro", "#linkRegistrarse").redireccionar();
 
 /**
  * Maneja el evento de envío del formulario de inicio de sesión.
@@ -61,7 +61,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
              * Almacena el token de autenticación en localStorage y redirige al menú principal.
              */
             localStorage.setItem('authToken', data.body);
-            window.location.href = '../HTML/_6_menu.html';
+            window.location.href = '../HTML/_6_menu';
         } else {
             /**
              * Muestra un mensaje de error si las credenciales son incorrectas.
