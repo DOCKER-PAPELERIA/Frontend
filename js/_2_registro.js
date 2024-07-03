@@ -1,14 +1,46 @@
+/**
+ * @fileoverview Script para manejar la redirección de enlaces y el registro de usuario.
+ * Este script proporciona funcionalidad para redirigir a los usuarios a las páginas de inicio de sesión y registro,
+ * y para manejar el proceso de registro mediante una solicitud a la API.
+ */
+
 import { Link } from "../soloClases/links.js";
 
+/**
+ * Redirecciona a la página de inicio de sesión.
+ * @type {Link}
+ */
+new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
 
+/**
+ * Redirecciona a la página de registro.
+ * @type {Link}
+ */
+new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
 
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
     
     if (registerForm) {
+        /**
+         * Maneja el evento de envío del formulario de registro.
+         * @param {Event} event - El evento de envío del formulario.
+         */
         registerForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
+            /**
+             * Datos del formulario de registro.
+             * @type {Object}
+             * @property {number} idRol - ID del rol del usuario, predeterminado a 1.
+             * @property {string} identificacion - Identificación del usuario.
+             * @property {string} nombres - Nombre completo del usuario.
+             * @property {string} telefono - Teléfono del usuario.
+             * @property {string} fecha_naci - Fecha de nacimiento del usuario.
+             * @property {string} correo - Correo electrónico del usuario.
+             * @property {string} contrasena - Contraseña del usuario.
+             * @property {string} estado - Estado del usuario, predeterminado a 'activo'.
+             */
             const formData = {
                 idRol: 1, // Esto podría cambiar según tu lógica de negocio
                 identificacion: document.getElementById('identificacion').value,
@@ -32,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                         // Incluye otros encabezados si es necesario, como tokens de autenticación
                     },
                     body: JSON.stringify(formData)
@@ -57,43 +89,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// links de redireccionamiento.
-new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
-new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
-
-
