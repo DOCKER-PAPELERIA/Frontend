@@ -24,16 +24,6 @@ new ActivarMenuDesplegableYUsuario(
 ).usuario();
 
 
-const inicio = document.querySelector(".inicio");
-const estadisticas = document.querySelector(".estadisticas");
-const alertas = document.querySelector(".alertas");
-const analisisVentas = document.querySelector(".analisisVentas");
-const compras = document.querySelector(".ventas");
-const facturas = document.querySelector(".facturas");
-const productos = document.querySelector(".productos");
-const categorias = document.querySelector(".categorias");
-const comprobarExistencias = document.querySelector(".comprobarExistencias");
-const gestionarCuenta = document.querySelector(".perfilActivado__contenedores");
 
 new Link(
     "../HTML/_7_cambiarInformacionPersonal.html",
