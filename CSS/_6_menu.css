@@ -165,10 +165,8 @@
 }
 
 .contenedores__img{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: translateY(50px);
+    height: 90%;
+    width: 90%;
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil */
@@ -191,7 +189,7 @@
     height: 70%; /* Establece la altura */
     width: 70%; /* Establece el ancho */
 }
-
+/* _______________________________________________________---------------------------------------------------------------------------------------------- */
 /* Estilos del contenedor general */
 .contenedorGeneral {
     width: 100vw; /* Establece el ancho al 100% del ancho del viewport */

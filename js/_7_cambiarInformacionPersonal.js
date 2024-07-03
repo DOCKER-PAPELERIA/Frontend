@@ -23,3 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    obtenerYActualizarDatosUsuario()
+        .catch(error => {
+            console.error('Error al obtener y actualizar datos del usuario:', error);
+        });
+
+    const botonCerrarSesion = document.getElementById('boton--cerrarSesion');
+    if (botonCerrarSesion) {
+        botonCerrarSesion.addEventListener('click', cerrarSesion);
+    }
+
+    verificarTokenYRedirigir();
+
+
+});

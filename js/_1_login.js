@@ -9,7 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const correo = document.getElementById('correo').value;
     const contrasena = document.getElementById('contrasena').value;
 
-    fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/login', {
+    fetch('http://localhost:3000/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

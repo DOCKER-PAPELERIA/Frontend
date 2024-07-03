@@ -1,7 +1,8 @@
-* {
-  margin: 0px;
-  padding: 0px;
+*{
+  margin: 0;
+  padding: 0;
 }
+
 /* Encabezado principal */
 .header {
   display: flex; /* Utiliza flexbox para alinear los elementos hijos */
@@ -157,7 +158,8 @@
 
 /* Contenedor de la imagen del perfil */
 .perfil__contenedores--img {
-  height: 35%; /* Altura del 35% del contenedor padre */
+  height: 50%; /* Altura del 35% del contenedor padre */
+  width: 100%;
 }
 
 /* Estilos de los contenedores de las opciones de perfil */
@@ -165,6 +167,11 @@
   display: flex; /* Muestra el contenido horizontalmente */
   align-items: center; /* Alinea el contenido verticalmente */
   justify-content: center; /* Alinea el contenido horizontalmente */
+}
+
+.contenedores__img{
+  height: 90%;
+  width: 90%;
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil */
@@ -187,8 +194,7 @@
   height: 70%; /* Establece la altura */
   width: 70%; /* Establece el ancho */
 }
-/* _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ */
-
+/* _______________________________________________________---------------------------------------------------------------------------------------------- */
 .container__contenido {
   width: 100vw;
   height: 90vh;
