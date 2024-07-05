@@ -106,58 +106,61 @@
                 </div> 
             </header>
         </div>
-
+ 
         <div class="container__contenido">
             <div class="container__texto">Cambiar Información</div>
-            
-
-
+        
             <div class="container__informacion">
                 <div class="left-section">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre">
-
+        
                     <label for="categoria">Categoría:</label>
-                    <input type="text" id="categoria">
-
+                    <select class="desplegables" id="categoria">
+                        <!-- Opciones serán añadidas dinámicamente por JavaScript -->
+                    </select>
+        
                     <label for="url-imagen">URL Imagen:</label>
                     <input type="text" id="url-imagen">
-
+        
                     <label for="proveedor">Proveedor:</label>
-                    <input type="text" id="proveedor">
+                    <select class="desplegables" id="proveedor">
+                        <!-- Opciones serán añadidas dinámicamente por JavaScript -->
+                    </select>
                 </div>
                 <div class="right-section">
                     <label for="unidades">Unidades:</label>
-                    <input type="text" id="nombre">
-
+                    <input type="text" id="unidades">
+        
                     <label for="precio">Precio:</label>
                     <input type="text" id="precio">
-
+        
                     <label for="codigo">Código Producto:</label>
                     <input type="text" id="codigo">
-
+        
                     <label for="fecha">Fecha:</label>
                     <input type="date" id="fecha">
                 </div>
-
-                <div class="container__imagenX" id="container__imagenX"> <button class="botonX"><i class='bx bx-x' ></i></button></div>
+        
+                <div class="container__imagenX" id="container__imagenX"> 
+                    <button class="botonX"><i class='bx bx-x'></i></button>
+                </div>
                 <button class="boton__guardarcambios">Guardar Cambios</button>
             </div>
         </div>
-
-
+        
         <!-- Ventana para eliminar -->
         <div class="ventana">
             <div class="header2">
                 <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
             </div>
-
+        
             <div class="body">
                 <h3 class="text_information">Información Modificada Correctamente</h3>
             </div>
         </div>
-    </div>
-
+        
+        
     <script type="module" src="../js/_16_productosCambiarInformacion.js"></script>
 </body>
 

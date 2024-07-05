@@ -43,6 +43,29 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 /**
  * Instancia de la clase Link para redirigir a la página de ver productos.
  */
@@ -79,6 +102,163 @@ botonesGuardar.forEach(function (button) {
 btnCerrarVentanaGuardar.addEventListener("click", function () {
     ventanaGuardarCambios.style.display = 'none';
 });
+
+// Obtener el token de autenticación
+const authToken = localStorage.getItem("authToken");
+
+// Función para guardar los cambios
+async function guardarCambios() {
+    const idProducto = new URLSearchParams(window.location.search).get('id');
+    const nombre_product = document.getElementById('nombre').value;
+    const idCategorias = document.getElementById('categoria').value;
+    const imagen = document.getElementById('url-imagen').value;
+    const idProveedor = document.getElementById('proveedor').value;
+    const stock = document.getElementById('unidades').value;
+    const precio = document.getElementById('precio').value;
+    const codigo_producto = document.getElementById('codigo').value;
+    const fecha = document.getElementById('fecha').value;
+    const estado = "activo"; // o el valor que corresponda
+
+    const producto = {
+        idCategorias,
+        idProveedor,
+        nombre_product,
+        stock,
+        codigo_producto,
+        imagen,
+        precio,
+        fecha,
+        estado
+    };
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/producto/${idProducto}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+                "x-access-token": authToken
+            },
+            body: JSON.stringify(producto)
+        });
+
+        if (!response.ok) {
+            throw new Error('No se pudo modificar el producto');
+        }
+
+        const data = await response.json();
+        console.log('Respuesta del servidor:', data);
+
+        // Mostrar la ventana emergente si la modificación fue exitosa
+        ventanaGuardarCambios.style.display = 'block';
+
+    } catch (error) {
+        console.error('Error al modificar el producto:', error);
+    }
+}
+
+// Añade un evento de clic al botón de 'Guardar Cambios'
+document.querySelector('.boton__guardarcambios').addEventListener('click', guardarCambios);
+
+// Función para cargar categorías
+async function cargarCategorias() {
+    try {
+        const response = await fetch('http://localhost:3000/api/categoria');
+        if (!response.ok) {
+            throw new Error('No se pudo obtener la lista de categorías');
+        }
+        const responseData = await response.json();
+        console.log('Datos recibidos del servidor:', responseData); // Verifica la respuesta del servidor
+
+        // Verifica que la propiedad 'body' sea un array
+        if (!Array.isArray(responseData.body)) {
+            throw new TypeError('La propiedad body no es un array');
+        }
+
+        const categorias = responseData.body; // Obtén el array de categorías
+
+        // Procesa cada categoría recibida
+        const selectCategoria = document.getElementById('categoria');
+        selectCategoria.innerHTML = ''; // Limpia el select antes de agregar nuevas opciones
+
+        categorias.forEach(categoria => {
+            const option = document.createElement('option');
+            option.value = categoria.idCategorias;
+            option.textContent = categoria.Categoria;
+            selectCategoria.append(option);
+        });
+    } catch (error) {
+        console.error('Error al obtener la lista de categorías:', error);
+    }
+}
+
+
+// Función para cargar proveedores
+async function cargarProveedores() {
+    try {
+        const response = await fetch('http://localhost:3000/api/proveedor');
+        if (!response.ok) {
+            throw new Error('No se pudo obtener la lista de proveedores');
+        }
+        const responseData = await response.json();
+        console.log('Datos recibidos del servidor (proveedores):', responseData); // Verifica la respuesta del servidor
+
+        // Verifica que la propiedad 'body' sea un array
+        if (!Array.isArray(responseData.body)) {
+            throw new TypeError('La propiedad body no es un array');
+        }
+
+        const proveedores = responseData.body; // Obtén el array de proveedores
+
+        // Procesa cada proveedor recibido
+        const selectProveedor = document.getElementById('proveedor');
+        selectProveedor.innerHTML = ''; // Limpia el select antes de agregar nuevas opciones
+
+        proveedores.forEach(proveedor => {
+            const option = document.createElement('option');
+            option.value = proveedor.idProveedor;
+            option.textContent = proveedor.nombre_proveedor;
+            selectProveedor.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error('Error al obtener la lista de proveedores:', error);
+    }
+}
+
+
+// Inicializa la carga de proveedores al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    cargarProveedores();
+    cargarCategorias();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Instancia de la clase Link para redirigir a la página de cambiar información personal.

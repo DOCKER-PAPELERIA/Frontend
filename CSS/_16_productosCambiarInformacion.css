@@ -293,6 +293,10 @@ input {
   border-radius: 5px;
 }
 
+.desplegables{
+  height: 32px;
+}
+
 .ventana {
   width: 370px;
   height: 220px;
