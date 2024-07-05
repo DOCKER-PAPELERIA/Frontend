@@ -43,55 +43,201 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
-/**
- * Instancia de la clase Link para redirigir a la página de cambiar información de productos.
- */
-new Link("/HTML/_16_productosCambiarInformacion.html", ".button_editar").redireccionar();
 
-/**
- * Botones para abrir la ventana emergente de eliminar producto.
- * @type {NodeList}
- */
-const botonesEliminar = document.querySelectorAll(".button_eliminar");
 
-/**
- * Ventana emergente de eliminar producto.
- * @type {HTMLElement}
- */
-const ventanaEliminarProducto = document.querySelector(".ventana");
 
-/**
- * Botón para cancelar en la ventana emergente de eliminar producto.
- * @type {HTMLElement}
- */
-const btnNoEliminar = document.getElementById("btn-not");
 
-/**
- * Botón para cerrar la ventana emergente de eliminar producto.
- * @type {HTMLElement}
- */
-const btnCerrarEliminarProducto = document.getElementById("btn-close");
 
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-botonesEliminar.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventanaEliminarProducto.style.display = 'block';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const authToken = localStorage.getItem("authToken");
+const url = "http://localhost:3000/api/producto";
+let productos = []; // Array para almacenar los productos
+
+// Función para obtener y mostrar los productos
+async function mostrarProductos() {
+    try {
+        const response = await fetch(url, { method: 'GET' });
+        if (!response.ok) {
+            throw new Error('No se pudo obtener la lista de productos');
+        }
+        const data = await response.json();
+        console.log('Datos recibidos del servidor:', data); // Verifica la respuesta del servidor
+
+        // Verifica que la respuesta sea un array
+        if (!Array.isArray(data)) {
+            throw new TypeError('La respuesta no es un array');
+        }
+
+        productos = data; // Almacena los productos en el array
+        mostrarProductosFiltrados(productos); // Muestra todos los productos inicialmente
+
+    } catch (error) {
+        console.error('Error al obtener la lista de productos:', error);
+    }
+}
+
+// Función para mostrar los productos filtrados
+function mostrarProductosFiltrados(productosFiltrados) {
+    const listaProductos = document.querySelector('.caja__lista');
+    listaProductos.innerHTML = ''; // Limpia la lista antes de agregar nuevos productos
+
+    productosFiltrados.forEach(producto => {
+        const productoHTML = `
+            <li>
+                <div class="caja">
+                    <div class="imagen"><img class="img" src="${producto.imagen}" alt="no hay imagen para mostrar"></div>
+                    <div class="nombre">${producto.nombre_product}</div>
+                    <div class="codigo">Código: ${producto.codigo_producto}</div>
+                    <div class="categoria">Categoría: ${producto.Categoria}</div>
+                    <div class="unidades">Unidades: ${producto.stock}</div>
+                    <div class="precio">Precio: $${producto.precio}</div>
+                    <div class="container__button">
+                        <button class="button_editar" data-id="${producto.idProducto}">Editar</button>
+                        <button class="button_eliminar" data-id="${producto.idProducto}">Eliminar</button>
+                    </div>
+                </div>
+            </li>
+        `;
+        listaProductos.insertAdjacentHTML('beforeend', productoHTML);
     });
-});
 
-/**
- * Cierra la ventana emergente de eliminar producto al hacer clic en el botón de cerrar.
- */
-btnCerrarEliminarProducto.addEventListener("click", function () {
-    ventanaEliminarProducto.style.display = 'none';
-});
+    // Añadir event listeners a los botones de editar y eliminar
+    document.querySelectorAll('.button_editar').forEach(button => {
+        button.addEventListener('click', redireccionarEditar);
+    });
 
-/**
- * Cierra la ventana emergente de eliminar producto al hacer clic en el botón de cancelar.
- */
-btnNoEliminar.addEventListener("click", function () {
-    ventanaEliminarProducto.style.display = 'none';
-});
+    document.querySelectorAll('.button_eliminar').forEach(button => {
+        button.addEventListener('click', confirmarEliminacion);
+    });
+}
+
+// Función para redirigir a la página de edición
+function redireccionarEditar(event) {
+    const idProducto = event.target.dataset.id;
+    window.location.href = `/HTML/_16_productosCambiarInformacion.html?id=${idProducto}`;
+}
+
+// Función para confirmar la eliminación de un producto
+function confirmarEliminacion(event) {
+    const idProducto = event.target.dataset.id;
+    const ventanaEliminarProducto = document.getElementById('ventanaEliminarProducto');
+    ventanaEliminarProducto.style.display = 'block';
+
+    // Manejar la confirmación de la eliminación
+    const btnSiEliminar = document.getElementById('btn-yes');
+    btnSiEliminar.onclick = () => eliminarProducto(idProducto);
+
+    const btnNoEliminar = document.getElementById('btn-not');
+    btnNoEliminar.onclick = () => {
+        ventanaEliminarProducto.style.display = 'none'; // Oculta la ventana emergente
+    };
+}
+
+const url2 = "http://localhost:3000/api/producto";
+// Función para eliminar un producto
+async function eliminarProducto(id) {
+    try {
+        const response = await fetch(`${url2}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "x-access-token": authToken
+            }
+        });
+        if (!response.ok) {
+            throw new Error('No se pudo eliminar el producto');
+        }
+        // Recargar la lista de productos después de eliminar
+        mostrarProductos();
+        ventanaEliminarProducto.style.display = 'none';
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+    }
+}
+
+// Función para filtrar los productos
+function filtrarProductos(event) {
+    const terminoBusqueda = event.target.value.toLowerCase();
+    const productosFiltrados = productos.filter(producto => 
+        String(producto.nombre_product).toLowerCase().includes(terminoBusqueda) ||
+        String(producto.codigo_producto).toLowerCase().includes(terminoBusqueda) ||
+        String(producto.Categoria).toLowerCase().includes(terminoBusqueda)
+    );
+    mostrarProductosFiltrados(productosFiltrados);
+}
+
+// Inicializa la carga de productos al cargar la página
+document.addEventListener('DOMContentLoaded', mostrarProductos);
+
+// Añadir event listener al campo de búsqueda
+document.getElementById('buscador').addEventListener('input', filtrarProductos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Instancia de la clase Link para redirigir a la página de cambiar información personal.

@@ -101,6 +101,8 @@
     cursor: pointer;
 }
 
+
+
 /* Estilos para la imagen de cerrar */
 .divImg__img {
     height: 100%;
@@ -149,8 +151,14 @@
 /* Estilos para la imagen de cerrar en la segunda ventana de confirmación */
 .ventanaActivada2__cerrar {
     height: 30px;
-    transform: translateX(280px) translateY(-60px); /* Ajuste de posición */
+    transform: translateX(600px) translateY(15px); /* Ajuste de posición */
     cursor: pointer;
+}
+
+#correoElectronico{
+    height: 30px;
+    width: 130%;
+    transform: translateX(-30px);
 }
 
 /* Estilos para el texto dentro de la segunda ventana de confirmación */

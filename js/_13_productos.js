@@ -1,13 +1,16 @@
-/**
- * @fileoverview Script para manejar la activación del menú desplegable, la gestión del usuario,
- * la apertura y cierre de ventanas emergentes, y la redirección de enlaces en la interfaz de usuario.
- */
-
 import { ActivarMenuDesplegableYUsuario } from "../soloClases/activarMenuDesplegableYUsuario.js";
 import { Link } from "../soloClases/links.js";
 import { obtenerYActualizarDatosUsuario } from "../soloFunciones/actualizarInfoMenu.js";
 import { cerrarSesion } from "../soloFunciones/cerrarSesion.js";
 import { verificarTokenYRedirigir } from "../soloFunciones/verificarLogin.js";
+document.addEventListener('DOMContentLoaded', function() {
+    
+
+/**
+ * @fileoverview Script para manejar la activación del menú desplegable, la gestión del usuario,
+ * la apertura y cierre de ventanas emergentes, y la redirección de enlaces en la interfaz de usuario.
+ */
+
 
 /**
  * Selector del menú.
@@ -43,96 +46,18 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
-/**
- * Botón para abrir la ventana emergente de nuevo producto.
- * @type {NodeList}
- */
-const buttonNuevoProducto = document.querySelectorAll(".boton__nuevoproducto");
-
-/**
- * Ventana emergente de nuevo producto.
- * @type {HTMLElement}
- */
-const ventanaNuevoProducto = document.querySelector(".ventanaNuevoProducto");
-
-/**
- * Botón de confirmar nuevo producto en la ventana emergente.
- * @type {HTMLElement}
- */
-const btnConfirmarNuevoProducto = document.getElementById("btn-nuevoproducto-confirmar");
-
-/**
- * Botón para cerrar la ventana emergente de nuevo producto.
- * @type {HTMLElement}
- */
-const btnCerrarNuevoProducto = document.getElementById("btn-nuevoproducto-cerrar");
-
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-buttonNuevoProducto.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventanaNuevoProducto.style.display = 'block';
-    });
-});
-
-/**
- * Cierra la ventana emergente de nuevo producto al hacer clic en el botón de cerrar.
- */
-btnCerrarNuevoProducto.addEventListener("click", function () {
-    ventanaNuevoProducto.style.display = 'none';
-});
-
-/**
- * Cierra la ventana emergente de nuevo producto al confirmar la acción.
- */
-btnConfirmarNuevoProducto.addEventListener("click", function () {
-    ventanaNuevoProducto.style.display = 'none';
-});
 
 
-/**
- * Botón para abrir la ventana emergente de ver producto.
- * @type {NodeList}
- */
-const buttonVerProducto = document.querySelectorAll(".boton__verproducto");
+// continuar al acabar todas las vistas
 
-/**
- * Ventana emergente de ver producto.
- * @type {HTMLElement}
- */
-const ventanaVerProducto = document.querySelector(".ventanaVerProducto");
+new Link("../HTML/_14_productosNuevoProducto.html","#nuevoProductoBtn").redireccionar();
 
-/**
- * Botón de confirmar ver producto en la ventana emergente.
- * @type {HTMLElement}
- */
-const btnConfirmarVerProducto = document.getElementById("btn-verproducto-confirmar");
 
-/**
- * Botón para cerrar la ventana emergente de ver producto.
- * @type {HTMLElement}
- */
-const btnCerrarVerProducto = document.getElementById("btn-verproducto-cerrar");
+new Link("../HTML/_15_productosVerProductos.html","#verProductoBtn").redireccionar();
 
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-buttonVerProducto.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventanaVerProducto.style.display = 'block';
-    });
-});
 
-/**
- * Cierra la ventana emergente de ver producto al hacer clic en el botón de cerrar.
- */
-btnCerrarVerProducto.addEventListener("click", function () {
-    ventanaVerProducto.style.display = 'none';
-});
 
-/**
- * Cierra la ventana emergente de ver producto al confirmar la acción.
- */
-btnConfirmarVerProducto.addEventListener("click", function () {
-    ventanaVerProducto.style.display = 'none';
-});
+
 
 
 /**
@@ -197,4 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
      * Verifica el token y redirige si es necesario.
      */
     verificarTokenYRedirigir();
+});
+
 });

@@ -2,7 +2,7 @@
  * @fileoverview Script para manejar la activación y cierre de ventanas modales,
  * y la redirección de enlaces en la interfaz de usuario.
  */
-
+import { eliminarTokenDespuesDeTiempo } from "../soloFunciones/destruirToken.js";
 import { Link } from "../soloClases/links.js";
 
 /**
@@ -62,6 +62,79 @@ document.addEventListener("DOMContentLoaded", () => {
     cerrarVentana2.addEventListener("click", () => {
         ventanaActivada2.style.display = "none";
     });
+
+    // Obtener el token de localStorage
+    const authToken = localStorage.getItem("authToken");
+
+    // Obtener elementos del formulario
+    const identificacionInput = document.querySelector("#identificacion");
+    const nombreCompletoInput = document.querySelector("#nombre_completo");
+    const contrasenaInput = document.querySelector("#contrasena");
+    const confirmarContrasenaInput = document.querySelector("#confirmar_contrasena");
+    const telefonoInput = document.querySelector("#telefono");
+    const fechaNacimientoInput = document.querySelector("#fecha_nacimiento");
+
+    // Obtener el correo electrónico del token en localStorage
+const correo = JSON.parse(atob(authToken.split('.')[1])).correo;
+
+// Establecer el valor del correo electrónico y deshabilitar el campo
+const correoInput = document.getElementById("correoElectronico");
+correoInput.value = correo;
+correoInput.disabled = true; // Para hacer el campo ineditable
+
+
+    /**
+     * Maneja el evento de envío del formulario para actualizar datos del usuario.
+     */
+    const miForm = document.getElementById("miForm");
+    miForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Validación de contraseñas
+        if (contrasenaInput.value !== confirmarContrasenaInput.value) {
+            alert("Las contraseñas no coinciden");
+            return;
+        }
+
+        // Datos a enviar en la solicitud PUT
+        const datos = {
+            identificacion: identificacionInput.value,
+            nombres: nombreCompletoInput.value,
+            telefono: telefonoInput.value,
+            fecha_naci: fechaNacimientoInput.value,
+            correo: correo, // Añadir el campo de correo
+            contrasena: contrasenaInput.value,
+            estado: "Activo" // Agregar el estado necesario
+        };
+
+        try {
+            const response = await fetch("http://localhost:3000/user/usuario", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-access-token": authToken
+                },
+                body: JSON.stringify(datos)
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                console.log("Usuario modificado:", result);
+                // Mostrar ventana de confirmación
+                ventanaActivada.style.display = "none";
+                ventanaActivada2.style.display = "flex";
+                setTimeout(() => {
+                    ventanaActivada2.style.display = "none";
+                }, 3000); // Ocultar ventana de confirmación después de 3 segundos
+            } else {
+                console.error("Error al modificar usuario:", result);
+                alert("Error al modificar usuario");
+            }
+        } catch (error) {
+            console.error("Error al enviar solicitud:", error);
+            alert("Error al enviar solicitud");
+        }
+    });
 });
 
 /**
@@ -69,31 +142,5 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
-/**
- * Se ejecuta cuando el contenido del DOM ha sido cargado.
- * @listens DOMContentLoaded
- */
-document.addEventListener('DOMContentLoaded', function() {
-    /**
-     * Obtiene y actualiza los datos del usuario.
-     * @returns {Promise<void>}
-     */
-    obtenerYActualizarDatosUsuario()
-        .catch(error => {
-            console.error('Error al obtener y actualizar datos del usuario:', error);
-        });
-
-    /**
-     * Botón para cerrar sesión.
-     * @type {HTMLElement}
-     */
-    const botonCerrarSesion = document.getElementById('boton--cerrarSesion');
-    if (botonCerrarSesion) {
-        botonCerrarSesion.addEventListener('click', cerrarSesion);
-    }
-
-    /**
-     * Verifica el token y redirige si es necesario.
-     */
-    verificarTokenYRedirigir();
-});
+eliminarTokenDespuesDeTiempo(60);
+verificarTokenYRedirigir();

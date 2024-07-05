@@ -10,13 +10,13 @@ import { Link } from "../soloClases/links.js";
  * Redirecciona a la página de inicio de sesión.
  * @type {Link}
  */
-new Link("../HTML/index", "#linkInicioSesion").redireccionar();
+new Link("../HTML/index.html", "#linkInicioSesion").redireccionar();
 
 /**
  * Redirecciona a la página de registro.
  * @type {Link}
  */
-new Link("../HTML/_2_registro", "#linkRegistrarse").redireccionar();
+new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
 
 /**
  * Maneja el evento de envío del formulario de inicio de sesión.
@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
      * Realiza la solicitud de inicio de sesión al servidor.
      * @returns {Promise<void>}
      */
-    fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/login', {
+    fetch('http://localhost:3000/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
              * Almacena el token de autenticación en localStorage y redirige al menú principal.
              */
             localStorage.setItem('authToken', data.body);
-            window.location.href = '../HTML/_6_menu';
+            window.location.href = '../HTML/_6_menu.html';
         } else {
             /**
              * Muestra un mensaje de error si las credenciales son incorrectas.

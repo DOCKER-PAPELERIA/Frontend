@@ -94,13 +94,63 @@ btnCancelarNuevoProducto.addEventListener("click", function () {
     ventanaNuevoProducto.style.display = 'none';
 });
 
-/**
- * Cierra la ventana emergente de nuevo producto al confirmar la acción.
+
+
+document.getElementById("miFormulario").addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    /**miFormulario
+ * Envía los datos del formulario al controlador para crear un nuevo producto.
  */
-btnConfirmarNuevoProducto.addEventListener("click", function () {
-    ventanaNuevoProducto.style.display = 'none';
+btnConfirmarNuevoProducto.addEventListener("click", async function () {
+    const nombre = document.getElementById('nombre').value;
+    const categoria = document.getElementById('categoria').value;
+    const urlImagen = document.getElementById('url-imagen').value;
+    const proveedor = document.getElementById('proveedor').value;
+    const unidades = document.getElementById('unidades').value;
+    const precio = document.getElementById('precio').value;
+    const codigo = document.getElementById('codigo').value;
+    const fecha = document.getElementById('fecha').value;
+
+    try {
+        
+
+
+        const response = await fetch('http://localhost:3000/api/producto-agotado', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                idCategorias: categoria,
+                idProveedor: proveedor,
+                nombre_product: nombre,
+                stock: unidades,
+                codigo_producto: codigo,
+                imagen: urlImagen,
+                precio: precio,
+                fecha: fecha,
+                estado: 'activo' // Ajustar según sea necesario
+            })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert('Producto creado correctamente.');
+            // Aquí puedes redirigir o realizar alguna acción adicional después de crear el producto
+        } else {
+            alert('Error al crear el producto: ' + data.message);
+        }
+    } catch (error) {
+        console.error('Error al crear el producto:', error);
+        alert('Error al crear el producto. Intenta más tarde.');
+    } finally {
+        ventanaNuevoProducto.style.display = 'none';
+    }
 });
 
+});
 
 /**
  * Instancia de la clase Link para redirigir a la página de ver productos.

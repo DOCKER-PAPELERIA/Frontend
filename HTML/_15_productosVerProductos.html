@@ -110,95 +110,31 @@
                 <div class="caja1">
                     <div class="container__buscador">
                         <img src="/contenido_embebido/buscador.png" alt="img buscador" class="container_buscador_imagen">
-                        <input type="search" class="container_buscador_cuadro" placeholder="Buscar">
+                        <input type="search" id="buscador" class="container_buscador_cuadro" placeholder="Buscar">
                     </div>
                 </div>
             </div>
-
+        
             <div class="container__lista">
-                <ul class="caja__lista">
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img class="img" src="../contenido_embebido/img_caja.png" alt=""></div>
-                            <div class="nombre">Cajas 24*24 CM</div>
-                            <div class="codigo">Código: 25478</div>
-                            <div class="categoria">Categoría: Cajas</div>
-                            <div class="unidades">Unidades: 5</div>
-                            <div class="precio">Precio: $2.100</div>
-                            <div class="container__button">
-                                <button class="button_editar" id="button_editar">Editar</button>
-                                <button class="button_eliminar" id="button_eliminar">Eliminar</button>
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img class="img"  src="../contenido_embebido/img_papelPeriodico.png" alt=""></div>
-                            <div class="nombre">Papel Periódico</div>
-                            <div class="codigo">Código: 54763</div>
-                            <div class="categoria">Categoría: Papeles</div>
-                            <div class="unidades">Unidades: 4</div>
-                            <div class="precio">Precio: $1.200</div>
-                            <div class="container__button">
-                                <button class="button_editar" id="button_editar">Editar</button>
-                                <button class="button_eliminar" id="button_eliminar">Eliminar</button>
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img class="img" src="../contenido_embebido/img_tijerasRojas.png" alt=""></div>
-                            <div class="nombre">Tijeras Rosadas</div>
-                            <div class="codigo">Código: 85214</div>
-                            <div class="categoria">Categoría: Tijeras</div>
-                            <div class="unidades">Unidades: 0</div>
-                            <div class="precio">Precio: $4.500</div>
-                            <div class="container__button">
-                                <button class="button_editar" id="button_editar">Editar</button>
-                                <button class="button_eliminar" id="button_eliminar">Eliminar</button>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img class="img" src="../contenido_embebido/carpetas.png" alt=""></div>
-                            <div class="nombre">Carpetas</div>
-                            <div class="codigo">Código: 15895</div>
-                            <div class="categoria">Categoría: Cajas</div>
-                            <div class="unidades">Unidades: 0</div>
-                            <div class="precio">Precio: $2.100</div>
-                            <div class="container__button">
-                                <button class="button_editar" id="button_editar">Editar</button>
-                                <button class="button_eliminar" id="button_eliminar">Eliminar</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="caja__lista"></ul>
             </div>
         </div>
-
-
+        
         <!-- Ventana para eliminar -->
-        <div class="ventana">
+        <div class="ventana" id="ventanaEliminarProducto">
             <div class="header2">
                 <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
             </div>
-
             <div class="body">
                 <h3 class="text_information">¿Estás seguro de eliminar este producto?</h3>
             </div>
-
             <div class="footer">
                 <button class="btn-confirm yes" id="btn-yes">Sí</button>
                 <button class="btn-confirm not" id="btn-not">No</button>
             </div>
         </div>
-    </div>
+        
+        
 
     <script type="module" src="../js/_15_productosverProductos.js"></script>
 </body>

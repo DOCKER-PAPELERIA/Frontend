@@ -12,7 +12,7 @@ export async function obtenerYActualizarDatosUsuario() {
             throw new Error('No se encontró el token de autenticación en localStorage');
         }
 
-        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario-perfil', {
+        const response = await fetch('http://localhost:3000/user/usuario-perfil', {
             method: 'GET',
             headers: {
                 'x-access-token': authToken
