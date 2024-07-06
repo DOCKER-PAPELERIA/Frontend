@@ -264,6 +264,7 @@
   color: white;
   font-family: serif;
   margin-bottom: 10px;
+  transform: translate(-500px, 150px);
 }
 
 .boton__nuevoproducto:hover {

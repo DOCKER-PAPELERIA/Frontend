@@ -124,8 +124,7 @@ btnCancelarNuevoProducto.addEventListener("click", function () {
 
 
 
-
-document.getElementById('miformulario').addEventListener('submit', async function (event) {
+document.getElementById('miFormulario').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const nombre = document.getElementById('nombre').value;
@@ -150,7 +149,7 @@ document.getElementById('miformulario').addEventListener('submit', async functio
     };
 
     try {
-        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/producto', {
+        const response = await fetch('http://localhost:3000/api/producto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -189,7 +188,7 @@ document.getElementById('miformulario').addEventListener('submit', async functio
 
 async function cargarCategorias() {
     try {
-        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/categoria');
+        const response = await fetch('http://localhost:3000/api/categoria');
         if (!response.ok) {
             throw new Error('No se pudo obtener la lista de categorías');
         }
@@ -217,7 +216,7 @@ async function cargarCategorias() {
 
 async function cargarProveedores() {
     try {
-        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/proveedor');
+        const response = await fetch('http://localhost:3000/api/proveedor');
         if (!response.ok) {
             throw new Error('No se pudo obtener la lista de proveedores');
         }
@@ -242,8 +241,6 @@ async function cargarProveedores() {
         console.error('Error al obtener la lista de proveedores:', error);
     }
 }
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     cargarCategorias();
@@ -281,10 +278,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
 /**
  * Instancia de la clase Link para redirigir a la página de ver productos.
  */
-new Link("../HTML/_15_productosVerProductos.html", "#btn-yes").redireccionar();
+// new Link("../HTML/_15_productosVerProductos.html", "#btn-yes").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de productos.
