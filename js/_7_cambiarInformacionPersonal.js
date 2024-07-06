@@ -4,7 +4,6 @@
  */
 import { eliminarTokenDespuesDeTiempo } from "../soloFunciones/destruirToken.js";
 import { Link } from "../soloClases/links.js";
-import { verificarTokenYRedirigir } from "../soloFunciones/verificarLogin.js";
 
 /**
  * Se ejecuta cuando el contenido del DOM ha sido cargado.
@@ -144,4 +143,3 @@ correoInput.disabled = true; // Para hacer el campo ineditable
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
 eliminarTokenDespuesDeTiempo(60);
-verificarTokenYRedirigir();
