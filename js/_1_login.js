@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
      * Realiza la solicitud de inicio de sesión al servidor.
      * @returns {Promise<void>}
      */
-    fetch('http://localhost:3000/user/login', {
+    fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
