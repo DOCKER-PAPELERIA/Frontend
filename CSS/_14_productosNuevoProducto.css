@@ -245,6 +245,11 @@
   background-color: #e3e3e4;
 }
 
+.desplegable{
+  height: 30px;
+
+}
+
 
 .boton__nuevoproducto {
   grid-row: 2;

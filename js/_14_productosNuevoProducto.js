@@ -43,6 +43,33 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
 /**
  * Botones para abrir la ventana emergente de nuevo producto.
  * @type {NodeList}
@@ -96,61 +123,163 @@ btnCancelarNuevoProducto.addEventListener("click", function () {
 
 
 
-document.getElementById("miFormulario").addEventListener("submit", async function(event) {
 
+
+document.getElementById('miformulario').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    /**miFormulario
- * Envía los datos del formulario al controlador para crear un nuevo producto.
- */
-btnConfirmarNuevoProducto.addEventListener("click", async function () {
     const nombre = document.getElementById('nombre').value;
-    const categoria = document.getElementById('categoria').value;
-    const urlImagen = document.getElementById('url-imagen').value;
-    const proveedor = document.getElementById('proveedor').value;
-    const unidades = document.getElementById('unidades').value;
+    const idCategorias = document.getElementById('categoria').value;
+    const imagen = document.getElementById('url-imagen').value;
+    const idProveedor = document.getElementById('proveedor').value;
+    const stock = document.getElementById('unidades').value;
     const precio = document.getElementById('precio').value;
     const codigo = document.getElementById('codigo').value;
     const fecha = document.getElementById('fecha').value;
 
+    const producto = {
+        idCategorias,
+        idProveedor,
+        nombre_product: nombre,
+        stock,
+        codigo_producto: codigo,
+        imagen,
+        precio,
+        fecha,
+        estado: 'activo' // Asigna el estado deseado, por ejemplo, 'activo'
+    };
+
     try {
-        
-
-
-        const response = await fetch('http://localhost:3000/api/producto-agotado', {
+        const response = await fetch('http://localhost:3000/api/producto', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                idCategorias: categoria,
-                idProveedor: proveedor,
-                nombre_product: nombre,
-                stock: unidades,
-                codigo_producto: codigo,
-                imagen: urlImagen,
-                precio: precio,
-                fecha: fecha,
-                estado: 'activo' // Ajustar según sea necesario
-            })
+            body: JSON.stringify(producto)
         });
 
-        const data = await response.json();
+        const responseData = await response.json();
+
         if (response.ok) {
             alert('Producto creado correctamente.');
-            // Aquí puedes redirigir o realizar alguna acción adicional después de crear el producto
+            // Aquí podrías redirigir o actualizar la página si lo deseas
         } else {
-            alert('Error al crear el producto: ' + data.message);
+            alert(`Error al crear producto: ${responseData.message}`);
         }
     } catch (error) {
-        console.error('Error al crear el producto:', error);
-        alert('Error al crear el producto. Intenta más tarde.');
-    } finally {
-        ventanaNuevoProducto.style.display = 'none';
+        console.error('Error al crear producto:', error);
+        alert('Hubo un error al crear el producto. Intenta nuevamente.');
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function cargarCategorias() {
+    try {
+        const response = await fetch('http://localhost:3000/api/categoria');
+        if (!response.ok) {
+            throw new Error('No se pudo obtener la lista de categorías');
+        }
+        const responseData = await response.json();
+        console.log('Datos recibidos del servidor:', responseData);
+        
+        if (!Array.isArray(responseData.body)) {
+            throw new TypeError('La propiedad body no es un array');
+        }
+        
+        const categorias = responseData.body;
+        const selectCategoria = document.getElementById('categoria');
+        selectCategoria.innerHTML = '';
+        
+        categorias.forEach(categoria => {
+            const option = document.createElement('option');
+            option.value = categoria.idCategorias;
+            option.textContent = categoria.Categoria;
+            selectCategoria.append(option);
+        });
+    } catch (error) {
+        console.error('Error al obtener la lista de categorías:', error);
+    }
+}
+
+async function cargarProveedores() {
+    try {
+        const response = await fetch('http://localhost:3000/api/proveedor');
+        if (!response.ok) {
+            throw new Error('No se pudo obtener la lista de proveedores');
+        }
+        const responseData = await response.json();
+        console.log('Datos recibidos del servidor (proveedores):', responseData);
+        
+        if (!Array.isArray(responseData.body)) {
+            throw new TypeError('La propiedad body no es un array');
+        }
+        
+        const proveedores = responseData.body;
+        const selectProveedor = document.getElementById('proveedor');
+        selectProveedor.innerHTML = '';
+        
+        proveedores.forEach(proveedor => {
+            const option = document.createElement('option');
+            option.value = proveedor.idProveedor;
+            option.textContent = proveedor.nombre_proveedor;
+            selectProveedor.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error al obtener la lista de proveedores:', error);
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    cargarCategorias();
+    cargarProveedores();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Instancia de la clase Link para redirigir a la página de ver productos.
