@@ -22,7 +22,7 @@ new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
  * Maneja el evento de envío del formulario de inicio de sesión.
  * @param {Event} event - El evento de envío del formulario.
  */
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const correo = document.getElementById('correo').value;
@@ -42,39 +42,51 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             contrasena: contrasena
         })
     })
-    .then(response => {
-        if (!response.ok) {
-            return response.json().then(data => {
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    /**
+                     * Maneja errores de respuesta.
+                     * @throws {Error} - Error con mensaje específico o genérico.
+                     */
+                    throw new Error(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            if (!data.error) {
                 /**
-                 * Maneja errores de respuesta.
-                 * @throws {Error} - Error con mensaje específico o genérico.
+                 * Almacena el token de autenticación en localStorage y redirige al menú principal.
                  */
-                throw new Error(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
+                localStorage.setItem('authToken', data.body);
+                window.location.href = '../HTML/_6_menu.html';
+            } else {
+                /**
+                 * Muestra un mensaje de error si las credenciales son incorrectas.
+                 */
+                // alert(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
+                Swal.fire({
+                    icon: "warning",
+                    title: "Inicio de sesión fallido. Credenciales incorrectas.",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+            }
+        })
+        .catch(error => {
+            /**
+             * Maneja errores de solicitud y muestra un mensaje de alerta.
+             * @param {Error} error - El error capturado.
+             */
+            console.error('Error:', error);
+            // alert(error.message || 'Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
+            Swal.fire({
+                icon: "error",
+                title: "Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.",
+                showConfirmButton: false,
+                timer: 2500
             });
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
-        if (!data.error) {
-            /**
-             * Almacena el token de autenticación en localStorage y redirige al menú principal.
-             */
-            localStorage.setItem('authToken', data.body);
-            window.location.href = '../HTML/_6_menu.html';
-        } else {
-            /**
-             * Muestra un mensaje de error si las credenciales son incorrectas.
-             */
-            alert(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
-        }
-    })
-    .catch(error => {
-        /**
-         * Maneja errores de solicitud y muestra un mensaje de alerta.
-         * @param {Error} error - El error capturado.
-         */
-        console.error('Error:', error);
-        alert(error.message || 'Ocurrió un error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
-    });
+        });
 });
