@@ -2,384 +2,575 @@
   margin: 0px;
   padding: 0px;
 }
+
 /* Encabezado principal */
 .header {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 10vh; /* Altura del encabezado como 10% de la ventana gráfica */
-  width: 100vw; /* Ancho del encabezado al 100% de la ventana gráfica */
-  background-color: #7DA1D0; /* Color de fondo azul */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 10vh;
+  /* Altura del encabezado como 10% de la ventana gráfica */
+  width: 100vw;
+  /* Ancho del encabezado al 100% de la ventana gráfica */
+  background-color: #7DA1D0;
+  /* Color de fondo azul */
+  justify-content: space-between;
+  /* Distribuye el espacio entre los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
 }
 
 /* Contenedor para el menú y el perfil en el encabezado */
 .header__menuYPerfil {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 45px; /* Altura fija de 45px */
-  width: 45px; /* Ancho fijo de 45px */
-  border-radius: 20px; /* Bordes redondeados */
-  background-color: #B0BEC5; /* Color de fondo gris */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 45px;
+  /* Altura fija de 45px */
+  width: 45px;
+  /* Ancho fijo de 45px */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  background-color: #B0BEC5;
+  /* Color de fondo gris */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
 }
 
 /* Botón del menú en el encabezado */
 .header__botonMenu {
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el botón */
-  height: 30px; /* Altura fija de 30px */
-  width: 110px; /* Ancho fijo de 110px */
-  margin-left: -150px; /* Margen izquierdo negativo */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  position: absolute; /* Posiciona el botón de manera absoluta */
-  left: 180px; /* Posiciona el botón 180px desde la izquierda */
-  top: 50px; /* Posiciona el botón 50px desde arriba */
-  z-index: 100; /* Coloca el botón en la parte superior del contenido */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el botón */
+  height: 30px;
+  /* Altura fija de 30px */
+  width: 110px;
+  /* Ancho fijo de 110px */
+  margin-left: -150px;
+  /* Margen izquierdo negativo */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  position: absolute;
+  /* Posiciona el botón de manera absoluta */
+  left: 180px;
+  /* Posiciona el botón 180px desde la izquierda */
+  top: 50px;
+  /* Posiciona el botón 50px desde arriba */
+  z-index: 100;
+  /* Coloca el botón en la parte superior del contenido */
 }
 
 /* Contenedor para la imagen y el texto del botón del menú */
 .botonMenu__imgYTexto {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 30%; /* Ancho del 30% del contenedor padre */
-  margin-left: 30px; /* Margen izquierdo de 30px */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 30%;
+  /* Ancho del 30% del contenedor padre */
+  margin-left: 30px;
+  /* Margen izquierdo de 30px */
 }
 
 /* Imagen dentro del botón del menú */
 .imgYTexto__img {
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 80%; /* Ancho del 80% del contenedor padre */
-  transform: translateY(-35px); /* Mueve la imagen hacia arriba */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 80%;
+  /* Ancho del 80% del contenedor padre */
+  transform: translateY(-35px);
+  /* Mueve la imagen hacia arriba */
 }
 
 /* Imagen desplegada (visible) */
 .img__desplegado {
-  display: flex; /* Muestra la imagen */
+  display: flex;
+  /* Muestra la imagen */
 }
 
 /* Texto dentro del botón del menú */
 .imgYTexto__texto {
-  font-size: 25px; /* Tamaño de fuente de 25px */
-  margin-left: 10px; /* Margen izquierdo de 10px */
-  transform: translateY(-35px); /* Mueve el texto hacia arriba */
+  font-size: 25px;
+  /* Tamaño de fuente de 25px */
+  margin-left: 10px;
+  /* Margen izquierdo de 10px */
+  transform: translateY(-35px);
+  /* Mueve el texto hacia arriba */
 }
 
 
 
 /* Menú principal */
 .menu {
-  margin-left: 5px; /* Margen izquierdo de 5px */
-  transition: transform 2s, box-sizing 2s, padding 2s, background-color 2s; /* Transiciones suaves para varias propiedades */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 20%; /* Ancho del 20% del contenedor padre */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
-  align-items: center; /* Alinea los elementos hijos horizontalmente al centro */
-  transform: translateY(190px); /* Mueve el menú hacia abajo */
+  margin-left: 5px;
+  /* Margen izquierdo de 5px */
+  transition: transform 2s, box-sizing 2s, padding 2s, background-color 2s;
+  /* Transiciones suaves para varias propiedades */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 20%;
+  /* Ancho del 20% del contenedor padre */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
+  align-items: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  transform: translateY(190px);
+  /* Mueve el menú hacia abajo */
 }
 
 /* Opciones desplegadas del menú */
 .menu__opcionesDesplegadas {
-  box-sizing: content-box; /* El modelo de caja incluye padding y border */
-  height: 420px; /* Altura fija de 470px */
-  width: 20%; /* Ancho del 25% del contenedor padre */
-  background-color: rgba(96, 124, 138, 1); /* Color de fondo con transparencia */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
-  display: none; /* Oculta las opciones inicialmente */
-  position: relative; /* Posiciona las opciones de manera relativa */
-  z-index: 90; /* Coloca las opciones por encima de otros elementos */
+  box-sizing: content-box;
+  /* El modelo de caja incluye padding y border */
+  height: 420px;
+  /* Altura fija de 470px */
+  width: 20%;
+  /* Ancho del 25% del contenedor padre */
+  background-color: rgba(96, 124, 138, 1);
+  /* Color de fondo con transparencia */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
+  display: none;
+  /* Oculta las opciones inicialmente */
+  position: relative;
+  /* Posiciona las opciones de manera relativa */
+  z-index: 90;
+  /* Coloca las opciones por encima de otros elementos */
 }
 
 /* Contenedor de cada opción desplegada del menú */
 .opcionesDesplegadas__iconoYTexto {
-  height: 40px; /* Altura fija de 40px */
-  width: 250px; /* Ancho fijo de 250px */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  margin-left: -20px; /* Margen izquierdo negativo */
-  transform: translateY(-5px); /* Mueve el contenedor hacia arriba */
-  border-radius: 20px; /* Bordes redondeados */
-  flex-direction: row-reverse; /* Alinea los elementos hijos en fila inversa */
+  height: 40px;
+  /* Altura fija de 40px */
+  width: 250px;
+  /* Ancho fijo de 250px */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  margin-left: -20px;
+  /* Margen izquierdo negativo */
+  transform: translateY(-5px);
+  /* Mueve el contenedor hacia arriba */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  flex-direction: row-reverse;
+  /* Alinea los elementos hijos en fila inversa */
 }
 
 /* Efecto al pasar el cursor sobre las opciones desplegadas */
 .opcionesDesplegadas__iconoYTexto:hover {
-  background-color: rgba(176, 190, 197, 1); /* Cambia el color de fondo al pasar el cursor */
+  background-color: rgba(176, 190, 197, 1);
+  /* Cambia el color de fondo al pasar el cursor */
 }
 
 /* Icono dentro de cada opción desplegada del menú */
 .iconoYTexto__icono {
-  margin-left: -40px; /* Margen izquierdo negativo */
-  height: 80%; /* Altura del 80% del contenedor padre */
+  margin-left: -40px;
+  /* Margen izquierdo negativo */
+  height: 80%;
+  /* Altura del 80% del contenedor padre */
 }
 
 /* Texto dentro de cada opción desplegada del menú */
 .iconoYTexto__texto {
-  font-size: 22px; /* Tamaño de fuente de 22px */
-  width: 70%; /* Ancho del 70% del contenedor padre */
-  text-align: center; /* Alinea el texto al centro */
-  transform: translateX(-15px); /* Mueve el texto hacia la izquierda */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el texto */
+  font-size: 22px;
+  /* Tamaño de fuente de 22px */
+  width: 70%;
+  /* Ancho del 70% del contenedor padre */
+  text-align: center;
+  /* Alinea el texto al centro */
+  transform: translateX(-15px);
+  /* Mueve el texto hacia la izquierda */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el texto */
 }
 
 /* Perfil del usuario en el encabezado */
 .perfil {
-  margin-right: 15px; /* Margen derecho de 15px */
-  position: absolute; /* Posiciona el perfil de manera absoluta */
-  right: -1px; /* Posiciona el perfil 1px desde la derecha */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el perfil */
+  margin-right: 15px;
+  /* Margen derecho de 15px */
+  position: absolute;
+  /* Posiciona el perfil de manera absoluta */
+  right: -1px;
+  /* Posiciona el perfil 1px desde la derecha */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el perfil */
 }
 
 /* Perfil activado */
 .perfilActivado {
-  display: none; /* Oculta el perfil activado inicialmente */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
-  height: 75%; /* Altura del 75% del contenedor padre */
-  width: 28%; /* Ancho del 28% del contenedor padre */
-  position: absolute; /* Posiciona el perfil de manera absoluta */
-  background-color: white; /* Color de fondo blanco */
-  top: 12%; /* Posiciona el perfil 12% desde la parte superior */
-  left: 70%; /* Posiciona el perfil 70% desde la izquierda */
-  border-radius: 35px; /* Bordes redondeados */
-  z-index: 100; /* Coloca el perfil por encima de otros elementos */
+  display: none;
+  /* Oculta el perfil activado inicialmente */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
+  height: 75%;
+  /* Altura del 75% del contenedor padre */
+  width: 28%;
+  /* Ancho del 28% del contenedor padre */
+  position: absolute;
+  /* Posiciona el perfil de manera absoluta */
+  background-color: white;
+  /* Color de fondo blanco */
+  top: 12%;
+  /* Posiciona el perfil 12% desde la parte superior */
+  left: 70%;
+  /* Posiciona el perfil 70% desde la izquierda */
+  border-radius: 35px;
+  /* Bordes redondeados */
+  z-index: 100;
+  /* Coloca el perfil por encima de otros elementos */
 }
 
 /* Contenedores dentro del perfil activado */
 .perfilActivado__contenedores {
-  height: 15%; /* Altura del 15% del contenedor padre */
-  width: 100%; /* Ancho completo del contenedor padre */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
+  height: 15%;
+  /* Altura del 15% del contenedor padre */
+  width: 100%;
+  /* Ancho completo del contenedor padre */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
 }
 
 /* Contenedor de la imagen del perfil */
 .perfil__contenedores--img {
-  height: 50%; /* Altura del 35% del contenedor padre */
+  height: 50%;
+  /* Altura del 35% del contenedor padre */
   width: 100%;
 }
 
 /* Estilos de los contenedores de las opciones de perfil */
-.contenedores__nombre, .contenedores__img, .contenedores__saludo, .contenedores__GestionarCuenta, .contenedores__cerrarSesion {
-  display: flex; /* Muestra el contenido horizontalmente */
-  align-items: center; /* Alinea el contenido verticalmente */
-  justify-content: center; /* Alinea el contenido horizontalmente */
+.contenedores__nombre,
+.contenedores__img,
+.contenedores__saludo,
+.contenedores__GestionarCuenta,
+.contenedores__cerrarSesion {
+  display: flex;
+  /* Muestra el contenido horizontalmente */
+  align-items: center;
+  /* Alinea el contenido verticalmente */
+  justify-content: center;
+  /* Alinea el contenido horizontalmente */
 }
 
-.contenedores__img{
+.contenedores__img {
   height: 90%;
   width: 90%;
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil */
 .contenedores__boton {
-  background-color: rgba(0, 92, 105, 1); /* Establece el color de fondo */
-  color: white; /* Establece el color del texto */
-  border: none; /* Elimina el borde */
-  border-radius: 50px; /* Aplica un borde redondeado */
-  cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón */
-  padding: 10px 30px; /* Establece el relleno */
+  background-color: rgba(0, 92, 105, 1);
+  /* Establece el color de fondo */
+  color: white;
+  /* Establece el color del texto */
+  border: none;
+  /* Elimina el borde */
+  border-radius: 50px;
+  /* Aplica un borde redondeado */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero al pasar el ratón */
+  padding: 10px 30px;
+  /* Establece el relleno */
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil al pasar el ratón */
 .contenedores__boton:hover {
-  padding: 12px 80px; /* Aumenta el relleno al pasar el ratón */
+  padding: 12px 80px;
+  /* Aumenta el relleno al pasar el ratón */
 }
 
 /* Estilos de la imagen de perfil */
 .perfil__img {
-  height: 70%; /* Establece la altura */
-  width: 70%; /* Establece el ancho */
+  height: 70%;
+  /* Establece la altura */
+  width: 70%;
+  /* Establece el ancho */
 }
+
 /* _______________________________________________________---------------------------------------------------------------------------------------------- */
 
-
+/* Contenedor principal del contenido */
 .container__contenido {
   width: 100%;
+  /* Ancho completo del contenedor */
   height: 90vh;
+  /* Altura del contenedor en 90% de la altura de la ventana */
   background-color: #b0bec5;
+  /* Color de fondo del contenedor */
   display: flex;
+  /* Usar flexbox para el diseño del contenedor */
   justify-content: center;
+  /* Centrar contenido horizontalmente */
   align-items: center;
+  /* Centrar contenido verticalmente */
 }
 
-
+/* Contenedor de la información */
 .container__informacion {
   width: 830px;
+  /* Ancho del contenedor */
   height: 410px;
+  /* Altura del contenedor */
   background-color: #E9ECEF;
+  /* Color de fondo */
   border-radius: 15px;
+  /* Bordes redondeados */
   border: 1px solid black;
+  /* Borde negro */
   display: grid;
+  /* Usar grid para el diseño del contenedor */
   grid-template-columns: 46% 46% 8%;
+  /* Definir tres columnas con anchos respectivos */
   grid-template-rows: 5fr 1fr;
+  /* Definir dos filas */
   place-items: center;
+  /* Centrar ítems */
 }
 
+/* Secciones izquierda y derecha */
 .left-section,
 .right-section {
   display: flex;
+  /* Usar flexbox */
   flex-direction: column;
+  /* Direccionar flexbox en columna */
   gap: 8px;
+  /* Espacio entre elementos */
 }
 
+/* Contenedor de la imagen X */
 .container__imagenX {
   grid-row: 1;
+  /* Ubicación en la primera fila */
   grid-column: 3;
+  /* Ubicación en la tercera columna */
   width: 100%;
+  /* Ancho completo */
   height: 100%;
+  /* Altura completa */
 }
 
+/* Botón X */
 .botonX {
   font-size: 60px;
+  /* Tamaño de la fuente */
   border: none;
+  /* Sin borde */
   display: flex;
+  /* Usar flexbox */
   justify-content: start;
+  /* Alinear contenido al inicio */
   border-radius: 15px;
+  /* Bordes redondeados */
   background-color: #E9ECEF;
+  /* Color de fondo */
 }
 
+/* Efecto hover para el botón X */
 .botonX:hover {
   background-color: #e3e3e4;
+  /* Color de fondo al hacer hover */
 }
 
-.desplegable{
+.desplegable {
   height: 30px;
-
+  /* Altura del elemento desplegable */
 }
 
-
+/* Botón de nuevo producto */
 .boton__nuevoproducto {
   grid-row: 2;
+  /* Ubicación en la segunda fila */
   grid-column: span 3;
+  /* Abarca las tres columnas */
   width: 155px;
+  /* Ancho del botón */
   height: 40px;
+  /* Altura del botón */
   background-color: #005C69;
+  /* Color de fondo */
   border-radius: 10px;
+  /* Bordes redondeados */
   border: none;
+  /* Sin borde */
   place-items: center;
+  /* Centrar ítems */
   font-size: 20px;
+  /* Tamaño de la fuente */
   color: white;
+  /* Color del texto */
   font-family: serif;
+  /* Familia de la fuente */
   margin-bottom: 10px;
+  /* Margen inferior */
   transform: translate(-500px, 150px);
+  /* Transformación para cambiar la posición */
 }
 
+/* Efecto hover para el botón de nuevo producto */
 .boton__nuevoproducto:hover {
   background-color: #003445;
+  /* Color de fondo al hacer hover */
 }
 
-/* textarea {
-    width: 300px;
-    height: 70px;
-    resize: none;
-    padding: 5px;
-    border: 1px solid #383838;
-    border-radius: 5px;
-    font-size: 15px;
-} */
-/* 
-.left-section input {
-    width: 300px;
-    height: 100px;
-    padding: 5px;
-    border: 1px solid #383838;
-    border-radius: 5px;
-    font-size: 15px;
-    background-color: white;
-} */
 
+/* Estilo para las etiquetas */
 label {
   font-weight: bolder;
+  /* Negrita */
   font-size: 18px;
+  /* Tamaño de la fuente */
 }
 
+/* Estilo para los campos de entrada */
 input {
   width: 300px;
+  /* Ancho del campo */
   height: 20px;
+  /* Altura del campo */
   padding: 5px;
+  /* Relleno interno */
   border: 1px solid #383838;
+  /* Borde del campo */
   font-size: 15px;
+  /* Tamaño de la fuente */
   border-radius: 5px;
+  /* Bordes redondeados */
 }
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
 
-
-
-
+/* Estilo para la ventana emergente */
 .ventana {
   width: 370px;
+  /* Ancho de la ventana */
   height: 220px;
+  /* Altura de la ventana */
   background-color: rgb(189, 179, 179);
+  /* Color de fondo */
   border-radius: 5px;
+  /* Bordes redondeados */
   border: 1px solid rgb(209, 209, 209);
+  /* Borde de la ventana */
   flex-direction: column;
+  /* Dirección del flexbox en columna */
   display: none;
+  /* Ocultar por defecto */
   position: absolute;
+  /* Posicionamiento absoluto */
   top: 190px;
+  /* Distancia desde el top */
   right: 480px;
+  /* Distancia desde la derecha */
 }
 
+/* Encabezado de la ventana */
 .header2 {
   padding: 10px;
+  /* Relleno interno */
   border-bottom: 1px solid #dee2e6;
+  /* Borde inferior */
   display: flex;
+  /* Usar flexbox */
   justify-content: end;
+  /* Alinear al final */
 }
 
+/* Botón de cerrar */
 .btn-close {
   width: 30px;
+  /* Ancho del botón */
   height: 30px;
+  /* Altura del botón */
   background-color: white;
+  /* Color de fondo */
   border: none;
+  /* Sin borde */
   border-radius: 5px;
+  /* Bordes redondeados */
   font-size: 30px;
+  /* Tamaño de la fuente */
 }
 
+/* Efecto hover para el botón de cerrar */
 .btn-close:hover {
   color: gray;
+  /* Color del texto al hacer hover */
 }
 
 
-/* Cuerpo, texto */
+/* Cuerpo del contenido */
 .body {
   padding: 20px;
+  /* Relleno interno */
   border-bottom: 1px solid #dee2e6;
+  /* Borde inferior */
   display: flex;
+  /* Usar flexbox */
   text-align: center;
+  /* Alinear el texto al centro */
 }
 
+/* Texto de información */
 .text_information {
   font-size: 22px;
+  /* Tamaño de la fuente */
 }
 
-/* Pie, botones, si y no */
+/* Pie de la ventana, botones de sí y no */
 .footer {
   display: flex;
+  /* Usar flexbox */
   justify-content: center;
+  /* Centrar horizontalmente */
   padding: 20px;
+  /* Relleno interno */
 }
 
+/* Botón de confirmación */
 .btn-confirm {
   width: 50px;
+  /* Ancho del botón */
   height: 30px;
+  /* Altura del botón */
   border: none;
+  /* Sin borde */
   background-color: blue;
+  /* Color de fondo */
   border-radius: 5px;
+  /* Bordes redondeados */
   padding: 5px;
+  /* Relleno interno */
   color: rgb(255, 255, 255);
+  /* Color del texto */
   font-size: 17px;
+  /* Tamaño de la fuente */
 }
 
+/* Efecto hover para el botón de confirmación */
 .btn-confirm:hover {
   cursor: pointer;
+  /* Cambia el cursor al hacer hover */
   background-color: rgb(126, 126, 126);
+  /* Color de fondo al hacer hover */
 }
 
+/* Clase para el margen derecho en el botón 'yes' */
 .yes {
   margin-right: 20px;
+  /* Margen derecho */
 }
 
 
@@ -388,6 +579,7 @@ input {
 @media (max-width: 768px) {
   .container__barra {
     grid-template-columns: 12% 68% 20%;
+    /* Ajuste de columnas en barra de navegación */
   }
 
   .perfilActivado {
@@ -408,34 +600,60 @@ input {
     transform: translateX(-200px);
   }
 
+  /* Ajustes para etiquetas en pantallas pequeñas */
   label {
+    margin-left: 5px;
+  }
+
+  .desplegable {
+    width: 180px;
+    /* Ancho del campo */
+    height: 35px;
+    /* Altura del elemento desplegable */
     margin-left: 10px;
   }
 
+  /* Ajustes para campos de entrada en pantallas pequeñas */
   input {
     width: 170px;
-    height: 20px;
+    /* Ancho del campo */
+    height: 25px;
+    /* Altura del campo */
     font-size: 15px;
+    /* Tamaño de la fuente */
     margin-left: 10px;
+    /* Margen izquierdo */
   }
 
+  /* Ajustes para el contenedor de información en pantallas pequeñas */
   .container__informacion {
     width: 450px;
+    /* Ancho del contenedor */
     height: 400px;
+    /* Altura del contenedor */
   }
 
+  /* Ajustes para el botón X en pantallas pequeñas */
   .botonX {
     font-size: 35px;
+    /* Tamaño de la fuente */
   }
 
+  /* Ajustes para el botón de nuevo producto en pantallas pequeñas */
   .boton__nuevoproducto {
     width: 135px;
+    /* Ancho del botón */
     height: 35px;
+    /* Altura del botón */
     font-size: 16px;
+    /* Tamaño de la fuente */
   }
 
+  /* Ajustes para la ventana emergente en pantallas pequeñas */
   .ventana {
     top: 190px;
+    /* Distancia desde el top */
     right: 70px;
+    /* Distancia desde la derecha */
   }
 }
