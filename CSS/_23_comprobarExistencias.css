@@ -1,320 +1,500 @@
 * {
-    margin: 0px;
-    padding: 0px;
-  }
+  margin: 0px;
+  padding: 0px;
+}
+
 /* Encabezado principal */
 .header {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 10vh; /* Altura del encabezado como 10% de la ventana gráfica */
-  width: 100vw; /* Ancho del encabezado al 100% de la ventana gráfica */
-  background-color: #7DA1D0; /* Color de fondo azul */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 10vh;
+  /* Altura del encabezado como 10% de la ventana gráfica */
+  width: 100vw;
+  /* Ancho del encabezado al 100% de la ventana gráfica */
+  background-color: #7DA1D0;
+  /* Color de fondo azul */
+  justify-content: space-between;
+  /* Distribuye el espacio entre los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
 }
 
 /* Contenedor para el menú y el perfil en el encabezado */
 .header__menuYPerfil {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 45px; /* Altura fija de 45px */
-  width: 45px; /* Ancho fijo de 45px */
-  border-radius: 20px; /* Bordes redondeados */
-  background-color: #B0BEC5; /* Color de fondo gris */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 45px;
+  /* Altura fija de 45px */
+  width: 45px;
+  /* Ancho fijo de 45px */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  background-color: #B0BEC5;
+  /* Color de fondo gris */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
 }
 
 /* Botón del menú en el encabezado */
 .header__botonMenu {
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el botón */
-  height: 30px; /* Altura fija de 30px */
-  width: 110px; /* Ancho fijo de 110px */
-  margin-left: -150px; /* Margen izquierdo negativo */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  position: absolute; /* Posiciona el botón de manera absoluta */
-  left: 180px; /* Posiciona el botón 180px desde la izquierda */
-  top: 50px; /* Posiciona el botón 50px desde arriba */
-  z-index: 100; /* Coloca el botón en la parte superior del contenido */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el botón */
+  height: 30px;
+  /* Altura fija de 30px */
+  width: 110px;
+  /* Ancho fijo de 110px */
+  margin-left: -150px;
+  /* Margen izquierdo negativo */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  position: absolute;
+  /* Posiciona el botón de manera absoluta */
+  left: 180px;
+  /* Posiciona el botón 180px desde la izquierda */
+  top: 50px;
+  /* Posiciona el botón 50px desde arriba */
+  z-index: 100;
+  /* Coloca el botón en la parte superior del contenido */
 }
 
 /* Contenedor para la imagen y el texto del botón del menú */
 .botonMenu__imgYTexto {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 30%; /* Ancho del 30% del contenedor padre */
-  margin-left: 30px; /* Margen izquierdo de 30px */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 30%;
+  /* Ancho del 30% del contenedor padre */
+  margin-left: 30px;
+  /* Margen izquierdo de 30px */
 }
 
 /* Imagen dentro del botón del menú */
 .imgYTexto__img {
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 80%; /* Ancho del 80% del contenedor padre */
-  transform: translateY(-35px); /* Mueve la imagen hacia arriba */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 80%;
+  /* Ancho del 80% del contenedor padre */
+  transform: translateY(-35px);
+  /* Mueve la imagen hacia arriba */
 }
 
 /* Imagen desplegada (visible) */
 .img__desplegado {
-  display: flex; /* Muestra la imagen */
+  display: flex;
+  /* Muestra la imagen */
 }
 
 /* Texto dentro del botón del menú */
 .imgYTexto__texto {
-  font-size: 25px; /* Tamaño de fuente de 25px */
-  margin-left: 10px; /* Margen izquierdo de 10px */
-  transform: translateY(-35px); /* Mueve el texto hacia arriba */
+  font-size: 25px;
+  /* Tamaño de fuente de 25px */
+  margin-left: 10px;
+  /* Margen izquierdo de 10px */
+  transform: translateY(-35px);
+  /* Mueve el texto hacia arriba */
 }
 
 
 
 /* Menú principal */
 .menu {
-  margin-left: 5px; /* Margen izquierdo de 5px */
-  transition: transform 2s, box-sizing 2s, padding 2s, background-color 2s; /* Transiciones suaves para varias propiedades */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 20%; /* Ancho del 20% del contenedor padre */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
-  align-items: center; /* Alinea los elementos hijos horizontalmente al centro */
-  transform: translateY(190px); /* Mueve el menú hacia abajo */
+  margin-left: 5px;
+  /* Margen izquierdo de 5px */
+  transition: transform 2s, box-sizing 2s, padding 2s, background-color 2s;
+  /* Transiciones suaves para varias propiedades */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 20%;
+  /* Ancho del 20% del contenedor padre */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
+  align-items: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  transform: translateY(190px);
+  /* Mueve el menú hacia abajo */
 }
 
 /* Opciones desplegadas del menú */
 .menu__opcionesDesplegadas {
-  box-sizing: content-box; /* El modelo de caja incluye padding y border */
-  height: 420px; /* Altura fija de 470px */
-  width: 20%; /* Ancho del 25% del contenedor padre */
-  background-color: rgba(96, 124, 138, 1); /* Color de fondo con transparencia */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
-  display: none; /* Oculta las opciones inicialmente */
-  position: relative; /* Posiciona las opciones de manera relativa */
-  z-index: 90; /* Coloca las opciones por encima de otros elementos */
+  box-sizing: content-box;
+  /* El modelo de caja incluye padding y border */
+  height: 420px;
+  /* Altura fija de 470px */
+  width: 20%;
+  /* Ancho del 25% del contenedor padre */
+  background-color: rgba(96, 124, 138, 1);
+  /* Color de fondo con transparencia */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
+  display: none;
+  /* Oculta las opciones inicialmente */
+  position: relative;
+  /* Posiciona las opciones de manera relativa */
+  z-index: 90;
+  /* Coloca las opciones por encima de otros elementos */
 }
 
 /* Contenedor de cada opción desplegada del menú */
 .opcionesDesplegadas__iconoYTexto {
-  height: 40px; /* Altura fija de 40px */
-  width: 250px; /* Ancho fijo de 250px */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  margin-left: -20px; /* Margen izquierdo negativo */
-  transform: translateY(-5px); /* Mueve el contenedor hacia arriba */
-  border-radius: 20px; /* Bordes redondeados */
-  flex-direction: row-reverse; /* Alinea los elementos hijos en fila inversa */
+  height: 40px;
+  /* Altura fija de 40px */
+  width: 250px;
+  /* Ancho fijo de 250px */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  margin-left: -20px;
+  /* Margen izquierdo negativo */
+  transform: translateY(-5px);
+  /* Mueve el contenedor hacia arriba */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  flex-direction: row-reverse;
+  /* Alinea los elementos hijos en fila inversa */
 }
 
 /* Efecto al pasar el cursor sobre las opciones desplegadas */
 .opcionesDesplegadas__iconoYTexto:hover {
-  background-color: rgba(176, 190, 197, 1); /* Cambia el color de fondo al pasar el cursor */
+  background-color: rgba(176, 190, 197, 1);
+  /* Cambia el color de fondo al pasar el cursor */
 }
 
 /* Icono dentro de cada opción desplegada del menú */
 .iconoYTexto__icono {
-  margin-left: -40px; /* Margen izquierdo negativo */
-  height: 80%; /* Altura del 80% del contenedor padre */
+  margin-left: -40px;
+  /* Margen izquierdo negativo */
+  height: 80%;
+  /* Altura del 80% del contenedor padre */
 }
 
 /* Texto dentro de cada opción desplegada del menú */
 .iconoYTexto__texto {
-  font-size: 22px; /* Tamaño de fuente de 22px */
-  width: 70%; /* Ancho del 70% del contenedor padre */
-  text-align: center; /* Alinea el texto al centro */
-  transform: translateX(-15px); /* Mueve el texto hacia la izquierda */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el texto */
+  font-size: 22px;
+  /* Tamaño de fuente de 22px */
+  width: 70%;
+  /* Ancho del 70% del contenedor padre */
+  text-align: center;
+  /* Alinea el texto al centro */
+  transform: translateX(-15px);
+  /* Mueve el texto hacia la izquierda */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el texto */
 }
 
 /* Perfil del usuario en el encabezado */
 .perfil {
-  margin-right: 15px; /* Margen derecho de 15px */
-  position: absolute; /* Posiciona el perfil de manera absoluta */
-  right: -1px; /* Posiciona el perfil 1px desde la derecha */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el perfil */
+  margin-right: 15px;
+  /* Margen derecho de 15px */
+  position: absolute;
+  /* Posiciona el perfil de manera absoluta */
+  right: -1px;
+  /* Posiciona el perfil 1px desde la derecha */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el perfil */
 }
 
 /* Perfil activado */
 .perfilActivado {
-  display: none; /* Oculta el perfil activado inicialmente */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
-  height: 75%; /* Altura del 75% del contenedor padre */
-  width: 28%; /* Ancho del 28% del contenedor padre */
-  position: absolute; /* Posiciona el perfil de manera absoluta */
-  background-color: white; /* Color de fondo blanco */
-  top: 12%; /* Posiciona el perfil 12% desde la parte superior */
-  left: 70%; /* Posiciona el perfil 70% desde la izquierda */
-  border-radius: 35px; /* Bordes redondeados */
-  z-index: 100; /* Coloca el perfil por encima de otros elementos */
+  display: none;
+  /* Oculta el perfil activado inicialmente */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
+  height: 75%;
+  /* Altura del 75% del contenedor padre */
+  width: 28%;
+  /* Ancho del 28% del contenedor padre */
+  position: absolute;
+  /* Posiciona el perfil de manera absoluta */
+  background-color: white;
+  /* Color de fondo blanco */
+  top: 12%;
+  /* Posiciona el perfil 12% desde la parte superior */
+  left: 70%;
+  /* Posiciona el perfil 70% desde la izquierda */
+  border-radius: 35px;
+  /* Bordes redondeados */
+  z-index: 100;
+  /* Coloca el perfil por encima de otros elementos */
 }
 
 /* Contenedores dentro del perfil activado */
 .perfilActivado__contenedores {
-  height: 15%; /* Altura del 15% del contenedor padre */
-  width: 100%; /* Ancho completo del contenedor padre */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
+  height: 15%;
+  /* Altura del 15% del contenedor padre */
+  width: 100%;
+  /* Ancho completo del contenedor padre */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
 }
 
 /* Contenedor de la imagen del perfil */
 .perfil__contenedores--img {
-  height: 50%; /* Altura del 35% del contenedor padre */
+  height: 50%;
+  /* Altura del 35% del contenedor padre */
   width: 100%;
 }
 
 /* Estilos de los contenedores de las opciones de perfil */
-.contenedores__nombre, .contenedores__img, .contenedores__saludo, .contenedores__GestionarCuenta, .contenedores__cerrarSesion {
-  display: flex; /* Muestra el contenido horizontalmente */
-  align-items: center; /* Alinea el contenido verticalmente */
-  justify-content: center; /* Alinea el contenido horizontalmente */
+.contenedores__nombre,
+.contenedores__img,
+.contenedores__saludo,
+.contenedores__GestionarCuenta,
+.contenedores__cerrarSesion {
+  display: flex;
+  /* Muestra el contenido horizontalmente */
+  align-items: center;
+  /* Alinea el contenido verticalmente */
+  justify-content: center;
+  /* Alinea el contenido horizontalmente */
 }
 
-.contenedores__img{
+.contenedores__img {
   height: 90%;
   width: 90%;
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil */
 .contenedores__boton {
-  background-color: rgba(0, 92, 105, 1); /* Establece el color de fondo */
-  color: white; /* Establece el color del texto */
-  border: none; /* Elimina el borde */
-  border-radius: 50px; /* Aplica un borde redondeado */
-  cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón */
-  padding: 10px 30px; /* Establece el relleno */
+  background-color: rgba(0, 92, 105, 1);
+  /* Establece el color de fondo */
+  color: white;
+  /* Establece el color del texto */
+  border: none;
+  /* Elimina el borde */
+  border-radius: 50px;
+  /* Aplica un borde redondeado */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero al pasar el ratón */
+  padding: 10px 30px;
+  /* Establece el relleno */
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil al pasar el ratón */
 .contenedores__boton:hover {
-  padding: 12px 80px; /* Aumenta el relleno al pasar el ratón */
+  padding: 12px 80px;
+  /* Aumenta el relleno al pasar el ratón */
 }
 
 /* Estilos de la imagen de perfil */
 .perfil__img {
-  height: 70%; /* Establece la altura */
-  width: 70%; /* Establece el ancho */
+  height: 70%;
+  /* Establece la altura */
+  width: 70%;
+  /* Establece el ancho */
 }
+
 /* _______________________________________________________---------------------------------------------------------------------------------------------- */
+/* Contenedor principal */
 .container__contenido {
-    width: 100%;
-    height: 90vh;
-    background-color: #B0BEC5;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+  width: 100%;
+  /* Ancho completo */
+  height: 90vh;
+  /* Altura del 90% del viewport height */
+  background-color: #B0BEC5;
+  /* Color de fondo */
+  display: grid;
+  /* Usar grid */
+  grid-template-columns: 50% 50%;
+  /* Dos columnas de igual tamaño */
+  grid-template-rows: 50% 50%;
+  /* Dos filas de igual tamaño */
 }
 
+/* Contenedor de imagen principal */
 .container_imagen_principal {
-    width: 128px;
-    height: 128px;
-    background-image: url(../img/existencias.png);
-    margin-left: 490px;
-    margin-top: 50px;
+  width: 128px;
+  /* Ancho específico */
+  height: 128px;
+  /* Altura específica */
+  background-image: url(../img/existencias.png);
+  /* Imagen de fondo */
+  margin-left: 490px;
+  /* Margen izquierdo */
+  margin-top: 50px;
+  /* Margen superior */
 }
 
+/* Estilos para el título */
 .container_titulo {
-    font-size: 40px;
-    font-weight: bold;
-    margin-top: 100px;
+  font-size: 40px;
+  /* Tamaño de fuente */
+  font-weight: bold;
+  /* Negrita */
+  margin-top: 100px;
+  /* Margen superior */
 }
 
-
-
+/* Contenedor de la primera caja */
 .container_caja1 {
-    width: 300px;
-    height: 100px;
-    grid-column: 1 / 2;
-    grid-row: 2;
-    background-color: #314E5D;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 1fr;
-    margin-left: 530px;
-    margin-top: 40px;
+  width: 300px;
+  /* Ancho específico */
+  height: 100px;
+  /* Altura específica */
+  grid-column: 1 / 2;
+  /* Empieza en la primera columna y termina en la segunda */
+  grid-row: 2;
+  /* En la segunda fila */
+  background-color: #314E5D;
+  /* Color de fondo */
+  border-radius: 10px;
+  /* Bordes redondeados */
+  border: none;
+  /* Sin borde */
+  display: flex;
+  /* Usar flexbox */
+  display: grid;
+  /* Usar grid */
+  grid-template-columns: 2fr 3fr;
+  /* Dos columnas: 2 fracciones y 3 fracciones */
+  grid-template-rows: 1fr;
+  /* Una fila */
+  margin-left: 530px;
+  /* Margen izquierdo */
+  margin-top: 40px;
+  /* Margen superior */
 }
 
+/* Efecto de hover sobre la primera caja */
 .container_caja1:hover {
-    width: 303px;
-    height: 103px;
-    background-color: #395a6b;
+  width: 303px;
+  /* Ancho aumentado al pasar el ratón */
+  height: 103px;
+  /* Altura aumentada al pasar el ratón */
+  background-color: #395a6b;
+  /* Cambio de color de fondo al pasar el ratón */
 }
 
+/* Contenedor de la media caja */
 .container_mediacaja {
-    width: 100%;
-    height: 100%;
-    background-color: #8b9fa9c0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  /* Ancho completo */
+  height: 100%;
+  /* Altura completa */
+  background-color: #8b9fa9c0;
+  /* Color de fondo */
+  border-radius: 10px;
+  /* Bordes redondeados */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
 }
 
+/* Imagen dentro de la media caja */
 .imagen1 {
-    width: 64px;
-    height: 64px;
-    background-image: url(../img/agotado.png);
+  width: 64px;
+  /* Ancho específico */
+  height: 64px;
+  /* Altura específica */
+  background-image: url(../img/agotado.png);
+  /* Imagen de fondo */
 }
 
+/* Contenedor de texto */
 .container_texto {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    color: white;
+  width: 100%;
+  /* Ancho completo */
+  height: 100%;
+  /* Altura completa */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  font-size: 22px;
+  /* Tamaño de fuente */
+  color: white;
+  /* Color del texto */
 }
 
-/* Responsive pantallas pequeñas */
+/* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
-    .container__barra {
-        grid-template-columns: 12% 68% 20%;
-    }
+  .container__barra {
+    grid-template-columns: 12% 68% 20%;
+    /* Definir columnas */
+  }
 
-    .perfilActivado {
-        transform: translateX(-120px);
-        width: 70%;
-        /* Ajusta el ancho */
-        border-radius: 30px;
-        /* Ajusta el radio del borde */
-    }
+  .perfilActivado {
+    transform: translateX(-120px);
+    /* Desplazar hacia la izquierda */
+    width: 70%;
+    /* Ajustar el ancho */
+    border-radius: 30px;
+    /* Ajustar el radio del borde */
+  }
 
-    .menu__opcionesDesplegadas {
-        width: 70%;
-        /* Ajusta el ancho para ocupar más espacio en pantallas pequeñas */
-        transform: translateX(220px) translateY(210px);
-    }
+  .menu__opcionesDesplegadas {
+    width: 70%;
+    /* Ajustar el ancho para ocupar más espacio en pantallas pequeñas */
+    transform: translateX(220px) translateY(210px);
+    /* Desplazar */
+  }
 
-    .perfilActivado {
-        transform: translateX(-200px);
-    }
+  .perfilActivado {
+    transform: translateX(-200px);
+    /* Desplazar hacia la izquierda */
+  }
 
+  /* Modificaciones específicas para el contenedor principal */
+  .container__contenido {
+    grid-template-columns: 1fr;
+    /* Una sola columna */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* Seis filas de igual tamaño */
+    overflow: auto;
+    /* Scroll vertical si es necesario */
+    place-items: center;
+    /* Centrar elementos */
+    row-gap: 15px;
+    /* Espacio entre filas */
+  }
 
-    .container__contenido {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        overflow: auto;
-        place-items: center;
-        row-gap: 15px;
-    }
+  /* Ajustes para la imagen principal */
+  .container_imagen_principal {
+    margin-left: 10px;
+    /* Margen izquierdo */
+    margin-top: 30px;
+    /* Margen superior */
+  }
 
-    .container_imagen_principal {
-        margin-left: 10px;
-        margin-top: 30px;
-    }
+  /* Ajustes para el título */
+  .container_titulo {
+    margin-top: 30px;
+    /* Margen superior */
+    margin-left: 10px;
+    /* Margen izquierdo */
+    font-size: 30px;
+    /* Tamaño de fuente */
+    margin-bottom: 40px;
+    /* Margen inferior */
+  }
 
-    .container_titulo {
-        margin-top: 30px;
-        margin-left: 10px;
-        font-size: 30px;
-        margin-bottom: 40px;
-    }
-
-    .container_caja1 {
-        grid-row: 3;
-        margin-left: 0px;
-        margin-top: 40px;
-    }
+  /* Ajustes para la primera caja */
+  .container_caja1 {
+    grid-row: 3;
+    /* En la tercera fila */
+    margin-left: 0px;
+    /* Sin margen izquierdo */
+    margin-top: 40px;
+    /* Margen superior */
+  }
 }
