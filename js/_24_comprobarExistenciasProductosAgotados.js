@@ -43,6 +43,103 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', async function () {
+    try {
+        const response = await fetch('http://localhost:3000/api/producto-agotadoWeb');
+        if (!response.ok) {
+            throw new Error('No se pudo obtener la lista de productos agotados');
+        }
+        const datosRespuesta = await response.json();
+        const datosBody = datosRespuesta.body;
+        console.log(datosBody);
+
+        const containerLista = document.querySelector('.caja__lista');
+
+        if (datosBody === "No hay productos agotados.") {
+            alert('No hay productos agotados.');
+        } else {
+            datosBody.forEach(element => {
+                const item = document.createElement('li');
+                item.innerHTML = `
+                    <div class="caja">
+                        <div class="imagen"><img src="${element.imagen}" class="imagen__imagen" alt="producto agotado"></div>
+                        <div class="nombre">${element.nombre_product}</div>
+                        <div class="categoria">Categoría: ${element.Categoria}</div>
+                        <div class="proveedor">Proveedor: ${element.nombre_proveedor}</div>
+                        <div class="unidades">Unidades: ${element.stock}</div>
+                        <div class="precio">Precio: $${element.precio}</div>
+                        <div class="container__button">
+                            <button class="button__existencia" id="visualizarBtn3">Producto agotado</button>
+                        </div>
+                    </div>
+                `;
+                containerLista.appendChild(item);
+            });
+        }
+
+        const botonEnviar = document.querySelector('.botonEnviar');
+        botonEnviar.addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/enviar-correo-productos-agotados', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ productosAgotados: datosBody })
+                });
+                if (!response.ok) {
+                    throw new Error('Error al enviar el correo.');
+                }
+                const resultado = await response.json();
+                alert(`datos enviados correctamente`);
+            } catch (e) {
+                console.error(`Error: ${e}`);
+                alert('Hubo un error al enviar el correo.');
+            }
+        });
+
+    } catch (e) {
+        console.error(`El error: ${e}`);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Instancia de la clase Link para redirigir a la página de cambiar información personal.
  */

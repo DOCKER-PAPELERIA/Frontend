@@ -30,13 +30,6 @@
                         </div>
                     </div>
                     
-                    <!-- Opción de menú: Alertas -->
-                    <div class="opcionesDesplegadas__iconoYTexto alertas">
-                        <div class="iconoYTexto__texto">Alertas</div>
-                        <div class="iconoYTexto__containerIcono"> 
-                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgAlertas.png" alt="Alertas">
-                        </div>
-                    </div>
                     
                     <!-- Opción de menú: Facturas -->
                     <div class="opcionesDesplegadas__iconoYTexto facturas">
@@ -106,70 +99,22 @@
         </div>
 
         <div class="container__contenido">
-            <div class="container__imagen"><img src="./img/c.existencia.png" alt=""></div>
+            <div class="container__imagen">
+                <img src="../contenido_embebido/existencias.png" alt="existencias" class="existencias">
+            </div>
 
 
             <div class="container__lista">
                 <ul class="caja__lista">
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="./img/caja-del-paquete.png" alt=""></div>
-                            <div class="nombre">Cajas 24*24 CM</div>
-                            <div class="categoria">Categoría: Cajas</div>
-                            <div class="unidades">Unidades: 5</div>
-                            <div class="precio">Precio: $2.100</div>
-                            <div class="container__button">
-                                <button class="button__existencia" id="visualizarBtn3">Stock Bajo</button>
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="./img/periodico.png" alt=""></div>
-                            <div class="nombre">Papel Periódico</div>
-                            <div class="categoria">Categoría: Papeles</div>
-                            <div class="unidades">Unidades: 4</div>
-                            <div class="precio">Precio Venta: $1.200</div>
-                            <div class="container__button">
-                                <button class="button__existencia" id="visualizarBtn3">Stock Bajo</button>
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="./img/tijeras.png" alt=""></div>
-                            <div class="nombre">Tijeras Rosadas</div>
-                            <div class="categoria">Categoría: Tijeras</div>
-                            <div class="unidades">Unidades: 0</div>
-                            <div class="precio">Precio: $4.500</div>
-                            <div class="container__button">
-                                <button class="button__existencia" id="visualizarBtn3">Agotado</button>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="./img/carpetas.png" alt=""></div>
-                            <div class="nombre">Carpetas</div>
-                            <div class="categoria">Categoría: Cajas</div>
-                            <div class="unidades">Unidades: 0</div>
-                            <div class="precio">Precio: $2.100</div>
-                            <div class="container__button">
-                                <button class="button__existencia" id="visualizarBtn3">Agotado</button>
-                            </div>
-                        </div>
-                    </li>
+                    
                 </ul>
             </div>
-            <!-- <div class="container__boton">
-                <button class="visualizar_button">Visualizar Categoría</button>
-            </div> -->
+            
+            <button class="botonEnviar">enviar productos agotados al correo</button>
         </div>  
+        
+        
+    
     </div>
 
     <script type="module" src="../js/_24_comprobarExistenciasProductosAgotados.js"></script>
