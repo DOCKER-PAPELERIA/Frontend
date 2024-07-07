@@ -1,399 +1,619 @@
 * {
-    margin: 0px;
-    padding: 0px;
-  }
+  margin: 0px;
+  padding: 0px;
+}
+
 /* Encabezado principal */
 .header {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 10vh; /* Altura del encabezado como 10% de la ventana gráfica */
-  width: 100vw; /* Ancho del encabezado al 100% de la ventana gráfica */
-  background-color: #7DA1D0; /* Color de fondo azul */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 10vh;
+  /* Altura del encabezado como 10% de la ventana gráfica */
+  width: 100vw;
+  /* Ancho del encabezado al 100% de la ventana gráfica */
+  background-color: #7DA1D0;
+  /* Color de fondo azul */
+  justify-content: space-between;
+  /* Distribuye el espacio entre los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
 }
 
 /* Contenedor para el menú y el perfil en el encabezado */
 .header__menuYPerfil {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 45px; /* Altura fija de 45px */
-  width: 45px; /* Ancho fijo de 45px */
-  border-radius: 20px; /* Bordes redondeados */
-  background-color: #B0BEC5; /* Color de fondo gris */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 45px;
+  /* Altura fija de 45px */
+  width: 45px;
+  /* Ancho fijo de 45px */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  background-color: #B0BEC5;
+  /* Color de fondo gris */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
 }
 
 /* Botón del menú en el encabezado */
 .header__botonMenu {
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el botón */
-  height: 30px; /* Altura fija de 30px */
-  width: 110px; /* Ancho fijo de 110px */
-  margin-left: -150px; /* Margen izquierdo negativo */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  position: absolute; /* Posiciona el botón de manera absoluta */
-  left: 180px; /* Posiciona el botón 180px desde la izquierda */
-  top: 50px; /* Posiciona el botón 50px desde arriba */
-  z-index: 100; /* Coloca el botón en la parte superior del contenido */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el botón */
+  height: 30px;
+  /* Altura fija de 30px */
+  width: 110px;
+  /* Ancho fijo de 110px */
+  margin-left: -150px;
+  /* Margen izquierdo negativo */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  position: absolute;
+  /* Posiciona el botón de manera absoluta */
+  left: 180px;
+  /* Posiciona el botón 180px desde la izquierda */
+  top: 50px;
+  /* Posiciona el botón 50px desde arriba */
+  z-index: 100;
+  /* Coloca el botón en la parte superior del contenido */
 }
 
 /* Contenedor para la imagen y el texto del botón del menú */
 .botonMenu__imgYTexto {
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 30%; /* Ancho del 30% del contenedor padre */
-  margin-left: 30px; /* Margen izquierdo de 30px */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 30%;
+  /* Ancho del 30% del contenedor padre */
+  margin-left: 30px;
+  /* Margen izquierdo de 30px */
 }
 
 /* Imagen dentro del botón del menú */
 .imgYTexto__img {
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 80%; /* Ancho del 80% del contenedor padre */
-  transform: translateY(-35px); /* Mueve la imagen hacia arriba */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 80%;
+  /* Ancho del 80% del contenedor padre */
+  transform: translateY(-35px);
+  /* Mueve la imagen hacia arriba */
 }
 
 /* Imagen desplegada (visible) */
 .img__desplegado {
-  display: flex; /* Muestra la imagen */
+  display: flex;
+  /* Muestra la imagen */
 }
 
 /* Texto dentro del botón del menú */
 .imgYTexto__texto {
-  font-size: 25px; /* Tamaño de fuente de 25px */
-  margin-left: 10px; /* Margen izquierdo de 10px */
-  transform: translateY(-35px); /* Mueve el texto hacia arriba */
+  font-size: 25px;
+  /* Tamaño de fuente de 25px */
+  margin-left: 10px;
+  /* Margen izquierdo de 10px */
+  transform: translateY(-35px);
+  /* Mueve el texto hacia arriba */
 }
 
 
 
 /* Menú principal */
 .menu {
-  margin-left: 5px; /* Margen izquierdo de 5px */
-  transition: transform 2s, box-sizing 2s, padding 2s, background-color 2s; /* Transiciones suaves para varias propiedades */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  height: 100%; /* Altura completa del contenedor padre */
-  width: 20%; /* Ancho del 20% del contenedor padre */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
-  align-items: center; /* Alinea los elementos hijos horizontalmente al centro */
-  transform: translateY(190px); /* Mueve el menú hacia abajo */
+  margin-left: 5px;
+  /* Margen izquierdo de 5px */
+  transition: transform 2s, box-sizing 2s, padding 2s, background-color 2s;
+  /* Transiciones suaves para varias propiedades */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  height: 100%;
+  /* Altura completa del contenedor padre */
+  width: 20%;
+  /* Ancho del 20% del contenedor padre */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
+  align-items: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
+  transform: translateY(190px);
+  /* Mueve el menú hacia abajo */
 }
 
 /* Opciones desplegadas del menú */
 .menu__opcionesDesplegadas {
-  box-sizing: content-box; /* El modelo de caja incluye padding y border */
-  height: 420px; /* Altura fija de 470px */
-  width: 20%; /* Ancho del 25% del contenedor padre */
-  background-color: rgba(96, 124, 138, 1); /* Color de fondo con transparencia */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
-  display: none; /* Oculta las opciones inicialmente */
-  position: relative; /* Posiciona las opciones de manera relativa */
-  z-index: 90; /* Coloca las opciones por encima de otros elementos */
+  box-sizing: content-box;
+  /* El modelo de caja incluye padding y border */
+  height: 420px;
+  /* Altura fija de 470px */
+  width: 20%;
+  /* Ancho del 25% del contenedor padre */
+  background-color: rgba(96, 124, 138, 1);
+  /* Color de fondo con transparencia */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre las opciones */
+  display: none;
+  /* Oculta las opciones inicialmente */
+  position: relative;
+  /* Posiciona las opciones de manera relativa */
+  z-index: 90;
+  /* Coloca las opciones por encima de otros elementos */
 }
 
 /* Contenedor de cada opción desplegada del menú */
 .opcionesDesplegadas__iconoYTexto {
-  height: 40px; /* Altura fija de 40px */
-  width: 250px; /* Ancho fijo de 250px */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  margin-left: -20px; /* Margen izquierdo negativo */
-  transform: translateY(-5px); /* Mueve el contenedor hacia arriba */
-  border-radius: 20px; /* Bordes redondeados */
-  flex-direction: row-reverse; /* Alinea los elementos hijos en fila inversa */
+  height: 40px;
+  /* Altura fija de 40px */
+  width: 250px;
+  /* Ancho fijo de 250px */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  margin-left: -20px;
+  /* Margen izquierdo negativo */
+  transform: translateY(-5px);
+  /* Mueve el contenedor hacia arriba */
+  border-radius: 20px;
+  /* Bordes redondeados */
+  flex-direction: row-reverse;
+  /* Alinea los elementos hijos en fila inversa */
 }
 
 /* Efecto al pasar el cursor sobre las opciones desplegadas */
 .opcionesDesplegadas__iconoYTexto:hover {
-  background-color: rgba(176, 190, 197, 1); /* Cambia el color de fondo al pasar el cursor */
+  background-color: rgba(176, 190, 197, 1);
+  /* Cambia el color de fondo al pasar el cursor */
 }
 
 /* Icono dentro de cada opción desplegada del menú */
 .iconoYTexto__icono {
-  margin-left: -40px; /* Margen izquierdo negativo */
-  height: 80%; /* Altura del 80% del contenedor padre */
+  margin-left: -40px;
+  /* Margen izquierdo negativo */
+  height: 80%;
+  /* Altura del 80% del contenedor padre */
 }
 
 /* Texto dentro de cada opción desplegada del menú */
 .iconoYTexto__texto {
-  font-size: 22px; /* Tamaño de fuente de 22px */
-  width: 70%; /* Ancho del 70% del contenedor padre */
-  text-align: center; /* Alinea el texto al centro */
-  transform: translateX(-15px); /* Mueve el texto hacia la izquierda */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el texto */
+  font-size: 22px;
+  /* Tamaño de fuente de 22px */
+  width: 70%;
+  /* Ancho del 70% del contenedor padre */
+  text-align: center;
+  /* Alinea el texto al centro */
+  transform: translateX(-15px);
+  /* Mueve el texto hacia la izquierda */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el texto */
 }
 
 /* Perfil del usuario en el encabezado */
 .perfil {
-  margin-right: 15px; /* Margen derecho de 15px */
-  position: absolute; /* Posiciona el perfil de manera absoluta */
-  right: -1px; /* Posiciona el perfil 1px desde la derecha */
-  cursor: pointer; /* Cambia el cursor a un puntero cuando pasa sobre el perfil */
+  margin-right: 15px;
+  /* Margen derecho de 15px */
+  position: absolute;
+  /* Posiciona el perfil de manera absoluta */
+  right: -1px;
+  /* Posiciona el perfil 1px desde la derecha */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero cuando pasa sobre el perfil */
 }
 
 /* Perfil activado */
 .perfilActivado {
-  display: none; /* Oculta el perfil activado inicialmente */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  flex-direction: column; /* Alinea los elementos hijos en columna */
-  height: 75%; /* Altura del 75% del contenedor padre */
-  width: 28%; /* Ancho del 28% del contenedor padre */
-  position: absolute; /* Posiciona el perfil de manera absoluta */
-  background-color: white; /* Color de fondo blanco */
-  top: 12%; /* Posiciona el perfil 12% desde la parte superior */
-  left: 70%; /* Posiciona el perfil 70% desde la izquierda */
-  border-radius: 35px; /* Bordes redondeados */
-  z-index: 100; /* Coloca el perfil por encima de otros elementos */
+  display: none;
+  /* Oculta el perfil activado inicialmente */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  flex-direction: column;
+  /* Alinea los elementos hijos en columna */
+  height: 75%;
+  /* Altura del 75% del contenedor padre */
+  width: 28%;
+  /* Ancho del 28% del contenedor padre */
+  position: absolute;
+  /* Posiciona el perfil de manera absoluta */
+  background-color: white;
+  /* Color de fondo blanco */
+  top: 12%;
+  /* Posiciona el perfil 12% desde la parte superior */
+  left: 70%;
+  /* Posiciona el perfil 70% desde la izquierda */
+  border-radius: 35px;
+  /* Bordes redondeados */
+  z-index: 100;
+  /* Coloca el perfil por encima de otros elementos */
 }
 
 /* Contenedores dentro del perfil activado */
 .perfilActivado__contenedores {
-  height: 15%; /* Altura del 15% del contenedor padre */
-  width: 100%; /* Ancho completo del contenedor padre */
-  display: flex; /* Utiliza flexbox para alinear los elementos hijos */
-  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
-  justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
+  height: 15%;
+  /* Altura del 15% del contenedor padre */
+  width: 100%;
+  /* Ancho completo del contenedor padre */
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos hijos */
+  align-items: center;
+  /* Alinea los elementos hijos verticalmente al centro */
+  justify-content: center;
+  /* Alinea los elementos hijos horizontalmente al centro */
 }
 
 /* Contenedor de la imagen del perfil */
 .perfil__contenedores--img {
-  height: 50%; /* Altura del 35% del contenedor padre */
+  height: 50%;
+  /* Altura del 35% del contenedor padre */
   width: 100%;
 }
 
 /* Estilos de los contenedores de las opciones de perfil */
-.contenedores__nombre, .contenedores__img, .contenedores__saludo, .contenedores__GestionarCuenta, .contenedores__cerrarSesion {
-  display: flex; /* Muestra el contenido horizontalmente */
-  align-items: center; /* Alinea el contenido verticalmente */
-  justify-content: center; /* Alinea el contenido horizontalmente */
+.contenedores__nombre,
+.contenedores__img,
+.contenedores__saludo,
+.contenedores__GestionarCuenta,
+.contenedores__cerrarSesion {
+  display: flex;
+  /* Muestra el contenido horizontalmente */
+  align-items: center;
+  /* Alinea el contenido verticalmente */
+  justify-content: center;
+  /* Alinea el contenido horizontalmente */
 }
 
-.contenedores__img{
+.contenedores__img {
   height: 90%;
   width: 90%;
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil */
 .contenedores__boton {
-  background-color: rgba(0, 92, 105, 1); /* Establece el color de fondo */
-  color: white; /* Establece el color del texto */
-  border: none; /* Elimina el borde */
-  border-radius: 50px; /* Aplica un borde redondeado */
-  cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón */
-  padding: 10px 30px; /* Establece el relleno */
+  background-color: rgba(0, 92, 105, 1);
+  /* Establece el color de fondo */
+  color: white;
+  /* Establece el color del texto */
+  border: none;
+  /* Elimina el borde */
+  border-radius: 50px;
+  /* Aplica un borde redondeado */
+  cursor: pointer;
+  /* Cambia el cursor a un puntero al pasar el ratón */
+  padding: 10px 30px;
+  /* Establece el relleno */
 }
 
 /* Estilos de los botones en los contenedores de las opciones de perfil al pasar el ratón */
 .contenedores__boton:hover {
-  padding: 12px 80px; /* Aumenta el relleno al pasar el ratón */
+  padding: 12px 80px;
+  /* Aumenta el relleno al pasar el ratón */
 }
 
 /* Estilos de la imagen de perfil */
 .perfil__img {
-  height: 70%; /* Establece la altura */
-  width: 70%; /* Establece el ancho */
+  height: 70%;
+  /* Establece la altura */
+  width: 70%;
+  /* Establece el ancho */
 }
+
 /* _______________________________________________________---------------------------------------------------------------------------------------------- */
 
+/* Contenedor principal */
 .container__contenido {
-    width: 100%;
-    height: 100%;
-    background-color: #b0bec5;
-    overflow: hidden;
+  width: 100%;
+  /* Ancho completo */
+  height: 100%;
+  /* Altura completo */
+  background-color: #b0bec5;
+  /* Color de fondo */
+  overflow: hidden;
+  /* Ocultar el desbordamiento */
 }
 
+/* Contenedor flexible */
 .container__juntos {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+  width: 100%;
+  /* Ancho completo */
+  height: auto;
+  /* La altura del contenedor se ajustará automáticamente al contenido */
+  padding: 20px;
+  /* Establece el relleno */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  flex-direction: row;
+  /* Dirección de los elementos en fila */
 }
 
+/* Caja interna */
 .caja1 {
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
+  width: 70%;
+  /* Ancho del contenedor */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  margin-top: 15px;
+  /* Ajuste de margen superior */
 }
 
+/* Contenedor del buscador */
 .container__buscador {
-    width: 500px;
-    height: 42px;
-    background-color: #D9D9D9;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    /* Centrado horizontal */
-    align-items: center;
-    /* Centrado verticalmente */
-    display: grid;
-    grid-template-columns: 5% 95%;
-    grid-template-rows: 1fr;
-    margin-right: 20px;
+  width: 500px;
+  /* Ancho del contenedor */
+  height: 42px;
+  /* Altura del contenedor */
+  background-color: #D9D9D9;
+  /* Color de fondo */
+  border-radius: 20px;
+  /* Aplica un borde redondeado */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrado horizontal */
+  align-items: center;
+  /* Centrado verticalmente */
+  display: grid;
+  /* Usar grid */
+  grid-template-columns: 5% 95%;
+  /* Definir columnas */
+  grid-template-rows: 1fr;
+  /* Definir filas */
+  margin-right: 20px;
+  /* Ajuste de margen derecha */
 }
 
+/* Imagen del buscador */
 .container__buscador__imagen {
-    width: 32px;
-    height: 32px;
-    margin-left: 10px;
-    background-image: url(../img/lupa.png);
+  width: 32px;
+  /* Ancho de la imagen */
+  height: 32px;
+  /* Altura de la imagen */
+  margin-left: 10px;
+  /* Ajuste de margen izquierda */
+  background-image: url(../img/lupa.png);
+  /* Imagen de fondo */
 }
 
+/* Cuadro de búsqueda */
 .container__buscador__cuadro {
-    width: 434px;
-    height: 25px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 20px;
-    border: none;
-    padding: 0px 6px;
+  width: 434px;
+  /* Ancho del cuadro de búsqueda */
+  height: 25px;
+  /* Altura del cuadro de búsqueda */
+  background-color: #ffffff;
+  /* Color de fondo blanco */
+  border-radius: 20px;
+  /* Bordes redondeados de 20px */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
+  margin-left: 20px;
+  /* Margen izquierdo de 20px */
+  border: none;
+  /* Sin borde */
+  padding: 0px 6px;
+  /* Espaciado interno de 6px a los lados */
 }
 
+/* Lista de productos */
 .container__lista {
-    width: 100%;
-    height: 75%;
-    overflow-y: auto;
-    padding: 20px;
-    display: block;
-    justify-content: center;
-    /* flex-direction: column; */
+  width: 100%;
+  /* La lista ocupará el 100% del ancho del contenedor */
+  height: 75%;
+  /* La lista ocupará el 75% de la altura del contenedor */
+  overflow-y: auto;
+  /* Mostrar barra de desplazamiento vertical si el contenido desborda */
+  padding: 20px;
+  /* Establece el relleno */
+  display: block;
+  /* Mostrar como un bloque */
+  justify-content: center;
+  /* Centrar el contenido horizontalmente */
+  /* flex-direction: column; */
 }
 
-
+/* Carta de productos */
 .container__lista__productos__carta {
-    width: 80%;
-    height: 150px;
-    margin: 20px 130px;
-    background-color: white;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: 20% 55% 25%;
-    grid-template-rows: 1fr;
+  width: 80%;
+  /* La carta ocupará el 80% del ancho del contenedor */
+  height: 150px;
+  /* Altura de la carta */
+  margin: 20px 130px;
+  /* Margen superior/inferior de 20px y lateral de 130px */
+  background-color: white;
+  /* Color de fondo blanco */
+  border-radius: 10px;
+  /* Bordes redondeados de 10px */
+  display: grid;
+  /* Usar grid para el diseño de los elementos hijos */
+  grid-template-columns: 20% 55% 25%;
+  /* Definir las columnas de la cuadrícula */
+  grid-template-rows: 1fr;
+  /* Definir la fila de la cuadrícula */
 }
 
+/* Imágenes */
 .imagenes {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.imagenes > img {
-    width: 60%;
+  width: 100%;
+  /* Ancho de la imagen */
+  height: 100%;
+  /* Altura de la imagen */
+  display: flex;
+  /* Usar flexbox */
+  justify-content: center;
+  /* Centrar horizontalmente */
+  align-items: center;
+  /* Centrar verticalmente */
 }
 
+/* Imagen dentro de las imágenes */
+.imagenes>img {
+  width: 60%;
+  /* La imagen ocupará el 60% del ancho del contenedor de imágenes */
+}
 
+/* Contenido */
 .contenido {
-    width: 100%;
-    height: 100%;
-    padding-top: 5px; 
+  width: 100%;
+  /* El contenido ocupará el 100% del ancho disponible */
+  height: 100%;
+  /* El contenido ocupará el 100% de la altura disponible */
+  padding-top: 5px;
+  /* Espaciado interno superior de 5px */
 }
 
-
-.nombre{
-    font-weight: bold;
-    font-size: 25px;
-    margin-bottom: 10px;
+/* Nombre del producto */
+.nombre {
+  font-weight: bold;
+  /* Texto en negrita */
+  font-size: 25px;
+  /* Tamaño de fuente de 25px */
+  margin-bottom: 10px;
+  /* Margen inferior de 10px */
 }
 
-.descripcion{
-    font-size: 22px;
+/* Descripción del producto */
+.descripcion {
+  font-size: 22px;
+  /* Tamaño de fuente de 22px */
 }
 
+/* Contenedor del botón */
 .container__button {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  /* El contenedor del botón ocupará el 100% del ancho disponible */
+  height: 100%;
+  /* El contenedor del botón ocupará el 100% de la altura disponible */
+  display: flex;
+  /* Usar flexbox para el diseño de los elementos hijos */
+  justify-content: center;
+  /* Centrar los botones horizontalmente */
+  align-items: center;
+  /* Centrar los botones verticalmente */
 }
 
+/* Botón de ver producto */
 .button__verproducto {
-    width: 200px;
-    height: 40px;
-    background-color: #004b61;
-    color: white;
-    border: none;
-    border-radius: 15px;
+  width: 200px;
+  /* Ancho del botón */
+  height: 40px;
+  /* Altura del botón */
+  background-color: #004b61;
+  /* Color de fondo azul oscuro */
+  color: white;
+  /* Color del texto blanco */
+  border: none;
+  /* Sin borde */
+  border-radius: 15px;
+  /* Bordes redondeados de 15px */
 }
 
+/* Hover del botón de ver producto */
 .button__verproducto:hover {
-    background-color: #003445;
+  background-color: #003445;
+  /* Cambiar el color de fondo al pasar el ratón */
 }
 
 
 /* Responsive pantallas pequeñas*/
 @media (max-width: 768px) {
-    .container__barra {
-        grid-template-columns: 12% 68% 20%;
-    }
+  .container__barra {
+    grid-template-columns: 12% 68% 20%;
+    /* Definir las columnas de la cuadrícula */
+  }
 
-    .perfilActivado {
-        transform: translateX(-120px);
-        width: 70%;
-        /* Ajusta el ancho */
-        border-radius: 30px;
-        /* Ajusta el radio del borde */
-    }
+  .perfilActivado {
+    transform: translateX(-120px);
+    /* Mover el perfil activado 120px a la izquierda */
+    width: 70%;
+    /* Ajustar el ancho al 70% */
+    border-radius: 30px;
+    /* Ajustar el radio del borde a 30px */
+  }
 
-    .menu__opcionesDesplegadas {
-        width: 70%;
-        /* Ajusta el ancho para ocupar más espacio en pantallas pequeñas */
-        transform: translateX(220px) translateY(210px);
-    }
+  .menu__opcionesDesplegadas {
+    width: 70%;
+    /* Ajustar el ancho al 70% */
+    transform: translateX(220px) translateY(210px);
+    /* Mover el menú 220px a la derecha y 210px hacia abajo */
+  }
 
-    .perfilActivado {
-        transform: translateX(-200px);
-    }
+  .perfilActivado {
+    transform: translateX(-200px);
+    /* Mover el perfil activado 200px a la izquierda */
+  }
 
 
-    .container__lista {
-        padding-left: 0px;
-    }
+  .container__lista {
+    padding-left: 0px;
+    /* Sin espaciado interno a la izquierda */
+  }
 
-    .caja__lista {
-        column-gap: 20px;
-        justify-content: center;
-        padding-bottom: 130px;
-    }
+  .caja__lista {
+    column-gap: 20px;
+    /* Espaciado entre columnas de 20px */
+    justify-content: center;
+    /* Centrar el contenido horizontalmente */
+    padding-bottom: 130px;
+    /* Espaciado interno inferior de 130px */
+  }
 
-    .container__buscador {
-        width: 380px;
-        height: 42px;
-    }
+  .container__buscador {
+    width: 380px;
+    /* Ancho del contenedor del buscador */
+    height: 42px;
+    /* Altura del contenedor del buscador */
+  }
 
-    .container__buscador__cuadro {
-        width: 300px;
-        height: 25px;
-    }
+  .container__buscador__cuadro {
+    width: 300px;
+    /* Ancho del cuadro de búsqueda */
+    height: 25px;
+    /* Altura del cuadro de búsqueda */
+  }
 
-    .container__lista {
-        padding: 20px;
-    }
+  .container__lista {
+    padding: 20px;
+    /* Espaciado interno de 20px alrededor del contenido */
+  }
 
-    .container__lista__productos__carta {
-        width: 95%;
-        height: 230px;
-        margin: 20px 0px;
-        display: grid;
-        grid-template-columns: 40% 60%;
-        grid-template-rows: 20% 80%;
-    }
+  .container__lista__productos__carta {
+    width: 95%;
+    /* La carta ocupará el 95% del ancho del contenedor */
+    height: 230px;
+    /* Altura de la carta */
+    margin: 20px 0px;
+    /* Margen superior/inferior de 20px y sin margen lateral */
+    display: grid;
+    /* Usar grid para el diseño de los elementos hijos */
+    grid-template-columns: 40% 60%;
+    /* Definir las columnas de la cuadrícula */
+    grid-template-rows: 20% 80%;
+    /* Definir las filas de la cuadrícula */
+  }
 
-    .imagenes{
-        margin-top: 50px;
-    }
+  .imagenes {
+    margin-top: 50px;
+    /* Margen superior de 50px */
+  }
 
-    .button__verproducto{
-        width: 120px;
-        margin-top: 50px;
-    }
+  .button__verproducto {
+    width: 120px;
+    /* Ancho del botón */
+    margin-top: 50px;
+    /* Margen superior de 50px */
+  }
 
 }
