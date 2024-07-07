@@ -1,7 +1,7 @@
 * {
   margin: 0px;
   padding: 0px;
-}
+} 
 
 /* Encabezado principal */
 .header {
@@ -366,7 +366,7 @@
   /* Dos columnas con proporciones 2:3 */
   grid-template-rows: 1fr;
   /* Una fila */
-  margin-left: 340px;
+  margin-left: 300px;
   /* Margen izquierdo */
   margin-top: 45px;
   /* Margen superior */

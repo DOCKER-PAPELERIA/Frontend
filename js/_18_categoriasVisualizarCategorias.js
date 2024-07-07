@@ -43,6 +43,122 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const listaProductosCarta = document.querySelector(".caja_lista");
+  const inputBuscar = document.querySelector(".container__buscador__cuadro");
+
+  try {
+      const respuesta = await fetch('http://localhost:3000/api/categoria', {
+          method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+          }
+      });
+
+      if (!respuesta.ok) {
+          throw new Error("Error en la solicitud");
+      }
+
+      const data = await respuesta.json();
+      const categorias = data.body; // Asegúrate de que data.body contiene el array de categorías
+      console.log(categorias);
+
+      // Función para renderizar las categorías
+      const renderizarCategorias = (categorias) => {
+          listaProductosCarta.innerHTML = ""; // Limpiar la lista antes de renderizar
+
+          categorias.forEach(categoria => {
+              const itemHTML = `
+                  <li class="container__lista__productos__carta" data-id="${categoria.id}">
+                      <div class="imagenes">
+                          <img src="${categoria.imagen}" alt="imagen categoria">
+                      </div>
+                      <div class="contenido">
+                          <div class="nombre">${categoria.Categoria}</div>
+                          <textarea class="descripcion" readonly>${categoria.descripcion_categoria}</textarea>
+                      </div>
+                      <div class="container__button">
+                          <button class="button__verproducto" data-id="${categoria.idCategorias}">Ver Producto</button>
+                      </div>
+                  </li>
+              `;
+              listaProductosCarta.insertAdjacentHTML("beforeend", itemHTML);
+          });
+
+          // Agregar evento de clic a los botones "Ver Producto"
+          const botonesVerProducto = document.querySelectorAll(".button__verproducto");
+          botonesVerProducto.forEach(boton => {
+              boton.addEventListener("click", (e) => {
+                  const idCategoria = e.target.getAttribute("data-id");
+                  console.log(idCategoria);
+                  window.location.href = `../HTML/_19_categoriasVisualizarProductos.html?id=${idCategoria}`;
+              });
+          });
+      };
+
+      renderizarCategorias(categorias); // Renderizar todas las categorías al inicio
+
+      // Evento de input para buscar categorías
+      inputBuscar.addEventListener("input", () => {
+          const filtro = inputBuscar.value.toLowerCase(); // Convertir el texto a minúsculas para comparación
+
+          const categoriasFiltradas = categorias.filter(categoria =>
+              categoria.Categoria.toLowerCase().includes(filtro)
+          );
+
+          renderizarCategorias(categoriasFiltradas); // Renderizar categorías filtradas
+      });
+
+  } catch (error) {
+      console.error("Error al obtener las categorías:", error);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Botones para ver productos.
  * @type {NodeList}
@@ -61,16 +177,30 @@ botones.forEach((boton) => {
  */
 new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--gestionarCuenta").redireccionar();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Instancia de la clase Link para redirigir a la página del menú.
  */
 new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
-
-/**
- * Instancia de la clase Link para redirigir a la página de alertas.
- */
-new Link("../HTML/_8_alertas.html", ".alertas").redireccionar();
-
 /**
  * Instancia de la clase Link para redirigir a la página de facturas.
  */

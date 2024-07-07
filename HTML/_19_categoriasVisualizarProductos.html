@@ -98,8 +98,8 @@
             </header>
         </div>
 
+        
         <div class="container__contenido">
-
             <!-- NOMBRE CATEGORIA E IMAGEN -->
             <div class="container__arriba">
                 <div class="nombre_categoria">Carpetas, Cuadernos y Libretas</div>
@@ -117,66 +117,36 @@
 
                 <!-- FILTRO -->
                 <div class="container__navbar">
-                    <select class="filtro" name="" id="">
-                        <option value="" selected>Filtro</option>
-                        <option value="">Sin Filtro</option>
-                        <option value="">Orden Alfábetico</option>
-                        <option value="">Más nuevo a más viejo</option>
-                        <option value="">Más viejo a más nuevo</option>
+                    <select class="filtro" name="filtro" id="filtro">
+                        <option value="sin filtro" selected>Filtro</option>
+                        <option value="sin filtro">Sin Filtro</option>
+                        <option value="ordenar">Orden Alfábetico</option>
+                        <option value="nuevo">Más nuevo a más viejo</option>
+                        <option value="viejo">Más viejo a más nuevo</option>
                     </select>
                 </div>
             </div>
 
-
             <div class="container__lista">
                 <ul class="caja__lista">
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="../contenido_embebido/fotoPersona.png" alt="carpeta"></div>
-                            <div class="nombre">Carpeta de Cartón</div>
-                            <div class="codigo">Código: 45782</div>
-                            <div class="categoria">Categoría: Carpetas...</div>
-                            <div class="unidades">Unidades: 25</div>
-                            <div class="precio">Precio: $2.100</div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="../contenido_embebido/equis.png" alt=""></div>
-                            <div class="nombre">Cuaderno Argollado</div>
-                            <div class="codigo">Código: 36891</div>
-                            <div class="categoria">Categoría: Carpetas...</div>
-                            <div class="unidades">Unidades: 0</div>
-                            <div class="precio">Precio: $2.100</div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="../contenido_embebido/candado.png" alt="cuaderno argollado"></div>
-                            <div class="nombre">Carpetas de Plastico</div>
-                            <div class="codigo">Código: 56320</div>
-                            <div class="categoria">Categoría: Carpetas...</div>
-                            <div class="unidades">Unidades: 14</div>
-                            <div class="precio">Precio: $1.200</div>
-                        </div>
-                    </li>
-
-
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="../contenido_embebido/background.jpg" alt="carpeta"></div>
-                            <div class="nombre">Carpetas Fuelle</div>
-                            <div class="codigo">Código: 85246</div>
-                            <div class="categoria">Categoría: Carpetas...</div>
-                            <div class="unidades">Unidades: 25</div>
-                            <div class="precio">Precio: $4.500</div>
-                        </div>
-                    </li>
+                    <!-- La lista de productos se llenará dinámicamente con JavaScript -->
                 </ul>
             </div>
         </div>
+        <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
     <script type="module" src="../js/_19_categoriasvisualizarProductos.js"></script>

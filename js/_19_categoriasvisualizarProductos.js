@@ -43,6 +43,136 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const listaProductos = document.querySelector(".caja__lista");
+    const nombreCategoria = document.querySelector(".nombre_categoria");
+    const imagenCategoria = document.querySelector(".imagen_categoria img");
+    const filtroSelect = document.getElementById("filtro");
+    const buscadorInput = document.querySelector(".container_buscador_cuadro");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const idCategoria = urlParams.get('idCategoria');
+
+    const fetchProductos = async (filtro = 'sin filtro', idCategoria = '') => {
+        try {
+            const respuesta = await fetch(`http://localhost:3000/api/productos/${idCategoria}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ filtro })
+            });
+
+            if (!respuesta.ok) {
+                throw new Error("Error en la solicitud");
+            }
+
+            const data = await respuesta.json();
+            const productos = data.body;
+            console.log(data);
+
+            listaProductos.innerHTML = ""; // Limpiar la lista antes de renderizar
+
+            productos.forEach(producto => {
+                const itemHTML = `
+                    <li>
+                        <div class="caja">
+                            <div class="imagen"><img src="${producto.imagen}" alt="${producto.nombre_producto}"></div>
+                            <div class="nombre">${producto.nombre_producto}</div>
+                            <div class="codigo">Código: ${producto.codigo}</div>
+                            <div class="categoria">Categoría: ${producto.categoria}</div>
+                            <div class="unidades">Unidades: ${producto.unidades}</div>
+                            <div class="precio">Precio: $${producto.precio}</div>
+                        </div>
+                    </li>
+                `;
+                listaProductos.insertAdjacentHTML("beforeend", itemHTML);
+            });
+
+            // Actualizar nombre e imagen de la categoría
+            nombreCategoria.textContent = data.categoriaNombre;
+            imagenCategoria.src = data.categoriaImagen;
+        } catch (error) {
+            console.error("Error al obtener los productos:", error);
+        }
+    };
+
+    // Fetch inicial
+    fetchProductos('sin filtro', idCategoria);
+
+    // Event listener para el filtro
+    filtroSelect.addEventListener("change", () => {
+        fetchProductos(filtroSelect.value, idCategoria);
+    });
+
+    // Event listener para el buscador
+    buscadorInput.addEventListener("input", () => {
+        fetchProductos(filtroSelect.value, idCategoria);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Instancia de la clase Link para redirigir a la página de cambiar información personal.
  */
@@ -53,10 +183,6 @@ new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--ge
  */
 new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
-/**
- * Instancia de la clase Link para redirigir a la página de alertas.
- */
-new Link("../HTML/_8_alertas.html", ".alertas").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de facturas.

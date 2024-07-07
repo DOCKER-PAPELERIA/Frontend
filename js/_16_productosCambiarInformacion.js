@@ -136,7 +136,6 @@ async function guardarCambios() {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
-                "x-access-token": authToken
             },
             body: JSON.stringify(producto)
         });
@@ -270,10 +269,7 @@ new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--ge
  */
 new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
-/**
- * Instancia de la clase Link para redirigir a la página de alertas.
- */
-new Link("../HTML/_8_alertas.html", ".alertas").redireccionar();
+
 
 /**
  * Instancia de la clase Link para redirigir a la página de facturas.
