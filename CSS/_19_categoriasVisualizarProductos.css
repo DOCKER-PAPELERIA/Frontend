@@ -333,11 +333,21 @@
   /* Texto en negrita */
   font-size: 33px;
   /* Tamaño de fuente */
-  margin-top: 50px;
-  /* Margen superior */
   margin-left: 400px;
   /* Margen izquierdo */
+  margin-top: 30px;
+
 }
+
+
+#img_categoria{
+  height: 40%;
+  width: 40%;
+  border-radius: 25px;
+  margin-top: 20px;
+  transform: translate(-50px);
+}
+
 
 /* Estilo de la imagen de la categoría */
 .imagen_categoria {
@@ -371,7 +381,13 @@
   /* Centrar verticalmente */
   flex-direction: row;
   /* Dirección en fila */
+  transform: translate(-200px, -100px);
+
 }
+
+
+
+
 
 /* Caja interna */
 .caja1 {
@@ -411,6 +427,8 @@
   /* Definir filas */
   margin-right: 20px;
   /* Margen derecho */
+  transform: translateY(-10px);
+
 }
 
 /* Imagen del buscador */
@@ -451,7 +469,7 @@
 
 /* Estilo del filtro */
 .filtro {
-  width: 180px;
+  width: 150px;
   /* Ancho del filtro */
   height: 35px;
   /* Altura del filtro */
@@ -485,6 +503,8 @@
   /* Desplazamiento vertical */
   padding-left: 120px;
   /* Relleno izquierdo */
+  transform: translateY(-100px);
+
 }
 
 /* Lista de cajas */
@@ -495,21 +515,22 @@
   /* Usar flexbox */
   flex-wrap: wrap;
   /* Ajustar contenido */
-  row-gap: 20px;
+  row-gap: 40px;
   /* Espacio entre filas */
   column-gap: 70px;
   /* Espacio entre columnas */
   justify-content: start;
   /* Alinear al inicio */
-  padding-bottom: 15px;
+  padding-bottom: 400px;
   /* Relleno inferior */
+  transform: translate(-70px);
 }
 
 /* Caja individual */
 .caja {
-  width: 220px;
+  width: 300px;
   /* Ancho de la caja */
-  height: 270px;
+  height: 380px;
   /* Altura de la caja */
   background-color: white;
   /* Color de fondo */
@@ -531,9 +552,9 @@
   /* Ocupa dos columnas */
   grid-row: 1;
   /* Primera fila */
-  width: 100%;
+  width: 80%;
   /* Ancho completo */
-  height: 60%;
+  height: 100%;
   /* Altura del 60% */
   display: flex;
   /* Usar flexbox */
@@ -543,6 +564,7 @@
   /* Centrar verticalmente */
   margin-top: 30px;
   /* Margen superior */
+  align-self: center;
 }
 
 /* Imagen dentro del contenedor */
@@ -568,6 +590,7 @@
   font-weight: bold;
   /* Texto en negrita */
   margin-top: 35px;
+  
   /* Margen superior */
   border-top: 1px solid rgb(70, 67, 67);
   /* Borde superior */

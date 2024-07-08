@@ -69,76 +69,115 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const listaProductos = document.querySelector(".caja__lista");
-    const nombreCategoria = document.querySelector(".nombre_categoria");
-    const imagenCategoria = document.querySelector(".imagen_categoria img");
-    const filtroSelect = document.getElementById("filtro");
-    const buscadorInput = document.querySelector(".container_buscador_cuadro");
-
+// Función para obtener parámetros de la URL
+function obtenerParametroUrl(parametro) {
     const urlParams = new URLSearchParams(window.location.search);
-    const idCategoria = urlParams.get('idCategoria');
+    return urlParams.get(parametro);
+}
 
-    const fetchProductos = async (filtro = 'sin filtro', idCategoria = '') => {
-        try {
-            const respuesta = await fetch(`http://localhost:3000/api/productos/${idCategoria}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ filtro })
-            });
+// Variables globales para almacenar los productos originales y filtrados
+let productosOriginales = [];
 
-            if (!respuesta.ok) {
-                throw new Error("Error en la solicitud");
-            }
+// Función para cargar productos dinámicamente en el HTML
+function cargarProductos(productos) {
+    const listaProductos = document.querySelector('.caja__lista');
 
-            const data = await respuesta.json();
-            const productos = data.body;
-            console.log(data);
+    // Limpiar la lista de productos existentes antes de agregar nuevos
+    listaProductos.innerHTML = '';
 
-            listaProductos.innerHTML = ""; // Limpiar la lista antes de renderizar
+    productos.forEach(producto => {
+        // Crear elementos HTML para cada producto
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <div class="caja">
+                <div class="imagen"><img src="${producto.imagen}" alt="${producto.nombre_product}"></div>
+                <div class="nombre">${producto.nombre_product}</div>
+                <div class="codigo">Código: ${producto.codigo_producto}</div>
+                <div class="categoria">Categoría: ${producto.idCategorias}</div>
+                <div class="unidades">Unidades: ${producto.stock}</div>
+                <div class="precio">Precio: $${producto.precio}</div>
+            </div>
+        `;
+        // Agregar el elemento li a la lista de productos
+        listaProductos.appendChild(li);
+    });
 
-            productos.forEach(producto => {
-                const itemHTML = `
-                    <li>
-                        <div class="caja">
-                            <div class="imagen"><img src="${producto.imagen}" alt="${producto.nombre_producto}"></div>
-                            <div class="nombre">${producto.nombre_producto}</div>
-                            <div class="codigo">Código: ${producto.codigo}</div>
-                            <div class="categoria">Categoría: ${producto.categoria}</div>
-                            <div class="unidades">Unidades: ${producto.unidades}</div>
-                            <div class="precio">Precio: $${producto.precio}</div>
-                        </div>
-                    </li>
-                `;
-                listaProductos.insertAdjacentHTML("beforeend", itemHTML);
-            });
+    document.getElementById("nombreeCategoria").textContent = productos[0].Categoria;
+    // Establecer la URL de la imagen de categoría
+    const imgCategoria = document.getElementById('img_categoria');
+    imgCategoria.src = productos[0].foto;
 
-            // Actualizar nombre e imagen de la categoría
-            nombreCategoria.textContent = data.categoriaNombre;
-            imagenCategoria.src = data.categoriaImagen;
-        } catch (error) {
-            console.error("Error al obtener los productos:", error);
-        }
+    // Actualizar productosOriginales con la nueva lista de productos
+    productosOriginales = [...productos];
+}
+
+// Función para filtrar productos según el filtro y la categoría
+async function filtrarProductos(filtro, busqueda = '') {
+    const categoria = obtenerParametroUrl('id'); // Obtener el parámetro 'id' de la URL
+
+    // Construir el cuerpo de la solicitud
+    const body = {
+        filtro: filtro,
+        categoria: categoria
     };
 
-    // Fetch inicial
-    fetchProductos('sin filtro', idCategoria);
+    try {
+        const response = await fetch('http://localhost:3000/api/productos-por-categoria', {
+            method: 'POST', // Cambiado a POST
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
 
-    // Event listener para el filtro
-    filtroSelect.addEventListener("change", () => {
-        fetchProductos(filtroSelect.value, idCategoria);
-    });
+        if (!response.ok) {
+            throw new Error('Error al obtener productos');
+        }
 
-    // Event listener para el buscador
-    buscadorInput.addEventListener("input", () => {
-        fetchProductos(filtroSelect.value, idCategoria);
-    });
+        const data = await response.json();
+        if (data.error === false && (data.status === 200 || data.status === 201)) {
+            console.log("datos recibidos", data.body);
+            // Filtrar productos según la búsqueda actual
+            const productosFiltrados = filtrarPorBusqueda(data.body, busqueda);
+            cargarProductos(productosFiltrados); // Llamar a la función para cargar los productos en el HTML
+        } else {
+            console.error('Error al obtener productos:', data.body);
+        }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+    }
+}
+
+// Función para filtrar productos por búsqueda
+function filtrarPorBusqueda(productos, busqueda) {
+    return productos.filter(producto =>
+        producto.nombre_product.toLowerCase().includes(busqueda.toLowerCase())
+    );
+}
+
+// Evento para escuchar cambios en el select de filtro
+const selectFiltro = document.getElementById('filtro');
+selectFiltro.addEventListener('change', () => {
+    const filtroSeleccionado = selectFiltro.value;
+    const inputBusqueda = document.querySelector('.container_buscador_cuadro');
+    filtrarProductos(filtroSeleccionado, inputBusqueda.value);
 });
 
+// Evento para escuchar cambios en el campo de búsqueda
+const inputBusqueda = document.querySelector('.container_buscador_cuadro');
+inputBusqueda.addEventListener('input', () => {
+    const filtroSeleccionado = selectFiltro.value;
+    filtrarProductos(filtroSeleccionado, inputBusqueda.value);
+});
+
+// Función para inicializar la carga de productos al cargar la página (opcional)
+function inicializar() {
+    const filtroInicial = 'sin filtro'; // Opción inicial del filtro
+    filtrarProductos(filtroInicial); // Llamar a filtrarProductos con filtro inicial
+}
+
+// Llamar a la función inicializar cuando se cargue la página
+document.addEventListener('DOMContentLoaded', inicializar);
 
 
 
@@ -152,10 +191,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-
-
-
-
+                // <li>
+                //     <div class="caja">
+                //         <div class="imagen"><img src="${producto.imagen}" alt="${producto.nombre_producto}"></div>
+                //         <div class="nombre">${producto.nombre_producto}</div>
+                //         <div class="codigo">Código: ${producto.codigo}</div>
+                //         <div class="categoria">Categoría: ${producto.categoria}</div>
+                //         <div class="unidades">Unidades: ${producto.unidades}</div>
+                //         <div class="precio">Precio: $${producto.precio}</div>
+                //     </div>
+                // </li>
 
 
 
