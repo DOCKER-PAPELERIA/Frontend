@@ -16,7 +16,7 @@ document.getElementById('recuperarCuentaForm').addEventListener('submit', async 
          * Realiza una solicitud POST al servidor para cambiar la contraseña.
          * @type {Response}
          */
-        const response = await fetch('http://localhost:3000/user/usuario-nueva-contrasena', {
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario-nueva-contrasena', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -132,7 +132,7 @@ async function guardarCambios() {
     };
 
     try {
-        const response = await fetch(`http://localhost:3000/api/producto/${idProducto}`, {
+        const response = await fetch(`https://ms-inventario-api-mi-angel-1.onrender.com/api/producto/${idProducto}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -161,7 +161,7 @@ document.querySelector('.boton__guardarcambios').addEventListener('click', guard
 // Función para cargar categorías
 async function cargarCategorias() {
     try {
-        const response = await fetch('http://localhost:3000/api/categoria');
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/categoria');
         if (!response.ok) {
             throw new Error('No se pudo obtener la lista de categorías');
         }
@@ -194,7 +194,7 @@ async function cargarCategorias() {
 // Función para cargar proveedores
 async function cargarProveedores() {
     try {
-        const response = await fetch('http://localhost:3000/api/proveedor');
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/proveedor');
         if (!response.ok) {
             throw new Error('No se pudo obtener la lista de proveedores');
         }

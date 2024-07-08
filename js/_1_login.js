@@ -1,3 +1,5 @@
+
+
 /**
  * @fileoverview Script para manejar la redirección de enlaces y el inicio de sesión de usuario.
  * Este script proporciona funcionalidad para redirigir a los usuarios a las páginas de inicio de sesión y registro,
@@ -90,3 +92,12 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             });
         });
 });
+
+
+
+
+
+
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);

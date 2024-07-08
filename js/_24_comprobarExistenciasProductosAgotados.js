@@ -50,7 +50,7 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 document.addEventListener('DOMContentLoaded', async function () {
     try {
-        const response = await fetch('http://localhost:3000/api/producto-agotadoWeb');
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/producto-agotadoWeb');
         if (!response.ok) {
             throw new Error('No se pudo obtener la lista de productos agotados');
         }
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const botonEnviar = document.querySelector('.botonEnviar');
         botonEnviar.addEventListener('click', async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/enviar-correo-productos-agotados', {
+                const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/enviar-correo-productos-agotados', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

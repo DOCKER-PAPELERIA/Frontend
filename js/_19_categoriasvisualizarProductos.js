@@ -122,7 +122,7 @@ async function filtrarProductos(filtro, busqueda = '') {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/productos-por-categoria', {
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/productos-por-categoria', {
             method: 'POST', // Cambiado a POST
             headers: {
                 'Content-Type': 'application/json'
@@ -178,30 +178,6 @@ function inicializar() {
 
 // Llamar a la función inicializar cuando se cargue la página
 document.addEventListener('DOMContentLoaded', inicializar);
-
-
-
-
-
-
-
-
-
-
-
-
-
-                // <li>
-                //     <div class="caja">
-                //         <div class="imagen"><img src="${producto.imagen}" alt="${producto.nombre_producto}"></div>
-                //         <div class="nombre">${producto.nombre_producto}</div>
-                //         <div class="codigo">Código: ${producto.codigo}</div>
-                //         <div class="categoria">Categoría: ${producto.categoria}</div>
-                //         <div class="unidades">Unidades: ${producto.unidades}</div>
-                //         <div class="precio">Precio: $${producto.precio}</div>
-                //     </div>
-                // </li>
-
 
 
 
