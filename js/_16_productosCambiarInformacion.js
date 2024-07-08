@@ -136,6 +136,7 @@ async function guardarCambios() {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
+                "x-access-token": authToken
             },
             body: JSON.stringify(producto)
         });
