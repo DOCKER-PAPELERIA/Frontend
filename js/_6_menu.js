@@ -110,3 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
  * @param {number} tiempo - Tiempo en horas después del cual el token será eliminado.
  */
 // eliminarTokenDespuesDeTiempo(1);
+
+
+
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);
