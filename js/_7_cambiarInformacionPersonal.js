@@ -108,7 +108,7 @@ correoInput.disabled = true; // Para hacer el campo ineditable
         };
 
         try {
-            const response = await fetch("http://localhost:3000/user/usuario", {
+            const response = await fetch("https://ms-inventario-api-mi-angel-1.onrender.com/user/usuario", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -143,3 +143,11 @@ correoInput.disabled = true; // Para hacer el campo ineditable
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
 eliminarTokenDespuesDeTiempo(60);
+
+
+
+
+
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);

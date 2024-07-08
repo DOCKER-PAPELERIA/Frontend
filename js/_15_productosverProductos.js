@@ -78,7 +78,7 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 const authToken = localStorage.getItem("authToken");
-const url = "http://localhost:3000/api/producto";
+const url = "https://ms-inventario-api-mi-angel-1.onrender.com/api/producto";
 let productos = []; // Array para almacenar los productos
 
 // Función para obtener y mostrar los productos
@@ -161,7 +161,7 @@ function confirmarEliminacion(event) {
     };
 }
 
-const url2 = "http://localhost:3000/api/producto";
+const url2 = "https://ms-inventario-api-mi-angel-1.onrender.com/api/producto";
 // Función para eliminar un producto
 async function eliminarProducto(id) {
     try {
@@ -199,18 +199,6 @@ document.addEventListener('DOMContentLoaded', mostrarProductos);
 
 // Añadir event listener al campo de búsqueda
 document.getElementById('buscador').addEventListener('input', filtrarProductos);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -299,3 +287,42 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     verificarTokenYRedirigir();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);
