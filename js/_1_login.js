@@ -66,6 +66,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 /**
                  * Muestra un mensaje de error si las credenciales son incorrectas.
                  */
+                
                 // alert(data.message || 'Inicio de sesión fallido. Credenciales incorrectas.');
                 Swal.fire({
                     icon: "warning",
