@@ -346,9 +346,9 @@
 }
 
 .container__buscador {
-  width: 500px;
+  width: 550px;
   /* Ancho fijo de 500px */
-  height: 42px;
+  height: 60px;
   /* Altura fija de 42px */
   background-color: #D9D9D9;
   /* Color de fondo gris claro */
@@ -371,9 +371,9 @@
 }
 
 .container__buscador__imagen {
-  width: 32px;
+  width: 50px;
   /* Ancho de la imagen */
-  height: 32px;
+  height: 50px;
   /* Altura de la imagen */
   margin-left: 10px;
   /* Margen izquierdo de 10px */
@@ -382,9 +382,9 @@
 }
 
 .container__buscador__cuadro {
-  width: 434px;
+  width: 460px;
   /* Ancho fijo de 434px */
-  height: 25px;
+  height: 35px;
   /* Altura fija de 25px */
   background-color: #ffffff;
   /* Color de fondo blanco */
@@ -396,7 +396,7 @@
   /* Centra horizontalmente los elementos */
   align-items: center;
   /* Centra verticalmente los elementos */
-  margin-left: 20px;
+  margin-left: 40px;
   /* Margen izquierdo de 20px */
   border: none;
   /* Sin borde */
@@ -420,6 +420,20 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
   /* Relleno superior adicional de 15px */
   overflow-y: auto;
   /* Scroll vertical automático si es necesario */
+  transform: translate(0, -80px);
+}
+
+
+#botonImprimir{
+  height: 120px;
+  width: 120px;
+  transform: translate(960px, -90px);
+  border-radius: 25px;
+}
+
+.bxs-printer{
+  height: 85%;
+  width: 85%;
 }
 
 .table {

@@ -105,90 +105,64 @@
             </header>
         </div>
 
-        <!-- Contenido principal -->
-        <div class="container__contenido">
-            <div class="container__juntos">
-                <!-- Buscador -->
-                <div class="caja1">
-                    <div class="container__buscador">
-                        <img src="/contenido_embebido/buscador.png" alt="buscador" class="container__buscador__imagen">
-                        <input type="search" class="container__buscador__cuadro" placeholder="Buscar">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabla de historial -->
-            <div class="container_tabla">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">N°</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Usuario</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Fecha de historial</th>
-                            <th scope="col">Método de Pago</th>
-                            <th scope="col">Total a Pagar</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Caja de lapiceros color rosado</td>
-                            <td>Pedro Perez</td>
-                            <td>22</td>
-                            <td>$1.200</td>
-                            <td>2023-08-15</td>
-                            <td>Efectivo</td>
-                            <td>$26.400</td>
-                            <td scope="btn">
-                                <button class="act-icon blue btn-trash-open">
-                                    <i class='bx bxs-printer' title="Imprimir historial"></i>
-                                </button>
-                                <button class="act-icon red btn-trash-open">
-                                    <i class='bx bx-trash' title="Eliminar historial"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Ventana modal para eliminar -->
-        <div class="ventana">
-            <div class="header2">
-                <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
-            </div>
-            <div class="body">
-                <h3 class="text_information">Digite su contraseña para eliminar el historial:
-                    <div></div>
-                    <input type="password" class="contrasena">
-                </h3>
-            </div>
-            <div class="footer">
-                <button class="btn-confirm yes" id="btn-yes">Confirmar</button>
-            </div>
-        </div>
-
-        <!-- Ventana modal para imprimir -->
-        <div class="ventana2">
-            <div class="header2">
-                <button class="btn-close" id="btn-close2" title="Cerrar Ventana">&times;</button>
-            </div>
-            <div class="body">
-                <h3 class="text_information">Seguro que quiere imprimir este historial?</h3>
-            </div>
-            <div class="footer">
-                <button class="btn-confirm yes" id="btn-yes2">Confirmar</button>
+ <!-- Contenido principal -->
+ <div class="container__contenido">
+    <div class="container__juntos">
+        <!-- Buscador -->
+        <div class="caja1">
+            <div class="container__buscador">
+                <img src="/contenido_embebido/buscador.png" alt="buscador" class="container__buscador__imagen">
+                <input type="search" id="buscador" class="container__buscador__cuadro" placeholder="Buscar">
             </div>
         </div>
     </div>
 
-    <!-- Script JavaScript -->
-    <script type="module" src="../js/_12_historialVerHistorial.js"></script>
+    <button class="act-icon blue" id="botonImprimir">
+        <img class="bxs-printer" src="../contenido_embebido/printer.png" alt="imprimir">
+    </button>
+
+    <!-- Tabla de facturas -->
+    <div class="container_tabla">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Fecha de Factura</th>
+                    <th scope="col">Método de Pago</th>
+                    <th scope="col">Total a Pagar</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="contenido_factura">
+                <!-- Contenido dinámico -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Ventana modal para eliminar -->
+<div class="ventana" id="ventanaModal" style="display: none;">
+    <div class="header2">
+        <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
+    </div>
+    <div class="body">
+        <h3 class="text_information">Digite su contraseña para eliminar el historial seleccionado:</h3>
+        <div></div>
+        <input type="password" class="contrasena" id="contrasena">
+    </div>
+    <div class="footer">
+        <button class="btn-confirm yes" id="btn-yes">Confirmar</button>
+    </div>
+</div>
+
+
+<!-- Script JavaScript -->
+<script type="module" src="../js/_12_historialVerHistorial.js"></script>
+
 </body>
 
 </html>
