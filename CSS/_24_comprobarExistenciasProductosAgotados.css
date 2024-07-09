@@ -549,6 +549,8 @@
   /* Bordes redondeados */
   cursor: pointer;
   /* Cursor apuntador */
+  background-color: #005C69;
+  color: white;
 }
 
 /* Estilos responsivos para pantallas pequeñas */
