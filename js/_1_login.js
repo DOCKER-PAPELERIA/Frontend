@@ -34,7 +34,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
      * Realiza la solicitud de inicio de sesión al servidor.
      * @returns {Promise<void>}
      */
-    fetch('https://ms-inventario-api-mi-angel-1.onrender.com/user/login', {
+    fetch('http://localhost:3000/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -96,8 +96,6 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 
 
 
-
-
-const urls = window.location.href; // Obtiene la URL actual
-const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-window.history.replaceState(null, null, nuevaUrl);
+// const urls = window.location.href; // Obtiene la URL actual
+// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+// window.history.replaceState(null, null, nuevaUrl);

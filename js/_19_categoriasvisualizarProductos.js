@@ -122,7 +122,7 @@ async function filtrarProductos(filtro, busqueda = '') {
     };
 
     try {
-        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/productos-por-categoria', {
+        const response = await fetch('http://localhost:3000/api/productos-por-categoria', {
             method: 'POST', // Cambiado a POST
             headers: {
                 'Content-Type': 'application/json'
@@ -178,6 +178,12 @@ function inicializar() {
 
 // Llamar a la función inicializar cuando se cargue la página
 document.addEventListener('DOMContentLoaded', inicializar);
+
+
+
+
+
+
 
 
 
@@ -253,3 +259,24 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     verificarTokenYRedirigir();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const urls = window.location.href; // Obtiene la URL actual
+// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+// window.history.replaceState(null, null, nuevaUrl);

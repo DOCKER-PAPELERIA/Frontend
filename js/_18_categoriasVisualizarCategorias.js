@@ -57,13 +57,12 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-
 document.addEventListener("DOMContentLoaded", async () => {
-  const listaProductosCarta = document.querySelector(".caja_lista");
-  const inputBuscar = document.querySelector(".container__buscador__cuadro");
+    const listaProductosCarta = document.querySelector(".caja_lista");
+    const inputBuscar = document.querySelector(".container__buscador__cuadro");
 
   try {
-      const respuesta = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/categoria', {
+      const respuesta = await fetch('http://localhost:3000/api/categoria', {
           method: "GET",
           headers: {
               "Content-Type": "application/json",
@@ -155,10 +154,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-
-
-
-
 /**
  * Botones para ver productos.
  * @type {NodeList}
@@ -176,20 +171,6 @@ botones.forEach((boton) => {
  * Instancia de la clase Link para redirigir a la página de cambiar información personal.
  */
 new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--gestionarCuenta").redireccionar();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -249,3 +230,23 @@ document.addEventListener('DOMContentLoaded', function() {
    */
   verificarTokenYRedirigir();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const urls = window.location.href; // Obtiene la URL actual
+// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+// window.history.replaceState(null, null, nuevaUrl);

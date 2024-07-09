@@ -78,7 +78,7 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 const authToken = localStorage.getItem("authToken");
-const url = "https://ms-inventario-api-mi-angel-1.onrender.com/api/producto";
+const url = "http://localhost:3000/api/producto";
 let productos = []; // Array para almacenar los productos
 
 // Función para obtener y mostrar los productos
@@ -110,7 +110,7 @@ function mostrarProductosFiltrados(productosFiltrados) {
     listaProductos.innerHTML = ''; // Limpia la lista antes de agregar nuevos productos
 
     productosFiltrados.forEach(producto => {
-        const productoHTML = `
+        const productoHTML = ` 
             <li>
                 <div class="caja">
                     <div class="imagen"><img class="img" src="${producto.imagen}" alt="no hay imagen para mostrar"></div>
@@ -161,7 +161,7 @@ function confirmarEliminacion(event) {
     };
 }
 
-const url2 = "https://ms-inventario-api-mi-angel-1.onrender.com/api/producto";
+const url2 = "http://localhost:3000/api/producto";
 // Función para eliminar un producto
 async function eliminarProducto(id) {
     try {
@@ -323,6 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-const urls = window.location.href; // Obtiene la URL actual
-const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-window.history.replaceState(null, null, nuevaUrl);
+// const urls = window.location.href; // Obtiene la URL actual
+// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+// window.history.replaceState(null, null, nuevaUrl);
