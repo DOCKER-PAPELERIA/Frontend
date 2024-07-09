@@ -379,8 +379,8 @@
   /* Cambia el color de fondo al pasar el ratón */
 }
 
-/* Botón de nueva factura */
-.boton__nuevafactura {
+/* Botón de historial historial */
+.boton__nuevohistorial {
   grid-row: 2;
   /* Ocupa la segunda fila del grid */
   grid-column: span 3;
@@ -407,7 +407,7 @@
   /* Margen inferior de 10px */
 }
 
-.boton__nuevafactura:hover {
+.boton__nuevohistorial:hover {
   background-color: #003445;
   /* Cambia el color de fondo al pasar el ratón */
 }
@@ -636,7 +636,7 @@ select {
     /* Tamaño de fuente de 35px */
   }
 
-  .boton__nuevafactura {
+  .boton__nuevohistorial {
     width: 135px;
     /* Ancho fijo de 135px */
     height: 35px;

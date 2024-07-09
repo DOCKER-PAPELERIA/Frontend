@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Codificación del documento -->
     <meta charset="UTF-8">
-    <!-- Escala inicial para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página -->
-    <title>Nueva Factura</title>
-    <!-- Hojas de estilo -->
-    <link rel="stylesheet" href="../CSS/_0_normalize.css"> <!-- Normalización de estilos -->
-    <link rel="stylesheet" href="../CSS/_11_facturasNuevaFactura.css"> <!-- Estilos específicos de la página -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Íconos Boxicons -->
+    <title>historial</title>
+    <link rel="stylesheet" href="../CSS/_10_historial.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
 <body>
-    <!-- Contenedor principal -->
     <div class="container">
-        <!-- Barra superior -->
         <div class="container__barra">
+            
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
                 <div class="header__botonMenu" id="selectorMenu" >
@@ -39,11 +31,11 @@
                     </div>
                     
                     
-                    <!-- Opción de menú: Facturas -->
-                    <div class="opcionesDesplegadas__iconoYTexto facturas">
-                        <div class="iconoYTexto__texto">Facturas</div>
+                    <!-- Opción de menú: historial -->
+                    <div class="opcionesDesplegadas__iconoYTexto historial">
+                        <div class="iconoYTexto__texto">historial</div>
                         <div class="iconoYTexto__containerIcono"> 
-                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="Facturas">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="historial">
                         </div>
                     </div>
         
@@ -106,65 +98,26 @@
             </header>
         </div>
 
-        <!-- Contenido principal -->
         <div class="container__contenido">
-            <!-- Contenedor de información -->
-            <div class="container__informacion">
-                <!-- Sección izquierda -->
-                <div class="left-section">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre">
+            <img src="/contenido_embebido/imgFacturas.png" class="container_imagen_principal" alt="img historial">
+            <div class="container_titulo">historial</div>
 
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario">
-
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="text" id="cantidad">
+            <button type="button" class="container_caja1" id="nuevahistorialBtn">
+                <div class="container_mediacaja">
+                    <img src="/contenido_embebido/simbolo+.png" alt="simbolo +" class="imagen">
                 </div>
-                <!-- Sección derecha -->
-                <div class="right-section">
-                    <label for="precio">Precio:</label>
-                    <input type="text" id="precio">
+                <div class="container_texto">Nueva historial</div>
+            </button>
 
-                    <label for="fecha">Fecha de Factura:</label>
-                    <input type="date" id="fecha">
-
-                    <label for="metodo-pago">Elige método de pago:</label>
-                    <select id="metodo-pago">
-                        <option value="">Seleccione</option>
-                        <option value="credit-card">Transferencia</option>
-                        <option value="debit-card">Efectivo</option>
-                    </select>
+            <button type="button" class="container_caja2" id="verhistorialBtn">
+                <div class="container_mediacaja">
+                    <img src="/contenido_embebido/verFacturas.png"  class="imagen2" alt="verhistorial">
                 </div>
-
-                <!-- Botón para cerrar -->
-                <div class="container__imagenX">
-                    <button class="botonX" id="atras"><i class='bx bx-x'></i></button>
-                </div>
-                <!-- Botón para nueva factura -->
-                <button class="boton__nuevafactura" id="boton__nuevafactura">Nueva Factura</button>
-            </div>
-        </div>
-
-        <!-- Ventana emergente para eliminar -->
-        <div class="ventana">
-            <div class="header2">
-                <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
-            </div>
-
-            <div class="body">
-                <h3 class="text_information">¿Estás seguro de crear esta nueva factura?</h3>
-            </div>
-
-            <div class="footer">
-                <button class="btn-confirm yes" id="btn-yes">Sí</button>
-                <button class="btn-confirm not" id="btn-not">No</button>
-            </div>
+                <div class="container_texto2">Ver historial</div>
+            </button>
         </div>
     </div>
 
-    <!-- Script JavaScript -->
-    <script type="module" src="../js/_11_facturaNuevaFactura.js"></script>
+    <script type="module" src="../js/_10_historial.js"></script>
 </body>
-
 </html>

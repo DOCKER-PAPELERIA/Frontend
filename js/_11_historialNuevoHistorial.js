@@ -1,6 +1,6 @@
 /**
  * @fileoverview Script para manejar la activación del menú desplegable, la gestión del usuario,
- * y la redirección de enlaces en la interfaz de usuario.
+ * la apertura y cierre de ventanas emergentes, y la redirección de enlaces en la interfaz de usuario.
  */
 
 import { ActivarMenuDesplegableYUsuario } from "../soloClases/activarMenuDesplegableYUsuario.js";
@@ -34,24 +34,69 @@ const activadorUsuario = document.querySelector("#activarUsuario");
 const perfilDesactivado = document.querySelector("#perfilDesactivado");
 
 /**
- * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el menú.
+ * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el menú desplegable.
  */
 new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
 
 /**
- * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el usuario.
+ * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el perfil de usuario.
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
 /**
- * Instancia de la clase Link para redirigir a la página de creación de nueva factura.
+ * Botones para abrir la ventana emergente de nuevo historial.
+ * @type {NodeList}
  */
-new Link("../HTML/_11_facturasNuevaFactura.html", "#nuevaFacturaBtn").redireccionar();
+const buttonnueva = document.querySelectorAll(".boton__nuevohistorial");
 
 /**
- * Instancia de la clase Link para redirigir a la página de visualización de factura.
+ * Ventana emergente de nuevo historial.
+ * @type {HTMLElement}
  */
-new Link("../HTML/_12_facturasVerFactura.html", "#verFacturaBtn").redireccionar();
+const ventana = document.querySelector(".ventana");
+
+/**
+ * Botón para no eliminar en la ventana emergente.
+ * @type {HTMLElement}
+ */
+const noEliminar = document.getElementById("btn-not");
+
+/**
+ * Botón para cerrar la ventana emergente.
+ * @type {HTMLElement}
+ */
+const btnCerrar = document.getElementById("btn-close");
+
+// Añade un evento de clic a cada botón de 'Abrir Ventana'
+buttonnueva.forEach(function (button) {
+    button.addEventListener("click", function () {
+        ventana.style.display = 'block';
+    });
+});
+
+/**
+ * Cierra la ventana emergente al hacer clic en el botón de cerrar.
+ */
+btnCerrar.addEventListener("click", function () {
+    ventana.style.display = 'none';
+});
+
+/**
+ * Cierra la ventana emergente al hacer clic en el botón de no eliminar.
+ */
+noEliminar.addEventListener("click", function () {
+    ventana.style.display = 'none';
+});
+
+/**
+ * Instancia de la clase Link para redirigir a la página de ver historial.
+ */
+new Link("../HTML/_12_historialVerHistorial.html", "#btn-yes").redireccionar();
+
+/**
+ * Instancia de la clase Link para redirigir a la página de historial.
+ */
+new Link("../HTML/_10_historial.html", "#atras").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de gestión de cuenta.
@@ -64,11 +109,10 @@ new Link("../HTML/_7_cambiarInformacionPersonal.html", ".contenedores__boton--ge
 new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
 
-
 /**
- * Instancia de la clase Link para redirigir a la página de facturas.
+ * Instancia de la clase Link para redirigir a la página de historial.
  */
-new Link("../HTML/_10_facturas.html", ".facturas").redireccionar();
+new Link("../HTML/_10_historial.html", ".historial").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de productos.
@@ -113,6 +157,24 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     verificarTokenYRedirigir();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

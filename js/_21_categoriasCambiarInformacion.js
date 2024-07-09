@@ -216,9 +216,9 @@ new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
 
 /**
- * Instancia de la clase Link para redirigir a la página de facturas.
+ * Instancia de la clase Link para redirigir a la página de historial.
  */
-new Link("../HTML/_10_facturas.html", ".facturas").redireccionar();
+new Link("../HTML/_10_historial.html", ".historial").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de productos.

@@ -7,9 +7,10 @@
     <!-- Escala inicial para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Título de la página -->
-    <title>Ver Facturas</title>
+    <title>Nuevo historial</title>
     <!-- Hojas de estilo -->
-    <link rel="stylesheet" href="../CSS/_12_facturasVerFactura.css"> <!-- Estilos específicos de la página -->
+    <link rel="stylesheet" href="../CSS/_0_normalize.css"> <!-- Normalización de estilos -->
+    <link rel="stylesheet" href="../CSS/_11_historialNuevoHistorial.css"> <!-- Estilos específicos de la página -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Íconos Boxicons -->
 </head>
 
@@ -38,11 +39,11 @@
                     </div>
                     
                     
-                    <!-- Opción de menú: Facturas -->
-                    <div class="opcionesDesplegadas__iconoYTexto facturas">
-                        <div class="iconoYTexto__texto">Facturas</div>
+                    <!-- Opción de menú: historial -->
+                    <div class="opcionesDesplegadas__iconoYTexto historial">
+                        <div class="iconoYTexto__texto">historial</div>
                         <div class="iconoYTexto__containerIcono"> 
-                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="Facturas">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="historial">
                         </div>
                     </div>
         
@@ -107,88 +108,63 @@
 
         <!-- Contenido principal -->
         <div class="container__contenido">
-            <div class="container__juntos">
-                <!-- Buscador -->
-                <div class="caja1">
-                    <div class="container__buscador">
-                        <img src="/contenido_embebido/buscador.png" alt="buscador" class="container__buscador__imagen">
-                        <input type="search" class="container__buscador__cuadro" placeholder="Buscar">
-                    </div>
-                </div>
-            </div>
+            <!-- Contenedor de información -->
+            <div class="container__informacion">
+                <!-- Sección izquierda -->
+                <div class="left-section">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre">
 
-            <!-- Tabla de facturas -->
-            <div class="container_tabla">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">N°</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Usuario</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Fecha de Factura</th>
-                            <th scope="col">Método de Pago</th>
-                            <th scope="col">Total a Pagar</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Caja de lapiceros color rosado</td>
-                            <td>Pedro Perez</td>
-                            <td>22</td>
-                            <td>$1.200</td>
-                            <td>2023-08-15</td>
-                            <td>Efectivo</td>
-                            <td>$26.400</td>
-                            <td scope="btn">
-                                <button class="act-icon blue btn-trash-open">
-                                    <i class='bx bxs-printer' title="Imprimir Factura"></i>
-                                </button>
-                                <button class="act-icon red btn-trash-open">
-                                    <i class='bx bx-trash' title="Eliminar Factura"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario">
+
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="text" id="cantidad">
+                </div>
+                <!-- Sección derecha -->
+                <div class="right-section">
+                    <label for="precio">Precio:</label>
+                    <input type="text" id="precio">
+
+                    <label for="fecha">Fecha de historial:</label>
+                    <input type="date" id="fecha">
+
+                    <label for="metodo-pago">Elige método de pago:</label>
+                    <select id="metodo-pago">
+                        <option value="">Seleccione</option>
+                        <option value="credit-card">Transferencia</option>
+                        <option value="debit-card">Efectivo</option>
+                    </select>
+                </div>
+
+                <!-- Botón para cerrar -->
+                <div class="container__imagenX">
+                    <button class="botonX" id="atras"><i class='bx bx-x'></i></button>
+                </div>
+                <!-- Botón para nueva historial -->
+                <button class="boton__nuevohistorial" id="boton__nuevohistorial">Nuevo historial</button>
             </div>
         </div>
 
-        <!-- Ventana modal para eliminar -->
+        <!-- Ventana emergente para eliminar -->
         <div class="ventana">
             <div class="header2">
-                <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
+                <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
             </div>
-            <div class="body">
-                <h3 class="text_information">Digite su contraseña para eliminar la factura:
-                    <div></div>
-                    <input type="password" class="contrasena">
-                </h3>
-            </div>
-            <div class="footer">
-                <button class="btn-confirm yes" id="btn-yes">Confirmar</button>
-            </div>
-        </div>
 
-        <!-- Ventana modal para imprimir -->
-        <div class="ventana2">
-            <div class="header2">
-                <button class="btn-close" id="btn-close2" title="Cerrar Ventana">&times;</button>
-            </div>
             <div class="body">
-                <h3 class="text_information">Seguro que quiere imprimir esta factura?</h3>
+                <h3 class="text_information">¿Estás seguro de crear esta nuevo historial?</h3>
             </div>
+
             <div class="footer">
-                <button class="btn-confirm yes" id="btn-yes2">Confirmar</button>
+                <button class="btn-confirm yes" id="btn-yes">Sí</button>
+                <button class="btn-confirm not" id="btn-not">No</button>
             </div>
         </div>
     </div>
 
     <!-- Script JavaScript -->
-    <script type="module" src="../js/_12_facturaVerFactura.js"></script>
+    <script type="module" src="../js/_11_historialNuevoHistorial.js"></script>
 </body>
 
 </html>

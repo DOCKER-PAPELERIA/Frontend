@@ -1,6 +1,6 @@
 /**
  * @fileoverview Script para manejar la activación del menú desplegable, la gestión del usuario,
- * la apertura y cierre de ventanas emergentes, y la redirección de enlaces en la interfaz de usuario.
+ * y la redirección de enlaces en la interfaz de usuario.
  */
 
 import { ActivarMenuDesplegableYUsuario } from "../soloClases/activarMenuDesplegableYUsuario.js";
@@ -34,106 +34,24 @@ const activadorUsuario = document.querySelector("#activarUsuario");
 const perfilDesactivado = document.querySelector("#perfilDesactivado");
 
 /**
- * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el menú desplegable.
+ * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el menú.
  */
 new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
 
 /**
- * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el perfil de usuario.
+ * Instancia de la clase ActivarMenuDesplegableYUsuario para controlar el usuario.
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
 /**
- * Botones para abrir la ventana emergente de eliminación.
- * @type {NodeList}
+ * Instancia de la clase Link para redirigir a la página de creación de nueva historial.
  */
-const buttoneliminar = document.querySelectorAll(".bx-trash");
+new Link("../HTML/_11_historialNuevoHistorial.html", "#nuevahistorialBtn").redireccionar();
 
 /**
- * Ventana emergente de eliminación.
- * @type {HTMLElement}
+ * Instancia de la clase Link para redirigir a la página de visualización de historial.
  */
-const ventana = document.querySelector(".ventana");
-
-/**
- * Botón de confirmar eliminación en la ventana emergente.
- * @type {HTMLElement}
- */
-const btnconfirmar = document.getElementById("btn-yes");
-
-/**
- * Botón para cerrar la ventana emergente de eliminación.
- * @type {HTMLElement}
- */
-const btnCerrar = document.getElementById("btn-close");
-
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-buttoneliminar.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventana.style.display = 'block';
-    });
-});
-
-/**
- * Cierra la ventana emergente de eliminación al hacer clic en el botón de cerrar.
- */
-btnCerrar.addEventListener("click", function () {
-    ventana.style.display = 'none';
-});
-
-/**
- * Cierra la ventana emergente de eliminación al confirmar la acción.
- */
-btnconfirmar.addEventListener("click", function () {
-    ventana.style.display = 'none';
-});
-
-
-/**
- * Botones para abrir la ventana emergente de impresión.
- * @type {NodeList}
- */
-const buttonimprimir = document.querySelectorAll(".bxs-printer");
-
-/**
- * Ventana emergente de impresión.
- * @type {HTMLElement}
- */
-const ventana2 = document.querySelector(".ventana2");
-
-/**
- * Botón de confirmar impresión en la ventana emergente.
- * @type {HTMLElement}
- */
-const btnconfirmar2 = document.getElementById("btn-yes2");
-
-/**
- * Botón para cerrar la ventana emergente de impresión.
- * @type {HTMLElement}
- */
-const btnCerrar2 = document.getElementById("btn-close2");
-
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-buttonimprimir.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventana2.style.display = 'block';
-    });
-});
-
-/**
- * Cierra la ventana emergente de impresión al hacer clic en el botón de cerrar.
- */
-btnCerrar2.addEventListener("click", function () {
-    ventana2.style.display = 'none';
-});
-
-/**
- * Cierra la ventana emergente de impresión al confirmar la acción.
- */
-btnconfirmar2.addEventListener("click", function () {
-    ventana2.style.display = 'none';
-});
-
+new Link("../HTML/_12_historialVerHistorial.html", "#verhistorialBtn").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de gestión de cuenta.
@@ -148,9 +66,9 @@ new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
 
 /**
- * Instancia de la clase Link para redirigir a la página de facturas.
+ * Instancia de la clase Link para redirigir a la página de historial.
  */
-new Link("../HTML/_10_facturas.html", ".facturas").redireccionar();
+new Link("../HTML/_10_historial.html", ".historial").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de productos.
@@ -195,8 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     verificarTokenYRedirigir();
 });
-
-
 
 
 

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Codificación del documento -->
     <meta charset="UTF-8">
+    <!-- Escala inicial para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturas</title>
-    <link rel="stylesheet" href="../CSS/_10_facturas.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Título de la página -->
+    <title>Ver historial</title>
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="../CSS/_12_historialVerHistorial.css"> <!-- Estilos específicos de la página -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Íconos Boxicons -->
 </head>
+
 <body>
+    <!-- Contenedor principal -->
     <div class="container">
+        <!-- Barra superior -->
         <div class="container__barra">
-            
             <header class="header">
                 <!-- Botón para activar el menú desplegable -->
                 <div class="header__botonMenu" id="selectorMenu" >
@@ -31,11 +38,11 @@
                     </div>
                     
                     
-                    <!-- Opción de menú: Facturas -->
-                    <div class="opcionesDesplegadas__iconoYTexto facturas">
-                        <div class="iconoYTexto__texto">Facturas</div>
+                    <!-- Opción de menú: historial -->
+                    <div class="opcionesDesplegadas__iconoYTexto historial">
+                        <div class="iconoYTexto__texto">historial</div>
                         <div class="iconoYTexto__containerIcono"> 
-                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="Facturas">
+                            <img class="iconoYTexto__icono" src="/contenido_embebido/imgFacturas.png" alt="historial">
                         </div>
                     </div>
         
@@ -98,26 +105,90 @@
             </header>
         </div>
 
+        <!-- Contenido principal -->
         <div class="container__contenido">
-            <img src="/contenido_embebido/imgFacturas.png" class="container_imagen_principal" alt="img factura">
-            <div class="container_titulo">Facturas</div>
-
-            <button type="button" class="container_caja1" id="nuevaFacturaBtn">
-                <div class="container_mediacaja">
-                    <img src="/contenido_embebido/simbolo+.png" alt="simbolo +" class="imagen">
+            <div class="container__juntos">
+                <!-- Buscador -->
+                <div class="caja1">
+                    <div class="container__buscador">
+                        <img src="/contenido_embebido/buscador.png" alt="buscador" class="container__buscador__imagen">
+                        <input type="search" class="container__buscador__cuadro" placeholder="Buscar">
+                    </div>
                 </div>
-                <div class="container_texto">Nueva Factura</div>
-            </button>
+            </div>
 
-            <button type="button" class="container_caja2" id="verFacturaBtn">
-                <div class="container_mediacaja">
-                    <img src="/contenido_embebido/verFacturas.png"  class="imagen2" alt="verFactura">
-                </div>
-                <div class="container_texto2">Ver Facturas</div>
-            </button>
+            <!-- Tabla de historial -->
+            <div class="container_tabla">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Fecha de historial</th>
+                            <th scope="col">Método de Pago</th>
+                            <th scope="col">Total a Pagar</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Caja de lapiceros color rosado</td>
+                            <td>Pedro Perez</td>
+                            <td>22</td>
+                            <td>$1.200</td>
+                            <td>2023-08-15</td>
+                            <td>Efectivo</td>
+                            <td>$26.400</td>
+                            <td scope="btn">
+                                <button class="act-icon blue btn-trash-open">
+                                    <i class='bx bxs-printer' title="Imprimir historial"></i>
+                                </button>
+                                <button class="act-icon red btn-trash-open">
+                                    <i class='bx bx-trash' title="Eliminar historial"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Ventana modal para eliminar -->
+        <div class="ventana">
+            <div class="header2">
+                <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
+            </div>
+            <div class="body">
+                <h3 class="text_information">Digite su contraseña para eliminar el historial:
+                    <div></div>
+                    <input type="password" class="contrasena">
+                </h3>
+            </div>
+            <div class="footer">
+                <button class="btn-confirm yes" id="btn-yes">Confirmar</button>
+            </div>
+        </div>
+
+        <!-- Ventana modal para imprimir -->
+        <div class="ventana2">
+            <div class="header2">
+                <button class="btn-close" id="btn-close2" title="Cerrar Ventana">&times;</button>
+            </div>
+            <div class="body">
+                <h3 class="text_information">Seguro que quiere imprimir este historial?</h3>
+            </div>
+            <div class="footer">
+                <button class="btn-confirm yes" id="btn-yes2">Confirmar</button>
+            </div>
         </div>
     </div>
 
-    <script type="module" src="../js/_10_facturas.js"></script>
+    <!-- Script JavaScript -->
+    <script type="module" src="../js/_12_historialVerHistorial.js"></script>
 </body>
+
 </html>

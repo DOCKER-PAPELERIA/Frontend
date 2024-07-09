@@ -122,7 +122,7 @@ async function filtrarProductos(filtro, busqueda = '') {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/productos-por-categoria', {
+        const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/productos-por-categoria', {
             method: 'POST', // Cambiado a POST
             headers: {
                 'Content-Type': 'application/json'
@@ -212,9 +212,9 @@ new Link("../HTML/_6_menu.html", ".inicio").redireccionar();
 
 
 /**
- * Instancia de la clase Link para redirigir a la página de facturas.
+ * Instancia de la clase Link para redirigir a la página de historial.
  */
-new Link("../HTML/_10_facturas.html", ".facturas").redireccionar();
+new Link("../HTML/_10_historial.html", ".historial").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de productos.
