@@ -43,11 +43,103 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+
+
+
+
+
+
+
+const authToken = localStorage.getItem("authToken");
+
+document.addEventListener("DOMContentLoaded", () => {
+    const guardarCambiosBtn = document.getElementById("guardar-cambios");
+
+    guardarCambiosBtn.addEventListener("click", async () => {
+        const idCategoria = new URLSearchParams(window.location.search).get("id"); // Obtener el ID de la categoría desde la URL
+        const nombreCategoria = document.getElementById("nombre-categoria").value;
+        const descripcionCategoria = document.getElementById("descripcion-categoria").value;
+        const urlImagen = document.getElementById("url-imagen").value;
+        const fechaCategoria = document.getElementById("fecha-categoria").value;
+
+        const datos = {
+            idCategorias: idCategoria,
+            Categoria: nombreCategoria,
+            descripcion_categoria: descripcionCategoria,
+            imagen: urlImagen,
+            fecha: fechaCategoria
+        };
+
+        
+        try {
+            const response = await fetch("http://localhost:3000/api/categoria", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-access-token": authToken // Incluir el token de autenticación en el header
+                },
+                body: JSON.stringify(datos)
+            });
+
+            const result = await response.json();
+            if (result.status === 201 || result.status === 200) {
+                alert("La categoría ha sido modificada.");
+            } else {
+                alert("La categoría no se modificó. Vuelve a intentarlo.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+            alert("Ocurrió un error al modificar la categoría.");
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Maneja el evento de clic en el botón con ID 'atras' para redirigir a 'categorias_cambiarinformacion.html'.
  */
 document.getElementById("atras").addEventListener("click", function() {
-    window.location.href = "categorias_cambiarinformacion.html";
+    window.location.href = "../HTML/_21_categoriasCambiarInformacion.html";
 });
 
 /**

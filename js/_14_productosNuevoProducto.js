@@ -69,180 +69,121 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const formProducto = document.getElementById("miFormulario");
+    const nuevaProductoBtn = document.getElementById("nueva-producto-btn");
+    const ventanaConfirmacion = document.querySelector(".ventana");
+    const btnClose = document.getElementById("btn-close");
+    const btnYes = document.getElementById("btn-yes");
+    const btnNot = document.getElementById("btn-not");
 
-/**
- * Botones para abrir la ventana emergente de nuevo producto.
- * @type {NodeList}
- */
-const buttonNuevoProducto = document.querySelectorAll(".boton__nuevoproducto");
-
-/**
- * Ventana emergente de nuevo producto.
- * @type {HTMLElement}
- */
-const ventanaNuevoProducto = document.querySelector(".ventana");
-
-/**
- * Botón de confirmar en la ventana emergente de nuevo producto.
- * @type {HTMLElement}
- */
-const btnConfirmarNuevoProducto = document.getElementById("btn-yes");
-
-/**
- * Botón para cancelar en la ventana emergente de nuevo producto.
- * @type {HTMLElement}
- */
-const btnCancelarNuevoProducto = document.getElementById("btn-not");
-
-/**
- * Botón para cerrar la ventana emergente de nuevo producto.
- * @type {HTMLElement}
- */
-const btnCerrarNuevoProducto = document.getElementById("btn-close");
-
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-buttonNuevoProducto.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventanaNuevoProducto.style.display = 'block';
+    nuevaProductoBtn.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "block";
     });
-});
 
-/**
- * Cierra la ventana emergente de nuevo producto al hacer clic en el botón de cerrar.
- */
-btnCerrarNuevoProducto.addEventListener("click", function () {
-    ventanaNuevoProducto.style.display = 'none';
-});
+    btnClose.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "none";
+    });
 
-/**
- * Cierra la ventana emergente de nuevo producto al hacer clic en el botón de cancelar.
- */
-btnCancelarNuevoProducto.addEventListener("click", function () {
-    ventanaNuevoProducto.style.display = 'none';
-});
+    btnNot.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "none";
+    });
 
+    btnYes.addEventListener("click", async () => {
+        const formData = new FormData(formProducto);
+        const payload = {
+            nombre_product: formData.get("nombre"),
+            idCategorias: formData.get("categoria"),
+            imagen: formData.get("url-imagen"),
+            idProveedor: formData.get("proveedor"),
+            stock: formData.get("unidades"),
+            precio: formData.get("precio"),
+            codigo_producto: formData.get("codigo"),
+            fecha: formData.get("fecha"),
+            estado: 'activo' // Asigna el estado deseado, por ejemplo, 'activo'
+        };
 
+        try {
+            const response = await fetch('http://localhost:3000/api/producto', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
 
+            const result = await response.json();
 
-document.getElementById('miFormulario').addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const nombre = document.getElementById('nombre').value;
-    const idCategorias = document.getElementById('categoria').value;
-    const imagen = document.getElementById('url-imagen').value;
-    const idProveedor = document.getElementById('proveedor').value;
-    const stock = document.getElementById('unidades').value;
-    const precio = document.getElementById('precio').value;
-    const codigo = document.getElementById('codigo').value;
-    const fecha = document.getElementById('fecha').value;
-
-    const producto = {
-        idCategorias,
-        idProveedor,
-        nombre_product: nombre,
-        stock,
-        codigo_producto: codigo,
-        imagen,
-        precio,
-        fecha,
-        estado: 'activo' // Asigna el estado deseado, por ejemplo, 'activo'
-    };
-
-    try {
-        const response = await fetch('http://localhost:3000/api/producto', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        });
-
-        const responseData = await response.json();
-
-        if (response.ok) {
-            alert('Producto creado correctamente.');
-            // Aquí podrías redirigir o actualizar la página si lo deseas
-        } else {
-            alert(`Error al crear producto: ${responseData.message}`);
+            if (response.ok) {
+                alert('Producto creado correctamente.');
+                // Aquí podrías redirigir o actualizar la página si lo deseas
+            } else {
+                alert(`Error al crear producto: ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error al crear producto:', error);
+            alert('Hubo un error al crear el producto. Intenta nuevamente.');
         }
-    } catch (error) {
-        console.error('Error al crear producto:', error);
-        alert('Hubo un error al crear el producto. Intenta nuevamente.');
+
+        ventanaConfirmacion.style.display = "none";
+    });
+
+    async function cargarCategorias() {
+        try {
+            const response = await fetch('http://localhost:3000/api/categoria');
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la lista de categorías');
+            }
+            const responseData = await response.json();
+            console.log('Datos recibidos del servidor:', responseData);
+
+            if (!Array.isArray(responseData.body)) {
+                throw new TypeError('La propiedad body no es un array');
+            }
+
+            const categorias = responseData.body;
+            const selectCategoria = document.getElementById('categoria');
+            selectCategoria.innerHTML = '';
+
+            categorias.forEach(categoria => {
+                const option = document.createElement('option');
+                option.value = categoria.idCategorias;
+                option.textContent = categoria.Categoria;
+                selectCategoria.append(option);
+            });
+        } catch (error) {
+            console.error('Error al obtener la lista de categorías:', error);
+        }
     }
-});
 
+    async function cargarProveedores() {
+        try {
+            const response = await fetch('http://localhost:3000/api/proveedor');
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la lista de proveedores');
+            }
+            const responseData = await response.json();
+            console.log('Datos recibidos del servidor (proveedores):', responseData);
 
+            if (!Array.isArray(responseData.body)) {
+                throw new TypeError('La propiedad body no es un array');
+            }
 
+            const proveedores = responseData.body;
+            const selectProveedor = document.getElementById('proveedor');
+            selectProveedor.innerHTML = '';
 
-
-
-
-
-
-
-
-
-
-
-
-
-async function cargarCategorias() {
-    try {
-        const response = await fetch('http://localhost:3000/api/categoria');
-        if (!response.ok) {
-            throw new Error('No se pudo obtener la lista de categorías');
+            proveedores.forEach(proveedor => {
+                const option = document.createElement('option');
+                option.value = proveedor.idProveedor;
+                option.textContent = proveedor.nombre_proveedor;
+                selectProveedor.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error al obtener la lista de proveedores:', error);
         }
-        const responseData = await response.json();
-        console.log('Datos recibidos del servidor:', responseData);
-        
-        if (!Array.isArray(responseData.body)) {
-            throw new TypeError('La propiedad body no es un array');
-        }
-        
-        const categorias = responseData.body;
-        const selectCategoria = document.getElementById('categoria');
-        selectCategoria.innerHTML = '';
-        
-        categorias.forEach(categoria => {
-            const option = document.createElement('option');
-            option.value = categoria.idCategorias;
-            option.textContent = categoria.Categoria;
-            selectCategoria.append(option);
-        });
-    } catch (error) {
-        console.error('Error al obtener la lista de categorías:', error);
     }
-}
 
-async function cargarProveedores() {
-    try {
-        const response = await fetch('http://localhost:3000/api/proveedor');
-        if (!response.ok) {
-            throw new Error('No se pudo obtener la lista de proveedores');
-        }
-        const responseData = await response.json();
-        console.log('Datos recibidos del servidor (proveedores):', responseData);
-        
-        if (!Array.isArray(responseData.body)) {
-            throw new TypeError('La propiedad body no es un array');
-        }
-        
-        const proveedores = responseData.body;
-        const selectProveedor = document.getElementById('proveedor');
-        selectProveedor.innerHTML = '';
-        
-        proveedores.forEach(proveedor => {
-            const option = document.createElement('option');
-            option.value = proveedor.idProveedor;
-            option.textContent = proveedor.nombre_proveedor;
-            selectProveedor.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error al obtener la lista de proveedores:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
     cargarCategorias();
     cargarProveedores();
 });

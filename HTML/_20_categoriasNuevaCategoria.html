@@ -101,46 +101,48 @@
         </div>
 
         <div class="container__contenido">
-
-
-            <div class="container__informacion">
-                <div class="left-section">
-                    <label for="nombre-categoria">Nombre de la Categoría:</label>
-                    <input type="text" id="nombre-categoria">
-                    
-                    <label for="descripcion-categoria">Descripción de la Categoría:</label>
-                    <textarea id="descripcion-categoria"></textarea>
+            <form id="form-categoria">
+                <div class="container__informacion">
+                    <div class="left-section">
+                        <label for="nombre-categoria">Nombre de la Categoría:</label>
+                        <input type="text" id="nombre-categoria" name="nombre-categoria" required>
+                        
+                        <label for="descripcion-categoria">Descripción de la Categoría:</label>
+                        <textarea id="descripcion-categoria" name="descripcion-categoria" required></textarea>
+                    </div>
+                    <div class="right-section">
+                        <label for="url-imagen">URL Imagen:</label>
+                        <input type="text" id="url-imagen" name="url-imagen" required>
+        
+                        <label for="fecha-categoria">Fecha de Categoría:</label>
+                        <input type="date" id="fecha-categoria" name="fecha-categoria" required>
+                    </div>
+        
+                    <div class="container__imagenX">
+                        <button class="botonX" id="atras" type="button"><i class='bx bx-x'></i></button>
+                    </div>
+                    <button class="boton__nuevacategoria" id="nueva-categoria-btn" type="button">Nueva Categoría</button>
                 </div>
-                <div class="right-section">
-                    <label for="url-imagen">URL Imagen:</label>
-                    <input type="text" id="url-imagen">
-
-                    <label for="fecha-categoria">Fecha de Categoría:</label>
-                    <input type="date" id="fecha-categoria">
-                </div>
-
-                <div class="container__imagenX"> <button class="botonX" id="atras"><i class='bx bx-x' ></i></button></div>
-                <button class="boton__nuevacategoria">Nueva Categoría</button>
-            </div>
+            </form>
         </div>
-
-
+        
         <!-- Ventana para eliminar -->
-        <div class="ventana">
+        <div class="ventana" id="ventana-confirmacion">
             <div class="header2">
-                <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
+                <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
             </div>
-
+        
             <div class="body">
                 <h3 class="text_information">¿Estás seguro de crear esta nueva categoría?</h3>
             </div>
-
+        
             <div class="footer">
                 <button class="btn-confirm yes" id="btn-yes">Sí</button>
                 <button class="btn-confirm not" id="btn-not">No</button>
             </div>
         </div>
-    </div>
+        
+        
 
     <script type="module" src="../js/_20_categoriasNuevaCategoria.js"></script>
 </body>

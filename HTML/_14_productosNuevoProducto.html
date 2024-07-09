@@ -105,40 +105,40 @@
             <form class="container__informacion" id="miFormulario">
                 <div class="left-section">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" required>
+                    <input type="text" id="nombre" name="nombre" required>
         
                     <label for="categoria">Categoría:</label>
-                    <select class="desplegable" id="categoria" required>
+                    <select class="desplegable" id="categoria" name="categoria" required>
                         <!-- Las opciones serán añadidas con JavaScript -->
                     </select>
         
                     <label for="url-imagen">URL Imagen:</label>
-                    <input type="text" id="url-imagen" required>
+                    <input type="text" id="url-imagen" name="url-imagen" required>
         
                     <label for="proveedor">Proveedor:</label>
-                    <select class="desplegable" id="proveedor" required>
+                    <select class="desplegable" id="proveedor" name="proveedor" required>
                         <!-- Las opciones serán añadidas con JavaScript -->
                     </select>
                 </div>
                 <div class="right-section">
                     <label for="unidades">Unidades:</label>
-                    <input type="text" id="unidades" required>
+                    <input type="text" id="unidades" name="unidades" required>
         
                     <label for="precio">Precio:</label>
-                    <input type="text" id="precio" required>
+                    <input type="text" id="precio" name="precio" required>
         
                     <label for="codigo">Código Producto:</label>
-                    <input type="text" id="codigo" required>
+                    <input type="text" id="codigo" name="codigo" required>
         
                     <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" required>
+                    <input type="date" id="fecha" name="fecha" required>
                 </div>
         
                 <div class="container__imagenX" id="container__imagenX">
-                    <button class="botonX"><i class='bx bx-x' title="Cerrar Ventana"></i></button>
+                    <button class="botonX" type="button"><i class='bx bx-x' title="Cerrar Ventana"></i></button>
                 </div>
             </form>
-            <button class="boton__nuevoproducto">Nuevo Producto</button>
+            <button class="boton__nuevoproducto" id="nueva-producto-btn" type="button">Nuevo Producto</button>
         </div>
         
         <!-- Ventana para confirmar acción -->
@@ -152,10 +152,11 @@
             </div>
         
             <div class="footer">
-                <input type="submit" form="miFormulario" class="btn-confirm yes enviar" id="btn-yes" value="Sí">
-                <button class="btn-confirm not" id="btn-not">No</button>
+                <button class="btn-confirm yes" id="btn-yes" type="button">Sí</button>
+                <button class="btn-confirm not" id="btn-not" type="button">No</button>
             </div>
         </div>
+        
         
     <script type="module" src="../js/_14_productosNuevoProducto.js"></script>
 </body>

@@ -43,6 +43,159 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const authToken = localStorage.getItem('authToken');
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const formCategoria = document.getElementById("form-categoria");
+    const nuevaCategoriaBtn = document.getElementById("nueva-categoria-btn");
+    const ventanaConfirmacion = document.getElementById("ventana-confirmacion");
+    const btnClose = document.getElementById("btn-close");
+    const btnYes = document.getElementById("btn-yes");
+    const btnNot = document.getElementById("btn-not");
+
+    nuevaCategoriaBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        ventanaConfirmacion.style.display = "block";
+    });
+
+    btnClose.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "none";
+    });
+
+    btnNot.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "none";
+    });
+
+    btnYes.addEventListener("click", async () => {
+        const formData = new FormData(formCategoria);
+        const payload = {
+            Categoria: formData.get("nombre-categoria"),
+            descripcion_categoria: formData.get("descripcion-categoria"),
+            imagen: formData.get("url-imagen"),
+            fecha: formData.get("fecha-categoria")
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/api/categoria', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token': authToken
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message); // La Categoria ha sido Registrada.
+            } else {
+                alert(result.message); // La Categoria NO se Registro Vuelve a Intentarlo.
+            }
+        } catch (error) {
+            alert("Error al crear la categoría: " + error.message);
+        }
+
+        ventanaConfirmacion.style.display = "none";
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Instancia de la clase Link para redirigir al botón con ID 'atras'.
  */

@@ -307,7 +307,7 @@
 .container__contenido {
   width: 100%;
   /* Ancho completo */
-  height: 100%;
+  height: 90vh;
   /* Altura completa */
   background-color: #b0bec5;
   /* Color de fondo */

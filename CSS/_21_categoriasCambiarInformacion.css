@@ -305,22 +305,22 @@
 .container__contenido {
   width: 100%;
   /* Ancho completo */
-  height: 100%;
-  /* Altura completa */
+  height: 90vh;
+  /* Altura completo */
   background-color: #b0bec5;
   /* Color de fondo */
   overflow: hidden;
-  /* Ocultar desbordamiento */
+  /* Ocultar el desbordamiento */
 }
 
-/* Contenedor para elementos juntos */
+/* Contenedor flexible */
 .container__juntos {
   width: 100%;
   /* Ancho completo */
   height: auto;
-  /* Altura automática */
+  /* La altura del contenedor se ajustará automáticamente al contenido */
   padding: 20px;
-  /* Relleno */
+  /* Establece el relleno */
   display: flex;
   /* Usar flexbox */
   justify-content: center;
@@ -328,13 +328,13 @@
   align-items: center;
   /* Centrar verticalmente */
   flex-direction: row;
-  /* Dirección de fila */
+  /* Dirección de los elementos en fila */
 }
 
-/* Estilos para la primera caja */
+/* Caja interna */
 .caja1 {
   width: 70%;
-  /* Ancho del 70% */
+  /* Ancho del contenedor */
   display: flex;
   /* Usar flexbox */
   justify-content: center;
@@ -342,25 +342,25 @@
   align-items: center;
   /* Centrar verticalmente */
   margin-top: 15px;
-  /* Margen superior */
+  /* Ajuste de margen superior */
 }
 
-/* Contenedor para el buscador */
+/* Contenedor del buscador */
 .container__buscador {
   width: 500px;
-  /* Ancho específico */
+  /* Ancho del contenedor */
   height: 42px;
-  /* Altura específica */
+  /* Altura del contenedor */
   background-color: #D9D9D9;
   /* Color de fondo */
   border-radius: 20px;
-  /* Bordes redondeados */
+  /* Aplica un borde redondeado */
   display: flex;
   /* Usar flexbox */
   justify-content: center;
-  /* Centrar horizontalmente */
+  /* Centrado horizontal */
   align-items: center;
-  /* Centrar verticalmente */
+  /* Centrado verticalmente */
   display: grid;
   /* Usar grid */
   grid-template-columns: 5% 95%;
@@ -368,31 +368,31 @@
   grid-template-rows: 1fr;
   /* Definir filas */
   margin-right: 20px;
-  /* Margen derecho */
+  /* Ajuste de margen derecha */
 }
 
-/* Estilos para la imagen del buscador */
+/* Imagen del buscador */
 .container__buscador__imagen {
   width: 32px;
-  /* Ancho específico */
+  /* Ancho de la imagen */
   height: 32px;
-  /* Altura específica */
+  /* Altura de la imagen */
   margin-left: 10px;
-  /* Margen izquierdo */
+  /* Ajuste de margen izquierda */
   background-image: url(../img/lupa.png);
   /* Imagen de fondo */
 }
 
-/* Estilos para el cuadro de búsqueda */
+/* Cuadro de búsqueda */
 .container__buscador__cuadro {
   width: 434px;
-  /* Ancho específico */
+  /* Ancho del cuadro de búsqueda */
   height: 25px;
-  /* Altura específica */
+  /* Altura del cuadro de búsqueda */
   background-color: #ffffff;
-  /* Color de fondo */
+  /* Color de fondo blanco */
   border-radius: 20px;
-  /* Bordes redondeados */
+  /* Bordes redondeados de 20px */
   display: flex;
   /* Usar flexbox */
   justify-content: center;
@@ -400,55 +400,56 @@
   align-items: center;
   /* Centrar verticalmente */
   margin-left: 20px;
-  /* Margen izquierdo */
+  /* Margen izquierdo de 20px */
   border: none;
   /* Sin borde */
   padding: 0px 6px;
-  /* Relleno */
+  /* Espaciado interno de 6px a los lados */
 }
 
-/* Contenedor de lista */
+/* Lista de productos */
 .container__lista {
   width: 100%;
-  /* Ancho completo */
+  /* La lista ocupará el 100% del ancho del contenedor */
   height: 75%;
-  /* Altura del 75% */
+  /* La lista ocupará el 75% de la altura del contenedor */
   overflow-y: auto;
-  /* Desbordamiento vertical automático */
+  /* Mostrar barra de desplazamiento vertical si el contenido desborda */
   padding: 20px;
-  /* Relleno */
+  /* Establece el relleno */
   display: block;
-  /* Mostrar como bloque */
+  /* Mostrar como un bloque */
   justify-content: center;
-  /* Centrar horizontalmente */
+  /* Centrar el contenido horizontalmente */
+  /* flex-direction: column; */
 }
 
-/* Carta de productos en la lista */
+/* Carta de productos */
 .container__lista__productos__carta {
   width: 80%;
-  /* Ancho del 80% */
+  /* La carta ocupará el 80% del ancho del contenedor */
   height: 150px;
-  /* Altura de 150px */
+  /* Altura de la carta */
   margin: 20px 130px;
-  /* Margen superior e inferior 20px, margen izquierdo y derecho 130px */
+  /* Margen superior/inferior de 20px y lateral de 130px */
   background-color: white;
-  /* Color de fondo */
+  /* Color de fondo blanco */
   border-radius: 10px;
-  /* Bordes redondeados */
+  /* Bordes redondeados de 10px */
   display: grid;
-  /* Usar grid */
+  /* Usar grid para el diseño de los elementos hijos */
   grid-template-columns: 20% 55% 25%;
-  /* Definir columnas */
+  /* Definir las columnas de la cuadrícula */
   grid-template-rows: 1fr;
-  /* Definir filas */
+  /* Definir la fila de la cuadrícula */
 }
 
-/* Estilos para las imágenes */
+/* Imágenes */
 .imagenes {
   width: 100%;
-  /* Ancho completo */
+  /* Ancho de la imagen */
   height: 100%;
-  /* Altura completa */
+  /* Altura de la imagen */
   display: flex;
   /* Usar flexbox */
   justify-content: center;
@@ -457,19 +458,22 @@
   /* Centrar verticalmente */
 }
 
+/* Imagen dentro de las imágenes */
 .imagenes>img {
   width: 60%;
-  /* Ancho del 60% */
+  /* La imagen ocupará el 60% del ancho del contenedor de imágenes */
 }
 
-/* Contenido general */
+/* Contenido */
 .contenido {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  /* Ancho completo */
+  /* El contenido ocupará el 100% del ancho disponible */
   height: 100%;
-  /* Altura completa */
+  /* El contenido ocupará el 100% de la altura disponible */
   padding-top: 5px;
-  /* Relleno superior de 5px */
+  /* Espaciado interno superior de 5px */
 }
 
 /* Nombre del producto */
@@ -477,136 +481,149 @@
   font-weight: bold;
   /* Texto en negrita */
   font-size: 25px;
-  /* Tamaño de fuente */
+  /* Tamaño de fuente de 25px */
   margin-bottom: 10px;
-  /* Margen inferior */
+  /* Margen inferior de 10px */
 }
 
-/* Descripción del producto */
 .descripcion {
   font-size: 22px;
-  /* Tamaño de fuente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 70%; 
+  width: 100%;
+  resize: none; 
 }
 
-/* Contenedor para botones */
+
+
+
+/* Contenedor del botón */
 .container__button {
   width: 100%;
-  /* Ancho completo */
+  /* El contenedor del botón ocupará el 100% del ancho disponible */
   height: 100%;
-  /* Altura completa */
+  /* El contenedor del botón ocupará el 100% de la altura disponible */
   display: flex;
-  /* Usar flexbox */
+  /* Usar flexbox para el diseño de los elementos hijos */
   justify-content: center;
-  /* Centrar horizontalmente */
+  /* Centrar los botones horizontalmente */
   align-items: center;
-  /* Centrar verticalmente */
+  /* Centrar los botones verticalmente */
 }
 
-/* Botón de editar */
-.button__editar {
+/* Botón de ver producto */
+.button__verproducto {
   width: 200px;
-  /* Ancho de 200px */
+  /* Ancho del botón */
   height: 40px;
-  /* Altura de 40px */
+  /* Altura del botón */
   background-color: #004b61;
-  /* Color de fondo */
+  /* Color de fondo azul oscuro */
   color: white;
-  /* Color del texto */
+  /* Color del texto blanco */
   border: none;
   /* Sin borde */
   border-radius: 15px;
-  /* Bordes redondeados */
-  font-size: 20px;
-  /* Tamaño de fuente */
+  /* Bordes redondeados de 15px */
 }
 
-/* Efecto de hover sobre el botón de editar */
-.button__editar:hover {
+/* Hover del botón de ver producto */
+.button__verproducto:hover {
   background-color: #003445;
-  /* Cambio de color al pasar el ratón */
+  /* Cambiar el color de fondo al pasar el ratón */
 }
 
-/* Estilos responsivos para pantallas pequeñas */
+
+/* Responsive pantallas pequeñas*/
 @media (max-width: 768px) {
   .container__barra {
     grid-template-columns: 12% 68% 20%;
-    /* Definir columnas */
+    /* Definir las columnas de la cuadrícula */
   }
 
   .perfilActivado {
     transform: translateX(-120px);
-    /* Desplazar hacia la izquierda */
+    /* Mover el perfil activado 120px a la izquierda */
     width: 70%;
-    /* Ajustar el ancho */
+    /* Ajustar el ancho al 70% */
     border-radius: 30px;
-    /* Ajustar el radio del borde */
+    /* Ajustar el radio del borde a 30px */
   }
 
   .menu__opcionesDesplegadas {
     width: 70%;
-    /* Ajustar el ancho para ocupar más espacio en pantallas pequeñas */
+    /* Ajustar el ancho al 70% */
     transform: translateX(220px) translateY(210px);
-    /* Desplazar */
+    /* Mover el menú 220px a la derecha y 210px hacia abajo */
   }
 
   .perfilActivado {
     transform: translateX(-200px);
-    /* Desplazar hacia la izquierda */
+    /* Mover el perfil activado 200px a la izquierda */
   }
 
-  /* Ajustes específicos para elementos en pantallas pequeñas */
+
   .container__lista {
     padding-left: 0px;
-    /* Sin relleno izquierdo */
+    /* Sin espaciado interno a la izquierda */
   }
 
   .caja__lista {
     column-gap: 20px;
-    /* Espacio entre columnas */
+    /* Espaciado entre columnas de 20px */
     justify-content: center;
-    /* Centrar contenido */
+    /* Centrar el contenido horizontalmente */
     padding-bottom: 130px;
-    /* Relleno inferior */
+    /* Espaciado interno inferior de 130px */
   }
 
   .container__buscador {
     width: 380px;
-    /* Ancho específico */
+    /* Ancho del contenedor del buscador */
     height: 42px;
-    /* Altura específica */
+    /* Altura del contenedor del buscador */
   }
 
   .container__buscador__cuadro {
     width: 300px;
-    /* Ancho específico */
+    /* Ancho del cuadro de búsqueda */
     height: 25px;
-    /* Altura específica */
+    /* Altura del cuadro de búsqueda */
+  }
+
+  .container__lista {
+    padding: 20px;
+    /* Espaciado interno de 20px alrededor del contenido */
   }
 
   .container__lista__productos__carta {
     width: 95%;
-    /* Ancho del 95% */
+    /* La carta ocupará el 95% del ancho del contenedor */
     height: 230px;
-    /* Altura de 230px */
+    /* Altura de la carta */
     margin: 20px 0px;
-    /* Margen superior e inferior 20px, margen izquierdo 0px */
+    /* Margen superior/inferior de 20px y sin margen lateral */
     display: grid;
-    /* Usar grid */
+    /* Usar grid para el diseño de los elementos hijos */
     grid-template-columns: 40% 60%;
-    /* Definir columnas */
+    /* Definir las columnas de la cuadrícula */
     grid-template-rows: 20% 80%;
-    /* Definir filas */
+    /* Definir las filas de la cuadrícula */
   }
 
   .imagenes {
     margin-top: 50px;
-    /* Margen superior */
+    /* Margen superior de 50px */
   }
 
-  .button__editar {
+  .button__verproducto {
     width: 120px;
-    /* Ancho de 120px */
+    /* Ancho del botón */
     margin-top: 50px;
-    /* Margen superior */
+    /* Margen superior de 50px */
   }
+
 }
