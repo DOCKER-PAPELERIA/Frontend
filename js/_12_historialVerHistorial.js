@@ -68,134 +68,134 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-// document.addEventListener("DOMContentLoaded", async () => {
-//     const listaProductosCarta = document.getElementById("contenido_factura");
-//     const buscador = document.getElementById("buscador");
-//     const ventanaModal = document.getElementById("ventanaModal");
-//     const btnClose = document.getElementById("btn-close");
-//     const btnYes = document.getElementById("btn-yes");
-//     const contrasenaInput = document.getElementById("contrasena");
-//     let facturaData = [];
-//     let facturaSeleccionada = null;
+document.addEventListener("DOMContentLoaded", async () => {
+    const listaProductosCarta = document.getElementById("contenido_factura");
+    const buscador = document.getElementById("buscador");
+    const ventanaModal = document.getElementById("ventanaModal");
+    const btnClose = document.getElementById("btn-close");
+    const btnYes = document.getElementById("btn-yes");
+    const contrasenaInput = document.getElementById("contrasena");
+    let facturaData = [];
+    let facturaSeleccionada = null;
 
-//     // Función para renderizar las facturas
-//     const renderizarFactura = (facturas) => {
-//         listaProductosCarta.innerHTML = ""; // Limpiar la lista antes de renderizar
+    // Función para renderizar las facturas
+    const renderizarFactura = (facturas) => {
+        listaProductosCarta.innerHTML = ""; // Limpiar la lista antes de renderizar
 
-//         facturas.forEach(factura => {
-//             // Convertir la fecha a un formato legible
-//             const fecha = new Date(factura.Fecha);
-//             const fechaFormateada = fecha.toLocaleDateString();
+        facturas.forEach(factura => {
+            // Convertir la fecha a un formato legible
+            const fecha = new Date(factura.Fecha);
+            const fechaFormateada = fecha.toLocaleDateString();
 
-//             const itemHTML = `
-//                 <tr>
-//                     <th scope="row">${factura.ID}</th>
-//                     <td class="nombre_producto">${factura.Nombre_Producto}</td>
-//                     <td class="nombre_usuario">${factura.Usuario}</td>
-//                     <td class="cantidad">${factura.Cantidad_llevar}</td>
-//                     <td class="precio_producto">${factura.Precio}</td>
-//                     <td class="fecha">${fechaFormateada}</td>
-//                     <td class="tipo_pago">${factura.Pago}</td>
-//                     <td class="valor_pagar">${factura.Total_pagar}</td>
-//                     <td scope="btn">
-//                         <button class="act-icon red btn-trash-open" data-id="${factura.ID}">
-//                             <i class='bx bx-trash' title="Eliminar Factura"></i>
-//                         </button>
-//                     </td>
-//                 </tr>
-//             `;
-//             listaProductosCarta.insertAdjacentHTML("beforeend", itemHTML);
-//         });
+            const itemHTML = `
+                <tr>
+                    <th scope="row">${factura.ID}</th>
+                    <td class="nombre_producto">${factura.Nombre_Producto}</td>
+                    <td class="nombre_usuario">${factura.Usuario}</td>
+                    <td class="cantidad">${factura.Cantidad_llevar}</td>
+                    <td class="precio_producto">${factura.Precio}</td>
+                    <td class="fecha">${fechaFormateada}</td>
+                    <td class="tipo_pago">${factura.Pago}</td>
+                    <td class="valor_pagar">${factura.Total_pagar}</td>
+                    <td scope="btn">
+                        <button class="act-icon red btn-trash-open" data-id="${factura.ID}">
+                            <i class='bx bx-trash' title="Eliminar Factura"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+            listaProductosCarta.insertAdjacentHTML("beforeend", itemHTML);
+        });
 
-//         // Agregar event listener a los botones de eliminar
-//         document.querySelectorAll(".btn-trash-open").forEach(button => {
-//             button.addEventListener("click", (e) => {
-//                 facturaSeleccionada = e.currentTarget.getAttribute("data-id");
-//                 ventanaModal.style.display = 'block';
-//             });
-//         });
-//     };
+        // Agregar event listener a los botones de eliminar
+        document.querySelectorAll(".btn-trash-open").forEach(button => {
+            button.addEventListener("click", (e) => {
+                facturaSeleccionada = e.currentTarget.getAttribute("data-id");
+                ventanaModal.style.display = 'block';
+            });
+        });
+    };
 
-//     try {
-//         const respuesta = await fetch('http://localhost:3000/api/historial', {
-//             method: "GET"
-//         });
+    try {
+        const respuesta = await fetch('http://localhost:3000/api/historial', {
+            method: "GET"
+        });
 
-//         if (!respuesta.ok) {
-//             throw new Error("Error en la solicitud");
-//         }
+        if (!respuesta.ok) {
+            throw new Error("Error en la solicitud");
+        }
 
-//         const data = await respuesta.json();
-//         facturaData = data.body;
-//         console.log(facturaData);
+        const data = await respuesta.json();
+        facturaData = data.body;
+        console.log(facturaData);
 
-//         renderizarFactura(facturaData);
+        renderizarFactura(facturaData);
 
-//     } catch (error) {
-//         console.error("Error al obtener las categorías:", error);
-//     }
+    } catch (error) {
+        console.error("Error al obtener las categorías:", error);
+    }
 
-//     // Agregar evento input al buscador
-//     buscador.addEventListener("input", () => {
-//         const textoBusqueda = buscador.value.toLowerCase();
-//         const facturasFiltradas = facturaData.filter(factura => {
-//             return factura.Nombre_Producto.toLowerCase().includes(textoBusqueda) ||
-//                 factura.Usuario.toLowerCase().includes(textoBusqueda) ||
-//                 factura.Pago.toLowerCase().includes(textoBusqueda);
-//         });
-//         renderizarFactura(facturasFiltradas);
-//     });
+    // Agregar evento input al buscador
+    buscador.addEventListener("input", () => {
+        const textoBusqueda = buscador.value.toLowerCase();
+        const facturasFiltradas = facturaData.filter(factura => {
+            return factura.Nombre_Producto.toLowerCase().includes(textoBusqueda) ||
+                factura.Usuario.toLowerCase().includes(textoBusqueda) ||
+                factura.Pago.toLowerCase().includes(textoBusqueda);
+        });
+        renderizarFactura(facturasFiltradas);
+    });
 
-//     // Cerrar la ventana modal
-//     btnClose.addEventListener("click", () => {
-//         ventanaModal.style.display = 'none';
-//     });
+    // Cerrar la ventana modal
+    btnClose.addEventListener("click", () => {
+        ventanaModal.style.display = 'none';
+    });
 
-//     // Confirmar eliminación
-//     btnYes.addEventListener("click", async () => {
-//         const contrasena = contrasenaInput.value;
-//         const correo = localStorage.getItem("correo"); // Asume que el correo está almacenado en localStorage
+    // Confirmar eliminación
+    btnYes.addEventListener("click", async () => {
+        const contrasena = contrasenaInput.value;
+        const correo = localStorage.getItem("correo"); // Asume que el correo está almacenado en localStorage
 
-//         try {
-//             const respuesta = await fetch(`http://localhost:3000/api/historial/${facturaSeleccionada}`, {
-//                 method: "DELETE",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                     "x-access-token": localStorage.getItem("token") // Asume que el token está almacenado en localStorage
-//                 },
-//                 body: JSON.stringify({
-//                     correo: correo,
-//                     contrasena: contrasena
-//                 })
-//             });
+        try {
+            const respuesta = await fetch(`http://localhost:3000/api/historial/${facturaSeleccionada}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-access-token": localStorage.getItem("token") // Asume que el token está almacenado en localStorage
+                },
+                body: JSON.stringify({
+                    correo: correo,
+                    contrasena: contrasena
+                })
+            });
 
-//             const data = await respuesta.json();
+            const data = await respuesta.json();
 
-//             if (respuesta.ok) {
-//                 alert("Historial eliminado exitosamente.");
-//                 // Volver a cargar las facturas
-//                 const nuevaRespuesta = await fetch('http://localhost:3000/api/historial', {
-//                     method: "GET"
-//                 });
+            if (respuesta.ok) {
+                alert("Historial eliminado exitosamente.");
+                // Volver a cargar las facturas
+                const nuevaRespuesta = await fetch('http://localhost:3000/api/historial', {
+                    method: "GET"
+                });
 
-//                 if (!nuevaRespuesta.ok) {
-//                     throw new Error("Error en la solicitud");
-//                 }
+                if (!nuevaRespuesta.ok) {
+                    throw new Error("Error en la solicitud");
+                }
 
-//                 const nuevoData = await nuevaRespuesta.json();
-//                 facturaData = nuevoData.body;
-//                 renderizarFactura(facturaData);
-//             } else {
-//                 alert(data.message || "Error al eliminar el historial.");
-//             }
-//         } catch (error) {
-//             console.error("Error al eliminar el historial:", error);
-//             alert("Error en el servidor, por favor intente nuevamente.");
-//         }
+                const nuevoData = await nuevaRespuesta.json();
+                facturaData = nuevoData.body;
+                renderizarFactura(facturaData);
+            } else {
+                alert(data.message || "Error al eliminar el historial.");
+            }
+        } catch (error) {
+            console.error("Error al eliminar el historial:", error);
+            alert("Error en el servidor, por favor intente nuevamente.");
+        }
 
-//         ventanaModal.style.display = 'none';
-//     });
-// });
+        ventanaModal.style.display = 'none';
+    });
+});
 
 
 
@@ -272,17 +272,7 @@ const buttonimprimir = document.querySelectorAll(".bxs-printer");
  */
 const ventana2 = document.querySelector(".ventana2");
 
-/**
- * Botón de confirmar impresión en la ventana emergente.
- * @type {HTMLElement}
- */
-const btnconfirmar2 = document.getElementById("btn-yes2");
 
-/**
- * Botón para cerrar la ventana emergente de impresión.
- * @type {HTMLElement}
- */
-const btnCerrar2 = document.getElementById("btn-close2");
 
 // Añade un evento de clic a cada botón de 'Abrir Ventana'
 buttonimprimir.forEach(function (button) {
@@ -294,9 +284,7 @@ buttonimprimir.forEach(function (button) {
 /**
  * Cierra la ventana emergente de impresión al hacer clic en el botón de cerrar.
  */
-btnCerrar2.addEventListener("click", function () {
-    ventana2.style.display = 'none';
-});
+
 
 /**
  * Cierra la ventana emergente de impresión al confirmar la acción.
