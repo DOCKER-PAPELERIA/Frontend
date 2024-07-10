@@ -427,7 +427,7 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
 #botonImprimir{
   height: 120px;
   width: 120px;
-  transform: translate(960px, -90px);
+  transform: translate(1112px, -90px);
   border-radius: 25px;
 }
 
@@ -756,3 +756,8 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
     /* Posicionamiento desde la derecha */
   }
 }
+
+
+
+
+
