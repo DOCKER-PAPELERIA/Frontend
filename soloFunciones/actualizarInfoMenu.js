@@ -43,7 +43,7 @@ function actualizarInterfazUsuario(usuario) {
     try {
         const nombreUsuarioElemento = document.getElementById('nombre1');
         const nombreUsuarioSaludo = document.getElementById('nombre2');
-        const nombreQuemado = document.getElementById();
+        const nombreQuemado = document.getElementById('nombreQuemado');
         if (nombreUsuarioElemento) {
             nombreUsuarioElemento.textContent = usuario.body.nombres;
         } else {

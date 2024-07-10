@@ -51,7 +51,7 @@ const authToken = localStorage.getItem("authToken");
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const formHistorial = document.getElementById("form-historial");
+    const formHistorial = document.getElementById("miFormulario");
     const nuevaHistorialBtn = document.getElementById("boton__nuevohistorial");
     const ventanaConfirmacion = document.getElementById("ventana-confirmacion");
     const btnClose = document.getElementById("btn-close");
@@ -86,7 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch('http://localhost:3000/api/historial', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': authToken
                 },
                 body: JSON.stringify(payload)
             });
@@ -109,19 +110,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    async function cargarProductos() {
+        try {
+            const response = await fetch('http://localhost:3000/api/producto');
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la lista de productos');
+            }
+            const responseData = await response.json();
+            console.log('Datos recibidos del servidor:', responseData);
+    
+            // No es necesario verificar `body` ya que la respuesta es directamente un array
+            if (!Array.isArray(responseData)) {
+                throw new TypeError('La respuesta no es un array');
+            }
+    
+            const productos = responseData;
+            const selectProducto = document.getElementById('nombre');
+            selectProducto.innerHTML = '';
+    
+            productos.forEach(producto => {
+                const option = document.createElement('option');
+                option.value = producto.idProducto;
+                option.textContent = producto.nombre_product;
+                selectProducto.append(option);
+            });
+        } catch (error) {
+            console.error('Error al obtener la lista de productos:', error);
+        }
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    async function cargarMetodo() {
+        try {
+            const response = await fetch('http://localhost:3000/api/metopago');
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la lista de productos');
+            }
+            const responseData = await response.json();
+            console.log('Datos recibidos del servidor:', responseData);
+    
+            // Verificamos que responseData.body sea un array
+            if (!Array.isArray(responseData.body)) {
+                throw new TypeError('La propiedad body de la respuesta no es un array');
+            }
+    
+            const metodos = responseData.body;
+            const selectMetodos = document.getElementById('metodo-pago');
+            selectMetodos.innerHTML = '';
+            
+            metodos.forEach(metodo => {
+                const option = document.createElement('option');
+                option.value = metodo.idMetodoPago;
+                option.textContent = metodo.tipopago;
+                selectMetodos.append(option);
+            });
+        } catch (error) {
+            console.error('Error al obtener la lista de productos:', error);
+        }
+    }
+    
+    cargarProductos(); 
+    cargarMetodo();   
+    
 
 });
 

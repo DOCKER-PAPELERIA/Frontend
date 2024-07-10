@@ -109,14 +109,16 @@
         <!-- Contenido principal -->
         <div class="container__contenido">
             <!-- Contenedor de información -->
-            <div class="container__informacion">
+                <form class="container__informacion" id="miFormulario">
                 <!-- Sección izquierda -->
                 <div class="left-section">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <select class="desplegable" id="nombre" name="nombre" required>
+                           <!-- Las opciones serán añadidas con JavaScript -->
+                    </select>
 
                     <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario" required>
+                    <input type="text" id="nombreQuemado" name="usuario" required>
 
                     <label for="cantidad">Cantidad:</label>
                     <input type="text" id="cantidad" name="cantidad" required>
@@ -129,9 +131,7 @@
 
                     <label for="metodo-pago">Elige método de pago:</label>
                     <select id="metodo-pago"  name="meotdo-pago" required>
-                        <option value="">Seleccione</option>
-                        <option value="credit-card">Transferencia</option>
-                        <option value="debit-card">Efectivo</option>
+                         <!-- Las opciones serán añadidas con JavaScript -->
                     </select>
                 </div>
 
@@ -140,8 +140,8 @@
                     <button class="botonX" id="atras" type="button"><i class='bx bx-x'></i></button>
                 </div>
                 <!-- Botón para nueva historial -->
-                <button class="boton__nuevohistorial" id="boton__nuevohistorial" type="button">Nuevo historial</button>
-            </div>
+                <button class="boton__nuevohistorial" id="boton__nuevohistorial" type="button">Nueva venta</button>
+              </form>
         </div>
 
         <!-- Ventana emergente para eliminar -->

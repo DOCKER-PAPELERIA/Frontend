@@ -606,14 +606,6 @@ select {
     /* Margen izquierdo de 10px */
   }
 
-  input {
-    width: 170px;
-    /* Ancho fijo de 170px */
-    height: 20px;
-    /* Altura fija de 20px */
-    margin-left: 10px;
-    /* Margen izquierdo de 10px */
-  }
 
   select {
     width: 180px;
