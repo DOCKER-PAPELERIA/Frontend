@@ -47,7 +47,49 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const authToken = localStorage.getItem("authToken");
+const nombreQuemado = document.getElementById("nombreQuemado"); // Definir nombreQuemado aquí para acceso global
+
+async function obtenerDatosUsuarioYUsarlos() {
+    try {
+        const datosUsuario = await obtenerYActualizarDatosUsuario();
+        console.log('Datos del usuario:', datosUsuario.nombres);
+
+        nombreQuemado.value = datosUsuario.nombres; // Usar .value para establecer el valor en un input
+        nombreQuemado.disabled = true; // Para hacer el campo ineditable
+    } catch (error) {
+        console.error('Error al obtener y usar los datos del usuario:', error);
+    }
+}
+
+obtenerDatosUsuarioYUsarlos();
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -57,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnClose = document.getElementById("btn-close");
     const btnYes = document.getElementById("btn-yes");
     const btnNot = document.getElementById("btn-not");
+
 
     nuevaHistorialBtn.addEventListener("click", (event) => {
         event.preventDefault();
@@ -82,8 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
             fecha: formData.get("fecha")
         };
 
+        console.log(payload);
+        console.log('Payload a enviar:', JSON.stringify(payload, null, 2));
+
         try {
-            const response = await fetch('http://localhost:3000/api/historial', {
+            const response = await fetch("http://localhost:3000/api/historial", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -95,14 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
 
             if (response.ok) {
-                alert('Producto creado correctamente.');
+                alert('Venta creado correctamente.');
                 // Aquí podrías redirigir o actualizar la página si lo deseas
             } else {
-                alert(`Error al crear producto: ${result.message}`);
+                alert(`Error al crear la venta: ${result.message}`);
             }
         } catch (error) {
-            console.error('Error al crear producto:', error);
-            alert('Hubo un error al crear el producto. Intenta nuevamente.');
+            console.error('Error al crear la venta:', error);
+            alert('Hubo un error al crear la venta. Intenta nuevamente.');
         }
 
         ventanaConfirmacion.style.display = "none";
@@ -198,7 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
 /**
  * Botones para abrir la ventana emergente de nuevo historial.
  * @type {NodeList}
@@ -247,7 +292,7 @@ noEliminar.addEventListener("click", function () {
 /**
  * Instancia de la clase Link para redirigir a la página de ver historial.
  */
-new Link("../HTML/_12_historialVerHistorial.html", "#btn-yes").redireccionar();
+// new Link("../HTML/_12_historialVerHistorial.html", "#btn-yes").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de historial.
