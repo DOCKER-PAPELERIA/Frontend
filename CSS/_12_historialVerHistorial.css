@@ -377,8 +377,7 @@
   /* Altura de la imagen */
   margin-left: 10px;
   /* Margen izquierdo de 10px */
-  background-image: url(../img/lupa.png);
-  /* Imagen de fondo para la lupa */
+
 }
 
 .container__buscador__cuadro {

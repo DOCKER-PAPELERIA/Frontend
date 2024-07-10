@@ -74,12 +74,64 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     const listaProductosCarta = document.getElementById("contenido_factura");
     const buscador = document.getElementById("buscador");
     const ventanaModal = document.querySelector(".ventana");
     const btnClose = document.getElementById("btn-close");
-    const btnYes = document.getElementById("btn-yes");
     const contrasenaInput = document.querySelector(".contrasena");
     const botonImprimir = document.getElementById("botonImprimir");
     let facturaData = [];
@@ -123,6 +175,55 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     };
 
+    // Función asíncrona para obtener y usar los datos del usuario
+    async function obtenerDatosUsuarioYUsarlos() {
+        try {
+            const datosUsuario = await obtenerYActualizarDatosUsuario();
+            console.log('Datos del usuario:', datosUsuario);
+            
+            // Función asíncrona para comparar contraseñas
+            async function compararContrasenas(cEncriptada, cProporcionada) {
+                try {
+                    const response = await fetch('http://localhost:3000/api/compararContrasena', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ cEncriptada, cProporcionada })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Error al comparar contraseñas');
+                    }
+
+                    const data = await response.json();
+                    if (data && data.message) {
+                        console.log(`El resultado es: ${data.message}`);
+                    } else {
+                        console.log('Respuesta no válida del servidor:', data);
+                    }
+
+                } catch (error) {
+                    console.error('Error al comparar contraseñas:', error);
+                }
+            }
+
+            // Event listener para el botón "Confirmar" en la ventana modal
+            document.getElementById('btn-yes').addEventListener('click', () => {
+                const cEncriptada = datosUsuario.contrasena; // Contraseña encriptada (simulada)
+                const cProporcionada = contrasenaInput.value; // Contraseña proporcionada por el usuario
+
+                compararContrasenas(cEncriptada, cProporcionada);
+            });
+
+        } catch (error) {
+            console.error('Error al obtener y usar los datos del usuario:', error);
+        }
+    }
+
+    obtenerDatosUsuarioYUsarlos();
+
+    // Obtener el historial de facturas
     try {
         const respuesta = await fetch('http://localhost:3000/api/historial', {
             method: "GET"
@@ -142,6 +243,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Error al obtener las facturas:", error);
     }
 
+    // Agregar evento para imprimir contenido
+    botonImprimir.addEventListener("click", () => {
+        window.print();
+    });
+
+    // Cerrar la ventana modal
+    btnClose.addEventListener("click", () => {
+        ventanaModal.style.display = 'none';
+    });
+
     // Agregar evento input al buscador
     buscador.addEventListener("input", () => {
         const textoBusqueda = buscador.value.toLowerCase();
@@ -153,72 +264,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderizarFactura(facturasFiltradas);
     });
 
-    // Cerrar la ventana modal
-    btnClose.addEventListener("click", () => {
-        ventanaModal.style.display = 'none';
-    });
-
-    // Confirmar eliminación
-    btnYes.addEventListener("click", async () => {
-        const contrasena = contrasenaInput.value;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        try {
-            const respuesta = await fetch(`http://localhost:3000/api/historial`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-access-token": localStorage.getItem("token") // Asume que el token está almacenado en localStorage
-                },
-                body: JSON.stringify({
-                    
-                })
-            });
-
-            const data = await respuesta.json();
-
-            if (respuesta.ok) {
-                alert("Historial eliminado exitosamente.");
-                // Volver a cargar las facturas
-                const nuevaRespuesta = await fetch('http://localhost:3000/api/historial', {
-                    method: "GET"
-                });
-
-                if (!nuevaRespuesta.ok) {
-                    throw new Error("Error en la solicitud");
-                }
-
-                const nuevoData = await nuevaRespuesta.json();
-                facturaData = nuevoData.body;
-                renderizarFactura(facturaData);
-            } else {
-                alert(data.message || "Error al eliminar el historial.");
-            }
-        } catch (error) {
-            console.error("Error al eliminar el historial:", error);
-            alert("Error en el servidor, por favor intente nuevamente.");
-        }
-
-        ventanaModal.style.display = 'none';
-    });
-
-    // Agregar evento para imprimir contenido
-    botonImprimir.addEventListener("click", () => {
-        window.print();
-    });
 });
 
 
@@ -230,21 +275,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-
-async function obtenerDatosUsuarioYUsarlos() {
-    try {
-        const datosUsuario = await obtenerYActualizarDatosUsuario();
-        console.log('Datos del usuario:', datosUsuario);
-
-        // Aquí puedes trabajar con los datos del usuario según tus necesidades
-        // Por ejemplo, mostrarlos en otra parte de la interfaz o realizar otras operaciones
-
-    } catch (error) {
-        console.error('Error al obtener y usar los datos del usuario:', error);
-    }
-}
-
-obtenerDatosUsuarioYUsarlos();
 
 
 
