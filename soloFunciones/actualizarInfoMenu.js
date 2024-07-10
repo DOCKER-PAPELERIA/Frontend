@@ -1,6 +1,7 @@
 /**
  * Función asíncrona para obtener y actualizar los datos del usuario desde el servidor.
  * Se espera que el token de autenticación esté almacenado en localStorage.
+ * @returns {Promise<object>} Objeto con los datos del usuario recibidos desde el servidor.
  * @throws {Error} Si no se encuentra el token de autenticación en localStorage.
  * @throws {Error} Si ocurre un error al obtener los datos del usuario desde el servidor.
  */
@@ -26,11 +27,16 @@ export async function obtenerYActualizarDatosUsuario() {
         const data = await response.json();
         console.log('Datos del usuario recibidos:', data);
         
-        actualizarInterfazUsuario(data);
+        actualizarInterfazUsuario(data); // Actualizar interfaz como lo hacías antes
+
+        return data.body; // Devolver los datos del usuario recibidos
     } catch (error) {
         console.error('Error al obtener y actualizar datos del usuario:', error);
+        throw error; // Propagar el error para manejarlo donde se llame esta función
     }
 }
+
+
 
 /**
  * Función para actualizar la interfaz de usuario con los datos proporcionados.
@@ -43,7 +49,7 @@ function actualizarInterfazUsuario(usuario) {
     try {
         const nombreUsuarioElemento = document.getElementById('nombre1');
         const nombreUsuarioSaludo = document.getElementById('nombre2');
-        const nombreQuemado = document.getElementById('nombreQuemado');
+
         if (nombreUsuarioElemento) {
             nombreUsuarioElemento.textContent = usuario.body.nombres;
         } else {
@@ -55,10 +61,6 @@ function actualizarInterfazUsuario(usuario) {
             nombreUsuarioSaludo.textContent = `¡HOLA, ${splitNombre[0]}!`;
         } else {
             throw new Error('No se encontró el elemento con ID "nombre2" en el DOM');
-        }
-
-        if (nombreQuemado){
-            nombreQuemado.textContent = usuario.body.nombres;
         }
     } catch (error) {
         console.error('Error al actualizar la interfaz de usuario:', error);

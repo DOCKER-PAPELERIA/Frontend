@@ -68,13 +68,20 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     const listaProductosCarta = document.getElementById("contenido_factura");
     const buscador = document.getElementById("buscador");
-    const ventanaModal = document.getElementById("ventanaModal");
+    const ventanaModal = document.querySelector(".ventana");
     const btnClose = document.getElementById("btn-close");
     const btnYes = document.getElementById("btn-yes");
-    const contrasenaInput = document.getElementById("contrasena");
+    const contrasenaInput = document.querySelector(".contrasena");
+    const botonImprimir = document.getElementById("botonImprimir");
     let facturaData = [];
     let facturaSeleccionada = null;
 
@@ -132,7 +139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderizarFactura(facturaData);
 
     } catch (error) {
-        console.error("Error al obtener las categorías:", error);
+        console.error("Error al obtener las facturas:", error);
     }
 
     // Agregar evento input al buscador
@@ -154,18 +161,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Confirmar eliminación
     btnYes.addEventListener("click", async () => {
         const contrasena = contrasenaInput.value;
-        const correo = localStorage.getItem("correo"); // Asume que el correo está almacenado en localStorage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         try {
-            const respuesta = await fetch(`http://localhost:3000/api/historial/${facturaSeleccionada}`, {
+            const respuesta = await fetch(`http://localhost:3000/api/historial`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
                     "x-access-token": localStorage.getItem("token") // Asume que el token está almacenado en localStorage
                 },
                 body: JSON.stringify({
-                    correo: correo,
-                    contrasena: contrasena
+                    
                 })
             });
 
@@ -195,7 +214,46 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         ventanaModal.style.display = 'none';
     });
+
+    // Agregar evento para imprimir contenido
+    botonImprimir.addEventListener("click", () => {
+        window.print();
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+async function obtenerDatosUsuarioYUsarlos() {
+    try {
+        const datosUsuario = await obtenerYActualizarDatosUsuario();
+        console.log('Datos del usuario:', datosUsuario);
+
+        // Aquí puedes trabajar con los datos del usuario según tus necesidades
+        // Por ejemplo, mostrarlos en otra parte de la interfaz o realizar otras operaciones
+
+    } catch (error) {
+        console.error('Error al obtener y usar los datos del usuario:', error);
+    }
+}
+
+obtenerDatosUsuarioYUsarlos();
+
+
+
+
+
+
+
+
+
 
 
 
@@ -272,26 +330,14 @@ const buttonimprimir = document.querySelectorAll(".bxs-printer");
  */
 const ventana2 = document.querySelector(".ventana2");
 
-
-
-// Añade un evento de clic a cada botón de 'Abrir Ventana'
-buttonimprimir.forEach(function (button) {
-    button.addEventListener("click", function () {
-        ventana2.style.display = 'block';
-    });
-});
-
 /**
- * Cierra la ventana emergente de impresión al hacer clic en el botón de cerrar.
+ * Botón de confirmar impresión en la ventana emergente.
+ * @type {HTMLElement}
  */
+const btnconfirmar2 = document.getElementById("btn-yes2");
 
 
-/**
- * Cierra la ventana emergente de impresión al confirmar la acción.
- */
-btnconfirmar2.addEventListener("click", function () {
-    ventana2.style.display = 'none';
-});
+
 
 
 /**
