@@ -113,24 +113,22 @@
                 <!-- Sección izquierda -->
                 <div class="left-section">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre">
+                    <input type="text" id="nombre" name="nombre" required>
 
                     <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario">
+                    <input type="text" id="usuario" name="usuario" required>
 
                     <label for="cantidad">Cantidad:</label>
-                    <input type="text" id="cantidad">
+                    <input type="text" id="cantidad" name="cantidad" required>
                 </div>
                 <!-- Sección derecha -->
                 <div class="right-section">
-                    <label for="precio">Precio:</label>
-                    <input type="text" id="precio">
 
                     <label for="fecha">Fecha de historial:</label>
-                    <input type="date" id="fecha">
+                    <input type="date" id="fecha" name="fecha" required>
 
                     <label for="metodo-pago">Elige método de pago:</label>
-                    <select id="metodo-pago">
+                    <select id="metodo-pago"  name="meotdo-pago" required>
                         <option value="">Seleccione</option>
                         <option value="credit-card">Transferencia</option>
                         <option value="debit-card">Efectivo</option>
@@ -139,15 +137,15 @@
 
                 <!-- Botón para cerrar -->
                 <div class="container__imagenX">
-                    <button class="botonX" id="atras"><i class='bx bx-x'></i></button>
+                    <button class="botonX" id="atras" type="button"><i class='bx bx-x'></i></button>
                 </div>
                 <!-- Botón para nueva historial -->
-                <button class="boton__nuevohistorial" id="boton__nuevohistorial">Nuevo historial</button>
+                <button class="boton__nuevohistorial" id="boton__nuevohistorial" type="button">Nuevo historial</button>
             </div>
         </div>
 
         <!-- Ventana emergente para eliminar -->
-        <div class="ventana">
+        <div class="ventana"  id="ventana-confirmacion">
             <div class="header2">
                 <button class="btn-close" id="btn-close" title="Cerrar Ventana"> &times;</button>
             </div>

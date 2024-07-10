@@ -43,6 +43,112 @@ new ActivarMenuDesplegableYUsuario(selectorMenu, cuerpoMenuDesplegado).menu();
  */
 new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario();
 
+
+
+
+
+const authToken = localStorage.getItem("authToken");
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const formHistorial = document.getElementById("form-historial");
+    const nuevaHistorialBtn = document.getElementById("boton__nuevohistorial");
+    const ventanaConfirmacion = document.getElementById("ventana-confirmacion");
+    const btnClose = document.getElementById("btn-close");
+    const btnYes = document.getElementById("btn-yes");
+    const btnNot = document.getElementById("btn-not");
+
+    nuevaHistorialBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        ventanaConfirmacion.style.display = "block";
+    });
+
+    btnClose.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "none";
+    });
+
+    btnNot.addEventListener("click", () => {
+        ventanaConfirmacion.style.display = "none";
+    });
+
+
+    btnYes.addEventListener("click", async () => {
+        const formData = new FormData(formHistorial);
+        const payload = {
+            idUsuario: formData.get("usuario"),
+            idProducto: formData.get("nombre"),
+            idMetodoPago: formData.get("metodo-pago"),
+            cantidad: formData.get("cantidad"),
+            fecha: formData.get("fecha")
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/api/historial', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert('Producto creado correctamente.');
+                // Aquí podrías redirigir o actualizar la página si lo deseas
+            } else {
+                alert(`Error al crear producto: ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error al crear producto:', error);
+            alert('Hubo un error al crear el producto. Intenta nuevamente.');
+        }
+
+        ventanaConfirmacion.style.display = "none";
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Botones para abrir la ventana emergente de nuevo historial.
  * @type {NodeList}
