@@ -76,10 +76,16 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 const authToken = localStorage.getItem("authToken");
 const nombreQuemado = document.getElementById("nombreQuemado"); // Definir nombreQuemado aquí para acceso global
 
+// Declarar la variable en el ámbito superior
+let nombreUsuario;
+
 async function obtenerDatosUsuarioYUsarlos() {
     try {
         const datosUsuario = await obtenerYActualizarDatosUsuario();
         console.log('Datos del usuario:', datosUsuario.nombres);
+
+        // Asignar el valor a la variable global
+        nombreUsuario = datosUsuario.nombres;
 
         nombreQuemado.value = datosUsuario.nombres; // Usar .value para establecer el valor en un input
         nombreQuemado.disabled = true; // Para hacer el campo ineditable
@@ -88,11 +94,15 @@ async function obtenerDatosUsuarioYUsarlos() {
     }
 }
 
+// Llamar a la función para obtener y usar los datos del usuario
 obtenerDatosUsuarioYUsarlos();
 
+// Ahora puedes usar nombreUsuario en cualquier parte del código después de que se haya asignado
 
 
+// Espera a que el DOM esté completamente cargado antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", () => {
+    // Obtiene referencias a los elementos del formulario y los botones por su ID
     const formHistorial = document.getElementById("miFormulario");
     const nuevaHistorialBtn = document.getElementById("boton__nuevohistorial");
     const ventanaConfirmacion = document.getElementById("ventana-confirmacion");
@@ -100,127 +110,98 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnYes = document.getElementById("btn-yes");
     const btnNot = document.getElementById("btn-not");
 
-
+    // Agrega un event listener al botón para mostrar la ventana de confirmación cuando se hace clic
     nuevaHistorialBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        ventanaConfirmacion.style.display = "block";
+        event.preventDefault(); // Previene el comportamiento por defecto del botón
+        ventanaConfirmacion.style.display = "block"; // Muestra la ventana de confirmación
     });
 
+    // Agrega event listeners a los botones para cerrar la ventana de confirmación
     btnClose.addEventListener("click", () => {
-        ventanaConfirmacion.style.display = "none";
+        ventanaConfirmacion.style.display = "none"; // Oculta la ventana de confirmación
     });
 
     btnNot.addEventListener("click", () => {
-        ventanaConfirmacion.style.display = "none";
+        ventanaConfirmacion.style.display = "none"; // Oculta la ventana de confirmación
     });
 
-
+    // Agrega un event listener al botón de confirmación
     btnYes.addEventListener("click", async () => {
+        // Crea un objeto FormData con los datos del formulario
         const formData = new FormData(formHistorial);
         const payload = {
-            idUsuario: formData.get("usuario"),
-            idProducto: formData.get("nombre"),
-            idMetodoPago: formData.get("metodo-pago"),
-            cantidad: formData.get("cantidad"),
-            fecha: formData.get("fecha")
+            nombres: nombreUsuario, // Obtiene el valor del campo "usuario"
+            nombreProducto: formData.get("nombre"), // Obtiene el valor del campo "nombre"
+            tipopago: formData.get("metodo-pago"), // Obtiene el valor del campo "metodo-pago"
+            cantidad: parseInt(formData.get("cantidad")), // Obtiene el valor del campo "cantidad"
+            fecha: formData.get("fecha") // Obtiene el valor del campo "fecha"
         };
 
-        console.log(payload);
-        console.log('Payload a enviar:', JSON.stringify(payload, null, 2));
+        console.log(payload); // Imprime el payload en la consola
+        console.log('Payload a enviar:', JSON.stringify(payload, null, 2)); // Imprime el payload formateado en la consola
 
         try {
+            // Realiza una solicitud POST al servidor con los datos del formulario
             const response = await fetch("http://localhost:3000/api/historial", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-access-token': authToken
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload) // Convierte el payload a JSON y lo envía en el cuerpo de la solicitud
             });
 
-            const result = await response.json();
+            const result = await response.json(); // Espera la respuesta del servidor y la convierte a JSON
 
             if (response.ok) {
-                alert('Venta creado correctamente.');
+                alert('Venta creado correctamente.'); // Muestra una alerta si la respuesta es exitosa
                 // Aquí podrías redirigir o actualizar la página si lo deseas
             } else {
-                alert(`Error al crear la venta: ${result.message}`);
+                alert(`Error al crear la venta: ${result.message}`); // Muestra una alerta si hay un error en la respuesta
             }
         } catch (error) {
-            console.error('Error al crear la venta:', error);
-            alert('Hubo un error al crear la venta. Intenta nuevamente.');
+            console.error('Error al crear la venta:', error); // Imprime el error en la consola
+            alert('Hubo un error al crear la venta. Intenta nuevamente.'); // Muestra una alerta si ocurre un error
         }
 
-        ventanaConfirmacion.style.display = "none";
+        ventanaConfirmacion.style.display = "none"; // Oculta la ventana de confirmación
     });
 
-
-
+    // Función para cargar la lista de productos desde el servidor
     async function cargarProductos() {
         try {
-            const response = await fetch('http://localhost:3000/api/producto');
+            const response = await fetch('http://localhost:3000/api/producto'); // Realiza una solicitud GET al servidor
             if (!response.ok) {
-                throw new Error('No se pudo obtener la lista de productos');
+                throw new Error('No se pudo obtener la lista de productos'); // Lanza un error si la respuesta no es exitosa
             }
-            const responseData = await response.json();
-            console.log('Datos recibidos del servidor:', responseData);
-    
-            // No es necesario verificar `body` ya que la respuesta es directamente un array
+            const responseData = await response.json(); // Convierte la respuesta a JSON
+            console.log('Datos recibidos del servidor:', responseData); // Imprime los datos recibidos en la consola
+
+            // Verifica que la respuesta sea un array
             if (!Array.isArray(responseData)) {
                 throw new TypeError('La respuesta no es un array');
             }
-    
-            const productos = responseData;
-            const selectProducto = document.getElementById('nombre');
-            selectProducto.innerHTML = '';
-    
+
+            const productos = responseData; // Asigna los datos recibidos a la variable productos
+            const selectProducto = document.getElementById('nombre'); // Obtiene el elemento select para los productos
+            selectProducto.innerHTML = ''; // Limpia las opciones existentes
+
+            // Itera sobre los productos y crea una opción para cada uno
             productos.forEach(producto => {
                 const option = document.createElement('option');
-                option.value = producto.idProducto;
-                option.textContent = producto.nombre_product;
-                selectProducto.append(option);
+                option.value = producto.nombre_product; // Asigna el ID del producto como valor de la opción
+                option.textContent = producto.nombre_product; // Asigna el nombre del producto como texto de la opción
+                selectProducto.append(option); // Agrega la opción al select
             });
         } catch (error) {
-            console.error('Error al obtener la lista de productos:', error);
+            console.error('Error al obtener la lista de productos:', error); // Imprime el error en la consola
         }
     }
 
-
-    async function cargarMetodo() {
-        try {
-            const response = await fetch('http://localhost:3000/api/metopago');
-            if (!response.ok) {
-                throw new Error('No se pudo obtener la lista de productos');
-            }
-            const responseData = await response.json();
-            console.log('Datos recibidos del servidor:', responseData);
+    // Función para cargar la lista de métodos de pago desde el servidor 
     
-            // Verificamos que responseData.body sea un array
-            if (!Array.isArray(responseData.body)) {
-                throw new TypeError('La propiedad body de la respuesta no es un array');
-            }
-    
-            const metodos = responseData.body;
-            const selectMetodos = document.getElementById('metodo-pago');
-            selectMetodos.innerHTML = '';
-            
-            metodos.forEach(metodo => {
-                const option = document.createElement('option');
-                option.value = metodo.idMetodoPago;
-                option.textContent = metodo.tipopago;
-                selectMetodos.append(option);
-            });
-        } catch (error) {
-            console.error('Error al obtener la lista de productos:', error);
-        }
-    }
-    
-    cargarProductos(); 
-    cargarMetodo();   
-    
-
+    // Llama a las funciones para cargar los productos y los métodos de pago al cargar la página
+    cargarProductos();   
 });
-
 
 
 
@@ -297,7 +278,6 @@ noEliminar.addEventListener("click", function () {
 /**
  * Instancia de la clase Link para redirigir a la página de historial.
  */
-new Link("../HTML/_10_historial.html", "#atras").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de gestión de cuenta.

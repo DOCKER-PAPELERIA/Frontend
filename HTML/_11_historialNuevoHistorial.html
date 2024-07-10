@@ -106,43 +106,64 @@
             </header>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
         <!-- Contenido principal -->
-        <div class="container__contenido">
-            <!-- Contenedor de información -->
-                <form class="container__informacion" id="miFormulario">
-                <!-- Sección izquierda -->
-                <div class="left-section">
-                    <label for="nombre">Nombre:</label>
-                    <select class="desplegable" id="nombre" name="nombre" required>
-                           <!-- Las opciones serán añadidas con JavaScript -->
-                    </select>
+<div class="container__contenido">
+    <!-- Contenedor de información -->
+    <form class="container__informacion" id="miFormulario">
+        <!-- Sección izquierda -->
+        <div class="left-section">
+            <label for="nombre">Nombre:</label>
+            <select class="desplegable" id="nombre" name="nombre" required>
+                <!-- Las opciones serán añadidas con JavaScript -->
+            </select>
 
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="nombreQuemado" name="usuario" required>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="nombreQuemado" name="usuario" required>
 
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="text" id="cantidad" name="cantidad" required>
-                </div>
-                <!-- Sección derecha -->
-                <div class="right-section">
-
-                    <label for="fecha">Fecha de historial:</label>
-                    <input type="date" id="fecha" name="fecha" required>
-
-                    <label for="metodo-pago">Elige método de pago:</label>
-                    <select id="metodo-pago"  name="metodo-pago" required>
-                         <!-- Las opciones serán añadidas con JavaScript -->
-                    </select>
-                </div>
-
-                <!-- Botón para cerrar -->
-                <div class="container__imagenX">
-                    <button class="botonX" id="atras" type="button"><i class='bx bx-x'></i></button>
-                </div>
-                <!-- Botón para nueva historial -->
-                <button class="boton__nuevohistorial" id="boton__nuevohistorial" type="button">Nueva venta</button>
-              </form>
+            <label for="cantidad">Cantidad:</label>
+            <input type="text" id="cantidad" name="cantidad" required>
         </div>
+        <!-- Sección derecha -->
+        <div class="right-section">
+
+            <label for="fecha">Fecha de historial:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="metodo-pago">Elige método de pago:</label>
+            <select id="metodo-pago" name="metodo-pago" required>
+                <option value="transferencia">Transferencia</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+
+        </div>
+
+        <!-- Botón de enviar -->
+        <button class="boton__nuevohistorial" id="boton__nuevohistorial" type="button">Nueva venta</button>
+    </form>
+</div>
+
 
         <!-- Ventana emergente para eliminar -->
         <div class="ventana"  id="ventana-confirmacion">
