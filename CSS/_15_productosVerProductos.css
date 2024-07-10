@@ -484,6 +484,7 @@
   /* Definición de columnas del grid */
   grid-template-rows: 30% 18% 8% 8% 8% 8% 20%;
   /* Definición de filas del grid */
+  margin-left: 20px;
 }
 
 /* Imagen dentro de la caja */
@@ -795,6 +796,10 @@
 
   .caja1 {
     margin-left: 140px; /* Margen izquierdo */
+  }
+
+  .caja{
+    margin-left: 100px;
   }
 
   .container__buscador {
