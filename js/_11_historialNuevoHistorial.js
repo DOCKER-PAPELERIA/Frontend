@@ -47,16 +47,59 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const authToken = localStorage.getItem("authToken");
+const nombreQuemado = document.getElementById("nombreQuemado"); // Definir nombreQuemado aquí para acceso global
+
+async function obtenerDatosUsuarioYUsarlos() {
+    try {
+        const datosUsuario = await obtenerYActualizarDatosUsuario();
+        console.log('Datos del usuario:', datosUsuario.nombres);
+
+        nombreQuemado.value = datosUsuario.nombres; // Usar .value para establecer el valor en un input
+        nombreQuemado.disabled = true; // Para hacer el campo ineditable
+    } catch (error) {
+        console.error('Error al obtener y usar los datos del usuario:', error);
+    }
+}
+
+obtenerDatosUsuarioYUsarlos();
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const formHistorial = document.getElementById("form-historial");
+    const formHistorial = document.getElementById("miFormulario");
     const nuevaHistorialBtn = document.getElementById("boton__nuevohistorial");
     const ventanaConfirmacion = document.getElementById("ventana-confirmacion");
     const btnClose = document.getElementById("btn-close");
     const btnYes = document.getElementById("btn-yes");
     const btnNot = document.getElementById("btn-not");
+
 
     nuevaHistorialBtn.addEventListener("click", (event) => {
         event.preventDefault();
@@ -82,11 +125,15 @@ document.addEventListener("DOMContentLoaded", () => {
             fecha: formData.get("fecha")
         };
 
+        console.log(payload);
+        console.log('Payload a enviar:', JSON.stringify(payload, null, 2));
+
         try {
-            const response = await fetch('http://localhost:3000/api/historial', {
+            const response = await fetch("http://localhost:3000/api/historial", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': authToken
                 },
                 body: JSON.stringify(payload)
             });
@@ -94,14 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
 
             if (response.ok) {
-                alert('Producto creado correctamente.');
+                alert('Venta creado correctamente.');
                 // Aquí podrías redirigir o actualizar la página si lo deseas
             } else {
-                alert(`Error al crear producto: ${result.message}`);
+                alert(`Error al crear la venta: ${result.message}`);
             }
         } catch (error) {
-            console.error('Error al crear producto:', error);
-            alert('Hubo un error al crear el producto. Intenta nuevamente.');
+            console.error('Error al crear la venta:', error);
+            alert('Hubo un error al crear la venta. Intenta nuevamente.');
         }
 
         ventanaConfirmacion.style.display = "none";
@@ -109,22 +156,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    async function cargarProductos() {
+        try {
+            const response = await fetch('http://localhost:3000/api/producto');
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la lista de productos');
+            }
+            const responseData = await response.json();
+            console.log('Datos recibidos del servidor:', responseData);
+    
+            // No es necesario verificar `body` ya que la respuesta es directamente un array
+            if (!Array.isArray(responseData)) {
+                throw new TypeError('La respuesta no es un array');
+            }
+    
+            const productos = responseData;
+            const selectProducto = document.getElementById('nombre');
+            selectProducto.innerHTML = '';
+    
+            productos.forEach(producto => {
+                const option = document.createElement('option');
+                option.value = producto.idProducto;
+                option.textContent = producto.nombre_product;
+                selectProducto.append(option);
+            });
+        } catch (error) {
+            console.error('Error al obtener la lista de productos:', error);
+        }
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    async function cargarMetodo() {
+        try {
+            const response = await fetch('http://localhost:3000/api/metopago');
+            if (!response.ok) {
+                throw new Error('No se pudo obtener la lista de productos');
+            }
+            const responseData = await response.json();
+            console.log('Datos recibidos del servidor:', responseData);
+    
+            // Verificamos que responseData.body sea un array
+            if (!Array.isArray(responseData.body)) {
+                throw new TypeError('La propiedad body de la respuesta no es un array');
+            }
+    
+            const metodos = responseData.body;
+            const selectMetodos = document.getElementById('metodo-pago');
+            selectMetodos.innerHTML = '';
+            
+            metodos.forEach(metodo => {
+                const option = document.createElement('option');
+                option.value = metodo.idMetodoPago;
+                option.textContent = metodo.tipopago;
+                selectMetodos.append(option);
+            });
+        } catch (error) {
+            console.error('Error al obtener la lista de productos:', error);
+        }
+    }
+    
+    cargarProductos(); 
+    cargarMetodo();   
+    
 
 });
-
 
 
 
@@ -197,7 +292,7 @@ noEliminar.addEventListener("click", function () {
 /**
  * Instancia de la clase Link para redirigir a la página de ver historial.
  */
-new Link("../HTML/_12_historialVerHistorial.html", "#btn-yes").redireccionar();
+// new Link("../HTML/_12_historialVerHistorial.html", "#btn-yes").redireccionar();
 
 /**
  * Instancia de la clase Link para redirigir a la página de historial.
