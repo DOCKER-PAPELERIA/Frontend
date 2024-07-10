@@ -426,7 +426,7 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
 #botonImprimir{
   height: 120px;
   width: 120px;
-  transform: translate(1180px, -90px);
+  transform: translate(1000px, -90px);
   border-radius: 25px;
 }
 
