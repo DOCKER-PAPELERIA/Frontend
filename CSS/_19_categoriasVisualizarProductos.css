@@ -707,6 +707,7 @@
     /* Ancho del buscador */
     height: 42px;
     /* Altura del buscador */
+    transform: translate(230px, 70px);
   }
 
   .container_buscador_cuadro {
@@ -719,6 +720,12 @@
   .filtro {
     margin-right: 30px;
     /* Margen derecho */
+    transform: translate(200px, 80px);
+  }
+
+  .caja{
+    margin-left: 120px;
+    transform: translate(10px, 80px);
   }
 
   .container__lista {
@@ -726,11 +733,16 @@
     /* Altura del 50% */
     padding-left: 20px;
     /* Relleno izquierdo */
+    transform: translate(0px,-20px);
   }
 
   .imagen_categoria>img {
     width: 50%;
     /* Ancho del 50% del contenedor */
+  }
+
+  #img_categoria{
+    transform: translate(40px,0);
   }
 
   .caja__lista {

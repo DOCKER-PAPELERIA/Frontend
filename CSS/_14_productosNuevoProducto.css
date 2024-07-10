@@ -337,6 +337,7 @@
   /* Definir dos filas */
   place-items: center;
   /* Centrar ítems */
+  margin-left: 160px;
 }
 
 /* Secciones izquierda y derecha */
@@ -631,6 +632,7 @@ input {
     /* Ancho del contenedor */
     height: 400px;
     /* Altura del contenedor */
+    margin-left: 300px;
   }
 
   /* Ajustes para el botón X en pantallas pequeñas */
@@ -647,6 +649,7 @@ input {
     /* Altura del botón */
     font-size: 16px;
     /* Tamaño de la fuente */
+    margin-left: 250px;
   }
 
   /* Ajustes para la ventana emergente en pantallas pequeñas */

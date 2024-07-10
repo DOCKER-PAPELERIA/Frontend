@@ -610,19 +610,17 @@
     /* Usar grid para el diseño de los elementos hijos */
     grid-template-columns: 40% 60%;
     /* Definir las columnas de la cuadrícula */
-    grid-template-rows: 20% 80%;
-    /* Definir las filas de la cuadrícula */
   }
 
   .imagenes {
-    margin-top: 50px;
+    margin-top: -40px;
     /* Margen superior de 50px */
   }
 
   .button__verproducto {
     width: 120px;
     /* Ancho del botón */
-    margin-top: 50px;
+    margin-top: -80px;
     /* Margen superior de 50px */
   }
 
