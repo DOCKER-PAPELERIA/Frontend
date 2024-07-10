@@ -43,7 +43,7 @@ function actualizarInterfazUsuario(usuario) {
     try {
         const nombreUsuarioElemento = document.getElementById('nombre1');
         const nombreUsuarioSaludo = document.getElementById('nombre2');
-
+        const nombreQuemado = document.getElementById();
         if (nombreUsuarioElemento) {
             nombreUsuarioElemento.textContent = usuario.body.nombres;
         } else {
@@ -55,6 +55,10 @@ function actualizarInterfazUsuario(usuario) {
             nombreUsuarioSaludo.textContent = `¡HOLA, ${splitNombre[0]}!`;
         } else {
             throw new Error('No se encontró el elemento con ID "nombre2" en el DOM');
+        }
+
+        if (nombreQuemado){
+            nombreQuemado.textContent = usuario.body.nombres;
         }
     } catch (error) {
         console.error('Error al actualizar la interfaz de usuario:', error);
