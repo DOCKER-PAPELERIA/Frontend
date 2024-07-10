@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const inputBuscar = document.querySelector(".container__buscador__cuadro");
 
     try {
-        const respuesta = await fetch('http://localhost:3000/api/categoria', {
+        const respuesta = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/categoria', {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -133,6 +133,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);
 
 
 

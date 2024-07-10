@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Función asíncrona para comparar contraseñas
             async function compararContrasenas(cEncriptada, cProporcionada) {
                 try {
-                    const response = await fetch('http://localhost:3000/api/compararContrasena', {
+                    const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/compararContrasena', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Obtener el historial de facturas
     try {
-        const respuesta = await fetch('http://localhost:3000/api/historial', {
+        const respuesta = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
             method: "GET"
         });
 
@@ -437,6 +437,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// const urls = window.location.href; // Obtiene la URL actual
-// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-// window.history.replaceState(null, null, nuevaUrl);
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);

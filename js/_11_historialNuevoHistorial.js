@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // Realiza una solicitud POST al servidor con los datos del formulario
-            const response = await fetch("http://localhost:3000/api/historial", {
+            const response = await fetch("https://ms-inventario-api-mi-angel-1.onrender.com/api/historial", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para cargar la lista de productos desde el servidor
     async function cargarProductos() {
         try {
-            const response = await fetch('http://localhost:3000/api/producto'); // Realiza una solicitud GET al servidor
+            const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/producto'); // Realiza una solicitud GET al servidor
             if (!response.ok) {
                 throw new Error('No se pudo obtener la lista de productos'); // Lanza un error si la respuesta no es exitosa
             }
@@ -342,6 +342,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);
 
 
 

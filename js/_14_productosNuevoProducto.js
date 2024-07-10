@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/api/producto', {
+            const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/producto', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function cargarCategorias() {
         try {
-            const response = await fetch('http://localhost:3000/api/categoria');
+            const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/categoria');
             if (!response.ok) {
                 throw new Error('No se pudo obtener la lista de categorías');
             }
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function cargarProveedores() {
         try {
-            const response = await fetch('http://localhost:3000/api/proveedor');
+            const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/proveedor');
             if (!response.ok) {
                 throw new Error('No se pudo obtener la lista de proveedores');
             }
@@ -310,6 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// const urls = window.location.href; // Obtiene la URL actual
-// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-// window.history.replaceState(null, null, nuevaUrl);
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);
