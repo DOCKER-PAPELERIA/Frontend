@@ -20,7 +20,22 @@ new Link("../HTML/_2_registro.html", "#linkRegistrarse").redireccionar();
 
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
-    
+    const mostrarContrasena = document.getElementById('mostrarContrasena');
+    const contrasenaInput = document.getElementById('contrasena');
+    const confirmarContrasenaInput = document.getElementById('confirmarContrasena');
+    const correoElectronicoInput = document.getElementById('correoElectronico');
+
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    const invalidDomains = ["example.com", "test.com", "invalid.com"];
+
+    if (mostrarContrasena) {
+        mostrarContrasena.addEventListener('change', () => {
+            const type = mostrarContrasena.checked ? 'text' : 'password';
+            contrasenaInput.type = type;
+            confirmarContrasenaInput.type = type;
+        });
+    }
+
     if (registerForm) {
         /**
          * Maneja el evento de envío del formulario de registro.
@@ -29,26 +44,41 @@ document.addEventListener('DOMContentLoaded', () => {
         registerForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            /**
-             * Datos del formulario de registro.
-             * @type {Object}
-             * @property {number} idRol - ID del rol del usuario, predeterminado a 1.
-             * @property {string} identificacion - Identificación del usuario.
-             * @property {string} nombres - Nombre completo del usuario.
-             * @property {string} telefono - Teléfono del usuario.
-             * @property {string} fecha_naci - Fecha de nacimiento del usuario.
-             * @property {string} correo - Correo electrónico del usuario.
-             * @property {string} contrasena - Contraseña del usuario.
-             * @property {string} estado - Estado del usuario, predeterminado a 'activo'.
-             */
+            const identificacion = document.getElementById('identificacion').value;
+            const nombreCompleto = document.getElementById('nombreCompleto').value;
+            const telefono = document.getElementById('telefono').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            let correoElectronico = correoElectronicoInput.value.toLowerCase(); // Convertir a minúsculas
+            const contrasena = document.getElementById('contrasena').value;
+            const confirmarContrasena = document.getElementById('confirmarContrasena').value;
+
+            // Validar que las contraseñas coinciden
+            if (contrasena !== confirmarContrasena) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            // Validar formato de correo electrónico
+            if (!emailPattern.test(correoElectronico)) {
+                alert('Introduce un correo electrónico válido.');
+                return;
+            }
+
+            // Validar dominio del correo electrónico
+            const correoDomain = correoElectronico.split('@')[1];
+            if (invalidDomains.includes(correoDomain)) {
+                alert('El dominio del correo electrónico no está permitido.');
+                return;
+            }
+
             const formData = {
                 idRol: 1, // Esto podría cambiar según tu lógica de negocio
-                identificacion: document.getElementById('identificacion').value,
-                nombres: document.getElementById('nombreCompleto').value,
-                telefono: document.getElementById('telefono').value,
-                fecha_naci: document.getElementById('fechaNacimiento').value,
-                correo: document.getElementById('correoElectronico').value,
-                contrasena: document.getElementById('contrasena').value,
+                identificacion,
+                nombres: nombreCompleto,
+                telefono,
+                fecha_naci: fechaNacimiento,
+                correo: correoElectronico,
+                contrasena,
                 estado: 'activo'
             };
 
@@ -89,8 +119,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-
-const url = window.location.href; // Obtiene la URL actual
-const nuevaUrl = url.split('.html')[0]; // Elimina la extensión .html
-window.history.replaceState(null, null, nuevaUrl);

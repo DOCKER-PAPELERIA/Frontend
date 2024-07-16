@@ -100,3 +100,4 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 const urls = window.location.href; // Obtiene la URL actual
 const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
 window.history.replaceState(null, null, nuevaUrl);
+

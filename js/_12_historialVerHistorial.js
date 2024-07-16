@@ -80,59 +80,11 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", async () => {
     const listaProductosCarta = document.getElementById("contenido_factura");
     const buscador = document.getElementById("buscador");
     const ventanaModal = document.querySelector(".ventana");
     const btnClose = document.getElementById("btn-close");
-    const contrasenaInput = document.querySelector(".contrasena");
     const botonImprimir = document.getElementById("botonImprimir");
     let facturaData = [];
     let facturaSeleccionada = null;
@@ -175,45 +127,74 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     };
 
+    // Función para obtener el historial de facturas
+    const obtenerHistorialFacturas = async () => {
+        try {
+            const respuesta = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
+                method: "GET"
+            });
+
+            if (!respuesta.ok) {
+                throw new Error("Error en la solicitud");
+            }
+
+            const data = await respuesta.json();
+            facturaData = data.body;
+            console.log(facturaData);
+
+            renderizarFactura(facturaData);
+
+        } catch (error) {
+            console.error("Error al obtener las facturas:", error);
+        }
+    };
+
     // Función asíncrona para obtener y usar los datos del usuario
     async function obtenerDatosUsuarioYUsarlos() {
         try {
             const datosUsuario = await obtenerYActualizarDatosUsuario();
             console.log('Datos del usuario:', datosUsuario);
-            
-            // Función asíncrona para comparar contraseñas
-            async function compararContrasenas(cEncriptada, cProporcionada) {
+
+            // Event listener para el botón "Confirmar" en la ventana modal
+            document.getElementById('btn-yes').addEventListener('click', async (e) => {
+                e.preventDefault();
+
+                const correoInput = document.querySelector(".correo");
+                const contrasenaInput = document.querySelector(".contrasena");
+
+                if (!correoInput || !contrasenaInput) {
+                    console.error('No se encontraron los campos de correo y contraseña.');
+                    return;
+                }
+
+                const correo = correoInput.value;
+                const contrasena = contrasenaInput.value;
+
                 try {
-                    const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/compararContrasena', {
-                        method: 'POST',
+                    const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
+                        method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ cEncriptada, cProporcionada })
+                        body: JSON.stringify({ idFactura: facturaSeleccionada, correo, contrasena })
                     });
 
                     if (!response.ok) {
-                        throw new Error('Error al comparar contraseñas');
+                        throw new Error('Error al eliminar la factura');
                     }
 
                     const data = await response.json();
                     if (data && data.message) {
                         console.log(`El resultado es: ${data.message}`);
+                        // Recargar la página después de eliminar
                     } else {
                         console.log('Respuesta no válida del servidor:', data);
+                        window.location.reload();
                     }
 
                 } catch (error) {
-                    console.error('Error al comparar contraseñas:', error);
+                    console.error('Error al eliminar la factura:', error);
                 }
-            }
-
-            // Event listener para el botón "Confirmar" en la ventana modal
-            document.getElementById('btn-yes').addEventListener('click', () => {
-                const cEncriptada = datosUsuario.contrasena; // Contraseña encriptada (simulada)
-                const cProporcionada = contrasenaInput.value; // Contraseña proporcionada por el usuario
-
-                compararContrasenas(cEncriptada, cProporcionada);
             });
 
         } catch (error) {
@@ -223,30 +204,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     obtenerDatosUsuarioYUsarlos();
 
-    // Obtener el historial de facturas
-    try {
-        const respuesta = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
-            method: "GET"
-        });
-
-        if (!respuesta.ok) {
-            throw new Error("Error en la solicitud");
-        }
-
-        const data = await respuesta.json();
-        facturaData = data.body;
-        console.log(facturaData);
-
-        renderizarFactura(facturaData);
-
-    } catch (error) {
-        console.error("Error al obtener las facturas:", error);
-    }
+    // Obtener el historial de facturas al cargar la página
+    await obtenerHistorialFacturas();
 
     // Agregar evento para imprimir contenido
     botonImprimir.addEventListener("click", () => {
         window.print();
     });
+
 
     // Cerrar la ventana modal
     btnClose.addEventListener("click", () => {
@@ -265,6 +230,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 });
+
+
+
+
+
 
 
 

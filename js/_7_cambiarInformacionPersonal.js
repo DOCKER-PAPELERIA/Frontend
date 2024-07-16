@@ -75,13 +75,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const fechaNacimientoInput = document.querySelector("#fecha_nacimiento");
 
     // Obtener el correo electrónico del token en localStorage
-const correo = JSON.parse(atob(authToken.split('.')[1])).correo;
+    const correo = JSON.parse(atob(authToken.split('.')[1])).correo;
 
-// Establecer el valor del correo electrónico y deshabilitar el campo
-const correoInput = document.getElementById("correoElectronico");
-correoInput.value = correo;
-correoInput.disabled = true; // Para hacer el campo ineditable
+    // Establecer el valor del correo electrónico y deshabilitar el campo
+    const correoInput = document.getElementById("correoElectronico");
+    correoInput.value = correo;
+    correoInput.disabled = true; // Para hacer el campo ineditable
 
+    /**
+     * Función para validar la contraseña.
+     * @param {string} contrasena - La contraseña a validar.
+     * @returns {string} - Mensaje de error si la contraseña no cumple con los requisitos, vacío si es válida.
+     */
+    function validarContrasena(contrasena) {
+        const minLength = 8;
+        const maxLength = 20;
+        const hasUpperCase = /[A-Z]/.test(contrasena);
+        const hasLowerCase = /[a-z]/.test(contrasena);
+        const hasDigit = /\d/.test(contrasena);
+
+        if (contrasena.length < minLength || contrasena.length > maxLength) {
+            return `La contraseña debe tener entre ${minLength} y ${maxLength} caracteres.`;
+        }
+        if (!hasUpperCase) {
+            return "La contraseña debe contener al menos una letra mayúscula.";
+        }
+        if (!hasLowerCase) {
+            return "La contraseña debe contener al menos una letra minúscula.";
+        }
+        if (!hasDigit) {
+            return "La contraseña debe contener al menos un número.";
+        }
+        return "";
+    }
 
     /**
      * Maneja el evento de envío del formulario para actualizar datos del usuario.
@@ -90,8 +116,29 @@ correoInput.disabled = true; // Para hacer el campo ineditable
     miForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        // Validación de contraseñas
-        if (contrasenaInput.value !== confirmarContrasenaInput.value) {
+        // Validar que todos los campos obligatorios están completos
+        if (!identificacionInput.value || !nombreCompletoInput.value || !telefonoInput.value || !fechaNacimientoInput.value) {
+            alert("Por favor, completa todos los campos obligatorios.");
+            return;
+        }
+
+        // Validar formato de correo electrónico
+        const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        if (!emailPattern.test(correo)) {
+            alert("El correo electrónico no tiene un formato válido.");
+            return;
+        }
+
+        // Validar contraseña
+        const contrasena = contrasenaInput.value;
+        const mensajeError = validarContrasena(contrasena);
+        if (mensajeError) {
+            alert(mensajeError);
+            return;
+        }
+
+        // Validar confirmación de la contraseña
+        if (contrasena !== confirmarContrasenaInput.value) {
             alert("Las contraseñas no coinciden");
             return;
         }
@@ -103,7 +150,7 @@ correoInput.disabled = true; // Para hacer el campo ineditable
             telefono: telefonoInput.value,
             fecha_naci: fechaNacimientoInput.value,
             correo: correo, // Añadir el campo de correo
-            contrasena: contrasenaInput.value,
+            contrasena: contrasena,
             estado: "Activo" // Agregar el estado necesario
         };
 
@@ -143,11 +190,3 @@ correoInput.disabled = true; // Para hacer el campo ineditable
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
 eliminarTokenDespuesDeTiempo(60);
-
-
-
-
-
-const urls = window.location.href; // Obtiene la URL actual
-const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-window.history.replaceState(null, null, nuevaUrl);

@@ -409,7 +409,7 @@
 efecto de tarjeta. Además, se agregan bordes redondeados. */
 
 .container_tabla {
-  height: 80%;
+  height: 62%;
   /* Altura del 80% del contenedor padre */
   border-radius: 20px;
   /* Radio de borde de 20px */
@@ -534,7 +534,7 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
 .ventana {
   width: 370px;
   /* Ancho fijo de 370px */
-  height: 220px;
+  height: 250px;
   /* Altura fija de 220px y 205px respectivamente */
   background-color: rgb(189, 179, 179);
   /* Color de fondo gris */
@@ -555,30 +555,13 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
 
 }
 
-.ventana2 {
-  width: 370px;
-  /* Ancho fijo de 370px */
-  height: 205px;
-  /* Altura fija de 220px y 205px respectivamente */
-  background-color: rgb(189, 179, 179);
-  /* Color de fondo gris */
-  border-radius: 5px;
-  /* Radio de borde de 5px */
-  border: 1px solid rgb(209, 209, 209);
-  /* Borde sólido gris */
-  flex-direction: column;
-  /* Dirección de los elementos: columna */
-  display: none;
-  /* Inicialmente oculto */
-  position: absolute;
-  /* Posición absoluta */
-  top: 190px;
-  /* Posicionamiento desde la parte superior */
-  right: 480px;
-  /* Posicionamiento desde la derecha */
-}
+
 
 .header2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
   padding: 10px;
   /* Relleno interno de 10px */
   border-bottom: 1px solid #dee2e6;
@@ -602,6 +585,7 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
   /* Radio de borde de 5px */
   font-size: 30px;
   /* Tamaño de fuente de 30px */
+  margin-left: 20px;
 }
 
 .btn-close:hover {
@@ -612,6 +596,10 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
 
 /* Cuerpo, texto */
 .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   /* Relleno interno de 10px */
   border-bottom: 1px solid #dee2e6;
@@ -620,6 +608,8 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
   /* Usa flexbox para disposición */
   text-align: center;
   /* Alinea el texto al centro */
+  height: 72%;
+  
 }
 
 
@@ -648,6 +638,7 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
   /* Tamaño de fuente de 15px */
   padding: 0px 6px;
   /* Relleno de 0px arriba y abajo, 6px izquierda y derecha */
+  margin-bottom: 15px;
 }
 
 /* Pie, botones, si y no */
@@ -692,6 +683,26 @@ efecto de tarjeta. Además, se agregan bordes redondeados. */
   /* Margen derecho de 20px */
 }
 
+
+.correo{
+  width: 220px;
+  /* Ancho fijo de 220px */
+  height: 30px;
+  /* Altura fija de 30px */
+  border-radius: 5px;
+  /* Radio de borde de 5px */
+  border: none;
+  /* Sin borde */
+  grid-column: 1;
+  /* Ocupa la primera columna en el grid */
+  grid-row: 2;
+  /* Ocupa la segunda fila en el grid */
+  font-size: 15px;
+  /* Tamaño de fuente de 15px */
+  padding: 0px 6px;
+  /* Relleno de 0px arriba y abajo, 6px izquierda y derecha */
+  margin-bottom: 15px;
+}
 
 
 

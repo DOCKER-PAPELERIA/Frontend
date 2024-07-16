@@ -120,7 +120,6 @@
 
 
 
-        
 <!-- Contenido principal -->
 <div class="container__contenido">
     <div class="container__juntos">
@@ -164,18 +163,19 @@
 <div class="ventana">
     <div class="header2">
         <button class="btn-close" id="btn-close" title="Cerrar Ventana">&times;</button>
+        <h2>confirmar credenciales</h2>
     </div>
-    <div class="body">
-        <h3 class="text_information">Digite su contraseña para eliminar la factura:
-            <div></div>
-            <input type="password" class="contrasena">
-        </h3>
-    </div>
-    <div class="footer">
-        <button class="btn-confirm yes" id="btn-yes">Confirmar</button>
-    </div>
-</div>
 
+    <form class="body">
+        <label class="text_information">correo: <br>
+            <input type="text" class="correo" id="correo">
+        </label>
+        <label class="text_information">contraseña: <br>
+            <input type="password" class="contrasena" id="contrasena">
+        </label>
+        <button type="button" class="btn-confirm yes" id="btn-yes">Confirmar</button>
+    </form>
+</div>
 
 <!-- Script JavaScript -->
 <script type="module" src="../js/_12_historialVerHistorial.js"></script>

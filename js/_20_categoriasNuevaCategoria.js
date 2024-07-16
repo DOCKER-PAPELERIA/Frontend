@@ -60,9 +60,7 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-
 const authToken = localStorage.getItem('authToken');
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const formCategoria = document.getElementById("form-categoria");
@@ -71,6 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnClose = document.getElementById("btn-close");
     const btnYes = document.getElementById("btn-yes");
     const btnNot = document.getElementById("btn-not");
+    const fechaCategoriaDisplay = document.getElementById("fecha-categoria-display");
+
+    // Obtener la fecha actual y establecerla en el elemento
+    const currentDate = new Date().toISOString().split('T')[0];
+    fechaCategoriaDisplay.textContent = currentDate;
 
     nuevaCategoriaBtn.addEventListener("click", (event) => {
         event.preventDefault();
@@ -91,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Categoria: formData.get("nombre-categoria"),
             descripcion_categoria: formData.get("descripcion-categoria"),
             imagen: formData.get("url-imagen"),
-            fecha: formData.get("fecha-categoria")
+            fecha: currentDate // Usar la fecha actual
         };
 
         try {
@@ -118,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ventanaConfirmacion.style.display = "none";
     });
 });
+
 
 
 
@@ -365,6 +369,6 @@ window.history.replaceState(null, null, nuevaUrl);
 
 
 
-// const urls = window.location.href; // Obtiene la URL actual
-// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-// window.history.replaceState(null, null, nuevaUrl);
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);

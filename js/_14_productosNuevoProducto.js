@@ -65,11 +65,26 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
- 
+
+
+
+
+
+
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Establecer la fecha actual en el campo de tipo date
+    const inputFecha = document.getElementById("fecha");
+    const hoy = new Date();
+    const año = hoy.getFullYear();
+    const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // Mes comienza en 0, por lo que se suma 1
+    const dia = String(hoy.getDate()).padStart(2, '0');
+    const fechaActual = `${año}-${mes}-${dia}`;
+    inputFecha.value = fechaActual;
+    inputFecha.readOnly = true; // Hacer el campo no editable
+
     const formProducto = document.getElementById("miFormulario");
     const nuevaProductoBtn = document.getElementById("nueva-producto-btn");
     const ventanaConfirmacion = document.querySelector(".ventana");
@@ -187,12 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarCategorias();
     cargarProveedores();
 });
-
-
-
-
-
-
 
 
 

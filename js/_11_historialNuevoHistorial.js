@@ -69,46 +69,47 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-
-
-
-
-const authToken = localStorage.getItem("authToken");
-const nombreQuemado = document.getElementById("nombreQuemado"); // Definir nombreQuemado aquí para acceso global
-
-// Declarar la variable en el ámbito superior
-let nombreUsuario;
-
-async function obtenerDatosUsuarioYUsarlos() {
-    try {
-        const datosUsuario = await obtenerYActualizarDatosUsuario();
-        console.log('Datos del usuario:', datosUsuario.nombres);
-
-        // Asignar el valor a la variable global
-        nombreUsuario = datosUsuario.nombres;
-
-        nombreQuemado.value = datosUsuario.nombres; // Usar .value para establecer el valor en un input
-        nombreQuemado.disabled = true; // Para hacer el campo ineditable
-    } catch (error) {
-        console.error('Error al obtener y usar los datos del usuario:', error);
-    }
-}
-
-// Llamar a la función para obtener y usar los datos del usuario
-obtenerDatosUsuarioYUsarlos();
-
-// Ahora puedes usar nombreUsuario en cualquier parte del código después de que se haya asignado
-
-
-// Espera a que el DOM esté completamente cargado antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", () => {
+    // Establecer la fecha actual en el campo de tipo date
+    const inputFecha = document.getElementById("fecha");
+    const hoy = new Date();
+    const año = hoy.getFullYear();
+    const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // Mes comienza en 0, por lo que se suma 1
+    const dia = String(hoy.getDate()).padStart(2, '0');
+    const fechaActual = `${año}-${mes}-${dia}`;
+    inputFecha.value = fechaActual;
+
+    const authToken = localStorage.getItem("authToken");
+    const nombreQuemado = document.getElementById("nombreQuemado"); // Definir nombreQuemado aquí para acceso global
+
+    // Declarar la variable en el ámbito superior
+    let nombreUsuario;
+
+    async function obtenerDatosUsuarioYUsarlos() {
+        try {
+            const datosUsuario = await obtenerYActualizarDatosUsuario();
+            console.log('Datos del usuario:', datosUsuario.nombres);
+
+            // Asignar el valor a la variable global
+            nombreUsuario = datosUsuario.nombres;
+
+            nombreQuemado.value = datosUsuario.nombres; // Usar .value para establecer el valor en un input
+            nombreQuemado.disabled = true; // Para hacer el campo ineditable
+        } catch (error) {
+            console.error('Error al obtener y usar los datos del usuario:', error);
+        }
+    }
+
+    // Llamar a la función para obtener y usar los datos del usuario
+    obtenerDatosUsuarioYUsarlos();
+
     // Obtiene referencias a los elementos del formulario y los botones por su ID
     const formHistorial = document.getElementById("miFormulario");
     const nuevaHistorialBtn = document.getElementById("boton__nuevohistorial");
     const ventanaConfirmacion = document.getElementById("ventana-confirmacion");
     const btnClose = document.getElementById("btn-close");
     const btnYes = document.getElementById("btn-yes");
-    const btnNot = document.getElementById("btn-not");
+    const btnNot = document.getElementById("btn-not"); 
 
     // Agrega un event listener al botón para mostrar la ventana de confirmación cuando se hace clic
     nuevaHistorialBtn.addEventListener("click", (event) => {
@@ -153,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json(); // Espera la respuesta del servidor y la convierte a JSON
 
             if (response.ok) {
-                alert('Venta creado correctamente.'); // Muestra una alerta si la respuesta es exitosa
+                alert('Venta creada correctamente.'); // Muestra una alerta si la respuesta es exitosa
                 // Aquí podrías redirigir o actualizar la página si lo deseas
             } else {
                 alert(`Error al crear la venta: ${result.message}`); // Muestra una alerta si hay un error en la respuesta
@@ -197,11 +198,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Función para cargar la lista de métodos de pago desde el servidor 
-    
-    // Llama a las funciones para cargar los productos y los métodos de pago al cargar la página
+    // Llama a las funciones para cargar los productos al cargar la página
     cargarProductos();   
 });
+
+
+
+
+
 
 
 
@@ -362,8 +366,3 @@ window.history.replaceState(null, null, nuevaUrl);
 
 
 
-
-
-// const urls = window.location.href; // Obtiene la URL actual
-// const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
-// window.history.replaceState(null, null, nuevaUrl);

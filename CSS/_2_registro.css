@@ -84,6 +84,10 @@
     border-radius: 20px;
 }
 
+.label--checkbox__mover{
+    transform: translate(310px,-180px);
+}
+
 .formulario__h1 {
     /* Tamaño de fuente para el título del formulario */
     font-size: 200%;
