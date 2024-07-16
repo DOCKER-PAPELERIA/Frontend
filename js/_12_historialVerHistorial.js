@@ -81,6 +81,7 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const authToken = localStorage.getItem(authToken);
     const listaProductosCarta = document.getElementById("contenido_factura");
     const buscador = document.getElementById("buscador");
     const ventanaModal = document.querySelector(".ventana");
@@ -132,6 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const respuesta = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
                 method: "GET"
+
             });
 
             if (!respuesta.ok) {
@@ -174,7 +176,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
                         method: 'DELETE',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'x-access-token' : authToken
                         },
                         body: JSON.stringify({ idFactura: facturaSeleccionada, correo, contrasena })
                     });
