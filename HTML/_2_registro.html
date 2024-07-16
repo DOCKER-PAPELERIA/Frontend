@@ -34,8 +34,9 @@
                 </label>
 
                 <label class="form__label">Correo Electrónico<br>
-                    <input type="email" class="label__input label__input--tipico" id="correoElectronico" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Introduce un correo electrónico válido">
+                    <input type="email" class="label__input label__input--tipico" id="correoElectronico" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Introduce un correo electrónico válido">
                 </label>
+                
 
                 <label class="form__label">Contraseña<br>
                     <input type="password" class="label__input label__input--tipico" id="contrasena" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una letra minúscula y una letra mayúscula">
