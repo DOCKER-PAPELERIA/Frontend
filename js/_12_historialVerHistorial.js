@@ -77,11 +77,11 @@ new ActivarMenuDesplegableYUsuario(activadorUsuario, perfilDesactivado).usuario(
 
 
 
-
+var authToken = localStorage.getItem(authToken);
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const authToken = localStorage.getItem(authToken);
+
     const listaProductosCarta = document.getElementById("contenido_factura");
     const buscador = document.getElementById("buscador");
     const ventanaModal = document.querySelector(".ventana");
