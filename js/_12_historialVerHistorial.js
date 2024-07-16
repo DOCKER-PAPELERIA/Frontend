@@ -177,7 +177,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
-                            'x-access-token' : authToken
                         },
                         body: JSON.stringify({ idFactura: facturaSeleccionada, correo, contrasena })
                     });
