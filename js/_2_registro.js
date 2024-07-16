@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmarContrasenaInput = document.getElementById('confirmarContrasena');
     const correoElectronicoInput = document.getElementById('correoElectronico');
 
-    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    const emailPattern = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
     const invalidDomains = ["example.com", "test.com", "invalid.com"];
 
     if (mostrarContrasena) {
