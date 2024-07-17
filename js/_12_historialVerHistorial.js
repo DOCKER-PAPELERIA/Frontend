@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const contrasena = contrasenaInput.value;
 
                 try {
-                    const response = await fetch('https://ms-inventario-api-mi-angel-1.onrender.com/api/historial', {
+                    const response = await fetch('https://ms-inventario-api-mi-angel.onrender.com/api/historial', {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
