@@ -71,6 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // Validar edad del usuario (mayor de 18 años)
+            const today = new Date();
+            const birthDate = new Date(fechaNacimiento);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            if (age < 18) {
+                alert('Debes tener al menos 18 años para registrarte.');
+                return;
+            }
+
             const formData = {
                 idRol: 1, // Esto podría cambiar según tu lógica de negocio
                 identificacion,
@@ -120,9 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-
 const urls = window.location.href; // Obtiene la URL actual
 const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
 window.history.replaceState(null, null, nuevaUrl);
-
