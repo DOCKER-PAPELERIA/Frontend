@@ -190,3 +190,11 @@ document.addEventListener("DOMContentLoaded", () => {
 new Link("../HTML/_6_menu.html", ".contenedorFormulario__retroceder").redireccionar();
 
 eliminarTokenDespuesDeTiempo(60);
+
+
+
+
+const urls = window.location.href; // Obtiene la URL actual
+const nuevaUrl = urls.split('.html')[0]; // Elimina la extensión .html
+window.history.replaceState(null, null, nuevaUrl);
+
