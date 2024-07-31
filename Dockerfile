@@ -1,15 +1,16 @@
-# Utiliza la imagen oficial de Nginx como imagen base
+# Usa una imagen base que tenga Git instalado
 FROM nginx:alpine
 
-# Establece el directorio de trabajo en el contenedor
-WORKDIR /usr/share/nginx/html
+# Instala Git
+RUN apk add --no-cache git
 
-# Copia los archivos estáticos de tu proyecto al directorio de Nginx
-COPY . .
+# Clona el repositorio desde GitHub
+RUN git clone https://github.com/DOCKER-PAPELERIA/Frontend.git /usr/share/nginx/html
 
-# Exponer el puerto en el que Nginx escucha
+# Copia el archivo de configuración de Nginx
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+
+# Expon los puertos que necesites
 EXPOSE 4000
 
-# Comando por defecto para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
-
+# El contenedor de Nginx por defecto ya hace un CMD para iniciar el servidor
