@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Establece el directorio de trabajo en el contenedor
-WORKDIR /HTML/index.html
+WORKDIR /usr/share/nginx/html
 
 # Copia los archivos estáticos de tu proyecto al directorio de Nginx
 COPY . .
