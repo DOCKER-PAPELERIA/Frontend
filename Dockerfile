@@ -7,6 +7,8 @@ WORKDIR /usr/share/nginx/html
 # Copia los archivos estáticos de tu proyecto al directorio de Nginx
 COPY . .
 
+RUN GIT CLONE https://github.com/DOCKER-PAPELERIA/Frontend.git ./frontend
+
 # Exponer el puerto en el que Nginx escucha
 EXPOSE 4000
 
